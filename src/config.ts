@@ -1,14 +1,13 @@
 import type { Site, Ui, Features } from './types'
 
 export const SITE: Site = {
-  website: 'https://astro-antfustyle-theme.vercel.app/',
+  website: 'https://dvlin.com/',
   base: '/',
-  title: 'Astro AntfuStyle Theme',
-  description:
-    'A customizable, feature-rich Astro theme for blog and portfolio creation',
-  author: 'Stephanie Lin',
-  lang: 'en',
-  ogLocale: 'en_US',
+  title: '张保林',
+  description: '张保林的主页',
+  author: '张保林',
+  lang: 'zh-CN',
+  ogLocale: 'zh_CN',
 }
 
 export const UI: Ui = {
@@ -20,33 +19,27 @@ export const UI: Ui = {
       text: 'Blog',
       // icon: 'i-ri-article-line',
     },
-    {
-      path: '/projects',
-      title: 'Projects',
-      displayMode: 'alwaysText',
-      text: 'Projects',
-      // icon: 'i-ri-lightbulb-line',
-    },
-    {
-      path: '/changelog',
-      title: 'Changelog',
-      displayMode: 'iconToTextOnMobile',
-      text: 'Changelog',
-      icon: 'i-ri-draft-line',
-    },
+    // {
+    //   path: '/projects',
+    //   title: 'Projects',
+    //   displayMode: 'alwaysText',
+    //   text: 'Projects',
+    //   // icon: 'i-ri-lightbulb-line',
+    // },
+    // {
+    //   path: '/changelog',
+    //   title: 'Changelog',
+    //   displayMode: 'iconToTextOnMobile',
+    //   text: 'Changelog',
+    //   icon: 'i-ri-draft-line',
+    // },
   ],
   socialLinks: [
     {
-      link: 'https://github.com/lin-stephanie/astro-antfustyle-theme',
-      title: 'AntfuStyle on Github',
-      displayMode: 'alwaysIcon',
-      icon: 'i-uil-github-alt',
-    },
-    {
-      link: 'https://github.com/lin-stephanie/astro-antfustyle-theme',
-      title: `${SITE.author} on Twitter`,
-      displayMode: 'alwaysIcon',
-      icon: 'i-ri-twitter-x-fill',
+      link: 'https://space.bilibili.com/519295997?spm_id_from=333.1007.0.0',
+      title: `${SITE.author} on bilibili`,
+      displayMode: 'alwaysText',
+      text: 'bilibili',
     },
   ],
   navBarLayout: {
