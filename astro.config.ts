@@ -35,4 +35,9 @@ export default defineConfig({
   vite: {
     build: { chunkSizeWarningLimit: 1200 },
   },
+  output: "static",
+  server:{
+		port: 3000,
+		host: true
+	}
 })

@@ -30,6 +30,23 @@
       <span i-simple-icons-youtube></span> bilibili
     </a>
   </span>
+  <p>
+    <span class="inline-block mr-1.5 mb-2">站内导航</span>
+    <span class="inline-flex flex-wrap gap-2 op-75 hover:op-100">
+      <a
+        href="/blog"
+        aria-label="访问博客页面"
+      >
+        <span i-ri-article-line></span> 博客
+      </a>
+      <a
+        href="/photograph"
+        aria-label="访问图库页面"
+      >
+        <span i-ri-image-line></span> 图库（施工中）
+      </a>
+    </span>
+  </p>
 </p>
 
 ---
