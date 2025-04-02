@@ -3,7 +3,7 @@ import type { Site, Ui, Features } from './types'
 export const SITE: Site = {
   website: 'https://dvlin.com/',
   base: '/',
-  title: '个人笔记分享',
+  title: '张保林',
   description: '张保林的主页',
   author: '张保林',
   lang: 'zh-CN',
