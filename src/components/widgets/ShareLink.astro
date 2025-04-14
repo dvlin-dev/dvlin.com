@@ -10,7 +10,7 @@ const { config } = Astro.props
 const postUrl = Astro.url
 
 const twitter = 'https://twitter.com/intent/tweet?text='
-const elk = 'https://elk.zone/intent/post?text='
+// const elk = 'https://elk.zone/intent/post?text='
 const facebook = 'https://www.facebook.com/sharer.php?u='
 const pinterest = 'https://pinterest.com/pin/create/button/?url='
 const reddit = 'https://www.reddit.com/submit?url='
@@ -21,9 +21,9 @@ const email = 'mailto:?subject=See%20this%20post&body='
 const twitterUrl =
   config.twitter &&
   `${twitter}${encodeURIComponent(`Reading ${config.twitter[1] && `${config.twitter[1]}'s`} ${postUrl}\n\nI think...`)}`
-const elkUrl =
-  config.mastodon &&
-  `${elk}${encodeURIComponent(`Reading ${config.mastodon[1] && `${config.mastodon[1]}'s`} ${postUrl}\n\nI think...`)}`
+// const elkUrl =
+// config.mastodon &&
+// `${elk}${encodeURIComponent(`Reading ${config.mastodon[1] && `${config.mastodon[1]}'s`} ${postUrl}\n\nI think...`)}`
 const facebookUrl = config.facebook && `${facebook}${postUrl}`
 const pinterestUrl = config.pinterest && `${pinterest}${postUrl}`
 const redditUrl = config.reddit && `${reddit}${postUrl}`
@@ -33,7 +33,7 @@ const emailUrl = config.email && `${email}${postUrl}`
 
 const links = [
   { url: twitterUrl, label: 'twitter', title: 'Tweet this post' },
-  { url: elkUrl, label: 'mastodon', title: 'Share this post on Mastodon' },
+  // { url: elkUrl, label: 'mastodon', title: 'Share this post on Mastodon' },
   { url: facebookUrl, label: 'facebook', title: 'Share this post on Facebook' },
   {
     url: pinterestUrl,
