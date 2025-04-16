@@ -175,13 +175,17 @@ Agent 包含 handle 和 card 两个部分。
 
 #### handler
 
-接受 task 和上下文，负责状态的处理和流转。相当于 function call 的 tool_call 处理
+接受 task 和上下文，负责状态的处理和流转。
+
+相当于 function call 的 tool_call 处理
 
 状态：submitted, working, input-required, completed, failed, canceled
 
 #### Agent card
 
-用来描述 agent 的能力，包含名字、描述、技能等信息，相当于 function call 的 function 定义
+用来描述 agent 的能力，包含名字、描述、技能等信息，
+
+相当于 function call 的 function 定义
 
 被托管在 https://DOMAIN/.well-known/agent.json上，若其中存在敏感信息，为了安全考虑可添加 apikey 进行防范。
 
