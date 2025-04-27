@@ -1,0 +1,122 @@
+---
+title: '音视频转文本'
+description: ''
+pubDate: 2023-11-17
+lastModDate: ''
+toc: true
+share: true
+ogImage: true
+---
+
+## 前言
+
+简单记录一下各个实现的 api.
+
+## Bilibili
+
+先调用 bilibli api 查看是否字幕，如果没字幕则用本地视频的方法处理
+
+Bilibili api 文档：https://socialsisteryi.github.io/bilibili-API-collect/docs/video/info.html#%E8%8E%B7%E5%8F%96%E8%A7%86%E9%A2%91%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF-web%E7%AB%AF
+
+代码示例：https://github.com/JimmyLv/BibiGPT-v1/blob/220cf2ab8d71e9115b029a550ae9e27eed372e6e/lib/bilibili/fetchBilibiliSubtitleUrls.ts#L17
+
+## Youtube
+
+先调用 savesubs api 查看是否字幕，如果没字幕则用本地视频的方法处理
+
+代码示例：https://github.com/JimmyLv/BibiGPT-v1/blob/220cf2ab8d71e9115b029a550ae9e27eed372e6e/lib/youtube/fetchYoutubeSubtitleUrls.ts#L2
+
+## 本地音视频
+
+如果是视频需要先转换为音频
+
+### 视频转音频
+
+需要使用 ffmpeg 来处理。
+
+代码示例：https://github.com/lui7henrique/upload-ai/blob/cb780f7ae198ed4bb32b57e3c9209e6ffeca373d/web/src/components/video-input-form.tsx#L43
+
+### 音频转文字
+
+openai Whisper model
+
+文档：[openai Whisper model](https://platform.openai.com/docs/guides/speech-to-text)
+
+代码示例：https://github.com/lui7henrique/upload-ai/blob/cb780f7ae198ed4bb32b57e3c9209e6ffeca373d/api/src/routes/create-transcription.ts#L7
+
+### 带时间戳的逐字稿 & 总结
+
+带时间戳的逐字稿，若字幕中存在时间段则可以直接使用。
+
+若是本地视频，需要使用 ffmpeg 来切割视频。
+
+视频的总结应该将视频分段切割，并分段总结后，再进行整体视频的总结
+
+下面是 ffmpeg 在客户端切割视频的示例代码( from gpt4 )：
+
+```ts
+// 引入 FFMPEG 库
+import { createFFmpeg, fetchFile } from '@ffmpeg.wasm/core';
+// 创建 FFMPEG 实例
+const ffmpeg = createFFmpeg({ log: true });
+// 准备分割视频函数
+async function splitVideo(videoBlob, segmentDuration) {
+  // 加载 FFmpeg
+  if (!ffmpeg.isLoaded()) {
+    await ffmpeg.load();
+  }
+  // 将视频文件写入 FFmpeg 文件系统
+  await ffmpeg.FS('writeFile', 'input.mp4', await fetchFile(videoBlob));
+  // 计算视频片段数量（假设每个片段时长 segmentDuration 按秒计算）
+  const videoDuration = ...; // 你需要获取这个视频文件的总时长
+  const numSegments = Math.ceil(videoDuration / segmentDuration);
+  const segments = [];
+  // 分割并保存每个视频段落
+  for (let i = 0; i < numSegments; i++) {
+    const startTime = i * segmentDuration;
+    const outputSegment = `output-${i + 1}.mp4`;
+    // 使用 FFmpeg 执行分割
+    await ffmpeg.run(
+      '-i', 'input.mp4',
+      '-ss', startTime.toString(),
+      '-t', segmentDuration.toString(),
+      '-c', 'copy',
+      outputSegment
+    );
+    // 从文件系统获取分割后的视频段
+    const segmentData = ffmpeg.FS('readFile', outputSegment);
+    // 转换为 Blob
+    const videoSegmentBlob = new Blob([segmentData.buffer], { type: 'video/mp4' });
+    // 添加到结果数组
+    segments.push(videoSegmentBlob);
+    // 清理内存
+    ffmpeg.FS('unlink', outputSegment);
+  }
+  // 清理输入文件
+  ffmpeg.FS('unlink', 'input.mp4');
+  // 返回所有视频段的 Blob 数组
+  return segments;
+}
+// 调用该函数，这里假设 `videoFile` 是你从 <input> 得到的文件。
+const videoFile = ...; // 你的视频文件
+const segmentDuration = 10; // 分割每个视频段的时长 (秒)
+splitVideo(videoFile, segmentDuration).then(segments => {
+  // 你可以在这里处理每个视频段 Blob，例如创建 URL 并将其设置到 <video> 元素以供播放
+  segments.forEach((blob, index) => {
+    const url = URL.createObjectURL(blob);
+    console.log(`Segment ${index + 1}:`, url);
+    // 你可以使用 URL 创建 <video> 元素或下载链接等
+  });
+}).catch(error => {
+  // 错误处理
+  console.error('Error splitting video:', error);
+});
+```
+
+## 参考资料
+
+1. [BibiGPT-v1](https://github.com/JimmyLv/BibiGPT-v1)
+2. [upload-ai](https://github.com/lui7henrique/upload-ai)
+3. [讯飞 speech-to-text](https://www.xfyun.cn/doc/asr/lfasr/API.html#%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8%E6%B5%81%E7%A8%8B)
+4. [google cloud speech-to-text](https://cloud.google.com/speech-to-text/docs/transcribe-client-libraries?hl=zh-cn#client-libraries-usage-nodejs)
+5. [azure speech-to-text](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-speech-to-text?tabs=macos%2Cterminal&pivots=programming-language-javascript)

@@ -1,0 +1,276 @@
+---
+title: '初识A2A'
+description: ''
+pubDate: 2025-04-16
+lastModDate: ''
+toc: true
+share: true
+ogImage: true
+---
+
+## 背景
+
+随着 AI 应用的越来越多，如何使用多个 AI 完成一件事，是提升生产力的关键。
+
+这种多个 AI 能力组合，在之前往往是通过 workflow 来完成的，通过代码编写或者图形拖拽（dify）构建。
+
+但工作流越来越多时会发现，里面的 AI 能力无法复用，每一个单独的事件都要写一个 workflow。
+
+由此 MCP 出现了，把单个 AI 能力从业务中抽离，多个 workflow 可复用 AI 能力块。
+
+那么 workflow 能否干掉呢，是否可以只写 prompt 就能利用多个 AI 能力完成一件事？
+
+A2A 应运而生。
+
+谷歌正式推出了 Agent2Agent (A2A) 的新开源协议，得到了 50 多家科技合作伙伴（如 Atlassian、PayPal、Langchain）的支持和贡献。
+
+## 什么是 A2A
+
+A2A 协议将允许 AI 代理之间进行通信，安全地交换信息，并在各种企业平台或应用程序上协调行动。
+A2A 为代理之间协作提供了一种标准方式，与框架或供应商无关，服务在设计时需遵循五个关键原则：
+
+- 拥抱代理能力：A2A 致力于使代理能够在其自然、非结构化模式下协作，即使它们不共享记忆、工具和上下文。
+- 基于现有标准：该协议建立在包括 HTTP、SSE、JSON-RPC 在内的现有流行标准之上，这意味着它更容易与企业每天都在使用的现有 IT 系统集成。
+- 默认安全：A2A 的设计支持企业级身份验证和授权，并与 OpenAPI 的认证方案在发布时具有同等水平。
+- 支持长任务：能够胜任从快速任务到可能需要数小时甚至数天才能完成的深度研究等各种场景，尤其是在人类参与其中时。在此过程中，A2A 可以向用户提供实时反馈、通知和状态更新。
+- 支持多模态：并不仅限于文本，包括音频和视频流。
+
+### A2A 和 MCP
+
+由上述所说的背景和介绍可以看出，A2A 和 MCP并不互斥，而是相辅相成的。
+
+- MCP：连接 LLMs 与数据、资源和工具的新兴标准，把 function call 标准化。
+- A2A：是一种应用程序级协议，使代理能够以其自然的方式协作。它允许代理以代理（或用户）的身份通信，而不是以工具的身份通信
+
+A2A 可以作为 MCP的补充，使用 A2A 代理去调用 MCP 服务。
+![Pasted image 20250416142340](https://dvlin-notes-assets.oss-cn-beijing.aliyuncs.com/2025/04/16/cEjj9ZhXkU2MwNVBVWCnPasted%20image%2020250416142340.png)
+
+### 案例改造
+
+现在我们有个场景：给当月最热的电影画一个宣传图。
+他需要两个 AI 能力：联网搜索、AI 生图
+按照之前 workflow 的流程为：
+
+1. 预先写好两个 AI 能力。
+2. 定义 workflow：
+
+   2.1 提取对话中关键词（当月最热的电影）进行搜索
+
+   2.2 拿到结束后传给生图
+
+   2.3 最后返回给用户。
+   这是一个固定场景单独去适配的案例。
+
+也可以通过中间加一些意图，去识别来适配更多场景，但始终需要去规划 workflow 的调用。
+
+使用 A2A 改造的流程是什么样：
+
+1. 预先写好两个 AI 能力
+2. AI 拿取当前的能力列表，包括属性和能力，并预设好如何使用这些工具
+3. 根据用户需求， AI 自己去规划 AI 的调用和协作流程
+
+下面看一个具体演示
+
+## DEMO 演示
+
+https://github.com/google/A2A/tree/main
+目前官方提供了基于 Google ADK、LangGraph、Crew.AI 工具的示例
+
+> Google ADK 本身也是 A2A 的核心，这里是做一个 case 演示，并不只有这个功能。
+
+1. Google ADK：用于（模拟）填写费用报告。展示多轮交互以及通过 A2A 返回/回复网页表单。
+2. LangGraph：使用工具进行货币转换。
+3. Crew.AI：生成图像
+
+下面我们使用 1 和 2 做一个测试：
+
+发送对话：“我使用 2000元人民币买了100台mac电脑，用来测试，请先转换为美元，然后走报销”
+
+1.  先调用了 LangGraph：
+
+    1.1 通过 https://api.frankfurter.app/latest?from=CNY&to=USD 获取人民币转美元的汇率
+
+    1.2 把人民币转换为美元
+
+2.  然后把信息传给了Google ADK：
+
+```
+{"parts":[{"text":"报销 273.5 美元，用于购买 100 台 Mac 电脑进行测试"}],"role":"user"}
+```
+
+3. Google ADK 调用后把结果返回给了用户。
+
+任务调用列表：
+![Pasted image 20250416142356](https://dvlin-notes-assets.oss-cn-beijing.aliyuncs.com/2025/04/16/macqvzgWaDz3vTsb5xHqPasted%20image%2020250416142356.png)
+![Pasted image 20250416142350](https://dvlin-notes-assets.oss-cn-beijing.aliyuncs.com/2025/04/16/zua8X6nYMgWXGpVrYdONPasted%20image%2020250416142350.png)
+![Pasted image 20250416142402](https://dvlin-notes-assets.oss-cn-beijing.aliyuncs.com/2025/04/16/3QT5Ngxv99v9NM2JAIUfPasted%20image%2020250416142402.png)
+
+## 构建流程
+
+接下来让我们从官方代码仓库入手，看看如何构建 A2A。
+
+> 篇幅问题，仅作核心流程展示
+
+### 流程规划
+
+使用 google adk 的 LlmAgent，充当应用程序的“思维”部分。它利用大型语言模型（LLM）的力量进行推理、理解自然语言、做出决策、生成响应并与工具交互。
+
+与确定性工作流代理不同，它们遵循预定义的执行路径， LlmAgent 的行为是随机的。它使用LLM来解释指令和上下文，动态决定如何进行，使用哪些工具（如果有）或是否将控制转移到另一个代理。
+
+建立有效的 LlmAgent 需要定义其身份，通过指令清晰地指导其行为，并为其配备必要的工具和能力。
+
+代码示例：
+
+```python
+from google.adk import Agent
+
+def create_agent(self) -> Agent:
+    return Agent(
+        model="gemini-2.0-flash-001",
+        name="host_agent",
+        instruction=self.root_instruction,
+        before_model_callback=self.before_model_callback,
+        description=(
+            "这个代理负责将用户请求分解为可以由子代理执行的任务。"
+        ),
+        tools=[
+            self.list_remote_agents,
+            self.send_task,
+        ],
+    )
+
+def root_instruction(self, context: ReadonlyContext) -> str:
+    current_agent = self.check_state(context)
+    return f"""您是一位专家级的委托者，可以将用户请求委托给适当的远程代理。
+
+发现：
+
+- 你可以使用 `list_remote_agents` 来列出可用的远程代理，以便委托任务。
+
+执行：
+- 对于可操作的任务，你可以使用 `create_task` 来分配任务给远程代理执行。
+- 请确保在响应用户时包含远程代理名称。
+
+你可以使用 `check_pending_task_states` 来检查待处理任务的状态。
+
+请依赖工具来解决请求，不要自己编造响应。如果你不确定，请向用户询问更多细节。
+专注于对话的最新部分。
+
+如果有一个活跃的代理，请使用更新任务工具将请求发送给该代理。
+
+代理:
+{self.agents}
+
+当前代理: {current_agent['active_agent']}
+"""
+```
+
+> 具体代码：https://github.com/google/A2A/blob/cd9eb5e66219e4afab4e35985b2514bda5943b1f/samples/python/hosts/multiagent/host_agent.py#L70
+
+list_remote_agents 来列出可用的 Agent server，以便让 LLM 去委托任务，接下来看看 Agent server 的实现。
+
+### Agent server
+
+Agent 包含 handle 和 card 两个部分。
+
+#### handler
+
+接受 task 和上下文，负责状态的处理和流转。
+
+相当于 function call 的 tool_call 处理
+
+状态：submitted, working, input-required, completed, failed, canceled
+
+#### Agent card
+
+用来描述 agent 的能力，包含名字、描述、技能等信息，
+
+相当于 function call 的 function 定义
+
+被托管在 https://DOMAIN/.well-known/agent.json 上，若其中存在敏感信息，为了安全考虑可添加 apikey 进行防范。
+
+代码示例：
+
+```typescript
+const coderAgentCard: schema.AgentCard = {
+  name: 'Coder Agent',
+  description:
+    'An agent that generates code based on natural language instructions and streams file outputs.',
+  url: 'http://localhost:41241', // Default port used in the script
+  provider: {
+    organization: 'A2A Samples',
+  },
+  version: '0.0.1',
+  capabilities: {
+    // It yields artifact updates progressively, matching the definition of streaming.
+    streaming: true,
+    pushNotifications: false, // No indication of pushNotifications support
+    stateTransitionHistory: true, // Uses history for context
+  },
+  authentication: null, // No auth mentioned
+  defaultInputModes: ['text'],
+  defaultOutputModes: ['text', 'file'], // Outputs code as text artifacts representing files
+  skills: [
+    {
+      id: 'code_generation',
+      name: 'Code Generation',
+      description:
+        'Generates code snippets or complete files based on user requests, streaming the results.',
+      tags: ['code', 'development', 'programming'],
+      examples: [
+        'Write a python function to calculate fibonacci numbers.',
+        "Create an HTML file with a basic button that alerts 'Hello!' when clicked.",
+        'Generate a TypeScript class for a user profile with name and email properties.',
+        'Refactor this Java code to be more efficient.',
+        'Write unit tests for the following Go function.',
+      ],
+      // Although the agent outputs 'file' type via artifacts, the default is suitable here.
+      // Output modes could also be refined if the agent explicitly handled different file types.
+    },
+  ],
+}
+```
+
+## 其他协议 ANP、JARVIS
+
+### JARVIX
+
+微软的 JARVIS 和这个有异曲同工之妙，具体可以看我之前发的文章：[从 JARVIS 到健康小秘](/blog/jarvis/)
+
+JARVIS 引入了一个协作系统，由 LLM 作为控制器和许多专家模型作为协作执行者（来自HuggingFace Hub）
+
+通过利用 ChatGPT 的强大语言能力和 Hugging Face 中丰富的AI模型，JARVIS 能够处理跨越不同模态和领域的广泛复杂AI任务，并在语言、视觉、语音等其他具有挑战性的任务中取得令人印象深刻的结果。
+
+但不是基于现有能力进行标准化，实际接入还是有较大工作量的。
+
+### ANP
+
+这个开源协议让AI智能体能够安全地互相认识、交流和协作，就像是智能体世界的 "HTTP"
+有三层结构：
+
+1. 身份认证层：中心化身份认证和端到端加密
+2. 协议协商层：自动协商和能力描述，提升了智能体互联互通和协作效率
+3. 应用层：标准化能力描述和协议管理，让智能体清楚彼此的技能和支持的功能
+
+ANP打破了信息孤岛，让智能体能更自然地交流，更高效地一起工作。
+
+## 总结
+
+A2A 的底层逻辑还是类 function call 的设计，是在 MCP 的定义之上，并且把如何利用 functions 进行规划任务、协调通信给标准化了。
+
+MCP 是把 function call 的 function 定义和 tool_call 标准化。
+
+和现在的 functions call 处理相比，
+
+等于你把 system prompt 和 functions 定义、tool_call 处理完成之后。
+
+有一个思维大脑，自动协调 functions 去处理用户的需求。
+
+## 参考资料
+
+1. https://google.github.io/A2A/#/
+2. https://blog.logto.io/a2a-mcp/?ref=newsletter
+3. https://google.github.io/A2A/#/topics/a2a_and_mcp.md
+4. https://mp.weixin.qq.com/s/8nh4Cg-TH0eF2gWYUiwh3A
+5. https://github.com/ai-boost/awesome-a2a/blob/main/README_zh.md
+6. https://github.com/microsoft/JARVIS

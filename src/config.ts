@@ -1,15 +1,14 @@
 import type { Site, Ui, Features } from './types'
 
 export const SITE: Site = {
-  website: 'https://astro-antfustyle-theme.vercel.app/',
+  website: 'https://dvlin.com/',
   base: '/',
-  title: 'Astro AntfuStyle Theme',
-  description:
-    'A customizable, feature-rich Astro theme for blog and portfolio creation',
-  author: 'Stephanie Lin',
-  lang: 'en',
-  ogLocale: 'en_US',
-  imageDomains: ['cdn.bsky.app'],
+  title: 'dvlin',
+  description: `dvlin's blog`,
+  author: 'dvlin',
+  lang: 'zh-CN',
+  ogLocale: 'zh_CN',
+  imageDomains: [],
 }
 
 export const UI: Ui = {
@@ -19,53 +18,29 @@ export const UI: Ui = {
       title: 'Blog',
       displayMode: 'alwaysText',
       text: 'Blog',
+      // icon: 'i-ri-article-line',
     },
-    {
-      path: '/projects',
-      title: 'Projects',
-      displayMode: 'alwaysText',
-      text: 'Projects',
-    },
-    {
-      path: '/shorts',
-      title: 'Shorts',
-      displayMode: 'iconToTextOnMobile',
-      text: 'Shorts',
-      icon: 'i-material-symbols-note-stack-outline-sharp',
-    },
-    {
-      path: '/highlights',
-      title: 'Highlights',
-      displayMode: 'iconToTextOnMobile',
-      text: 'Highlights',
-      icon: 'i-ri-screenshot-line',
-    },
-    {
-      path: '/changelog',
-      title: 'Changelog',
-      displayMode: 'iconToTextOnMobile',
-      text: 'Changelog',
-      icon: 'i-ri-draft-line',
-    },
+    // {
+    //   path: '/projects',
+    //   title: 'Projects',
+    //   displayMode: 'alwaysText',
+    //   text: 'Projects',
+    //   // icon: 'i-ri-lightbulb-line',
+    // },
+    // {
+    //   path: '/changelog',
+    //   title: 'Changelog',
+    //   displayMode: 'iconToTextOnMobile',
+    //   text: 'Changelog',
+    //   icon: 'i-ri-draft-line',
+    // },
   ],
   socialLinks: [
     {
-      link: 'https://github.com/lin-stephanie/astro-antfustyle-theme',
-      title: 'AntfuStyle on Github',
-      displayMode: 'alwaysIcon',
-      icon: 'i-uil-github-alt',
-    },
-    {
-      link: 'https://x.com/astrodotbuild',
-      title: 'Astro on Twitter',
-      displayMode: 'alwaysIcon',
-      icon: 'i-ri-twitter-x-fill',
-    },
-    {
-      link: 'https://bsky.app/profile/astro.build',
-      title: 'Astro on Bluesky',
-      displayMode: 'alwaysIcon',
-      icon: 'i-meteor-icons-bluesky',
+      link: 'https://space.bilibili.com/519295997?spm_id_from=333.1007.0.0',
+      title: `${SITE.author} on bilibili`,
+      displayMode: 'alwaysText',
+      text: 'bilibili',
     },
   ],
   navBarLayout: {
@@ -122,15 +97,15 @@ export const FEATURES: Features = {
   share: [
     true,
     {
-      twitter: [true, '@ste7lin'],
-      bluesky: [true, '@ste7lin.bsky.social'],
-      mastodon: false,
+      twitter: [true, '@dvlin_dev'],
+      mastodon: [false, '@ste7lin@fairy.id'],
       facebook: false,
       pinterest: false,
       reddit: false,
       telegram: false,
       whatsapp: false,
       email: false,
+      bluesky: false,
     },
   ],
   toc: [
@@ -139,7 +114,7 @@ export const FEATURES: Features = {
       minHeadingLevel: 2,
       maxHeadingLevel: 4,
       displayPosition: 'left',
-      displayMode: 'content',
+      displayMode: 'always',
     },
   ],
   ogImage: [
