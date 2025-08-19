@@ -1,7 +1,7 @@
 import { glob } from 'astro/loaders'
 import { defineCollection } from 'astro:content'
 
-// import { feedLoader } from '@ascorbic/feed-loader'
+import { feedLoader } from '@ascorbic/feed-loader'
 // import { githubReleasesLoader } from 'astro-loader-github-releases'
 // import { githubPrsLoader } from 'astro-loader-github-prs'
 // import { blueskyPostsLoader } from 'astro-loader-bluesky-posts'
@@ -33,11 +33,11 @@ const streams = defineCollection({
   schema: streamsSchema,
 })
 
-// const feeds = defineCollection({
-//   loader: feedLoader({
-//     url: 'https://dvlin.com/rss.xml',
-//   }),
-// })
+const feeds = defineCollection({
+  loader: feedLoader({
+    url: 'https://dvlin.com/rss.xml',
+  }),
+})
 
 // const releases = defineCollection({
 //   loader: githubReleasesLoader({
@@ -92,7 +92,7 @@ export const collections = {
   projects,
   changelog,
   streams,
-  // feeds,
+  feeds,
   // releases,
   // prs,
   // highlights,
