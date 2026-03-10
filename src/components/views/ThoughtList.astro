@@ -1,0 +1,60 @@
+---
+import { render } from 'astro:content'
+
+import Categorizer from '~/components/base/Categorizer.astro'
+import { isSameYear, getYear, formatDate } from '~/utils/datetime'
+import { getFilteredPosts, getSortedPosts } from '~/utils/data'
+import { withBasePath } from '~/utils/path'
+
+import type { CollectionEntry } from 'astro:content'
+
+const thoughtItems = await getFilteredPosts('thoughts')
+const sortedThoughts = getSortedPosts(thoughtItems) as CollectionEntry<'thoughts'>[]
+---
+
+<div aria-label="Thought list">
+  {sortedThoughts.length === 0 ? (
+    <div class="py-2 op-50">nothing here yet</div>
+  ) : (
+    sortedThoughts.map(async (item, idx) => {
+      const { data, id } = item
+      const { Content } = await render(item)
+
+      return (
+        <>
+          {!isSameYear(
+            data.pubDate,
+            sortedThoughts[idx - 1]?.data.pubDate
+          ) && (
+            <Categorizer
+              {idx}
+              text={getYear(data.pubDate).toString()}
+            />
+          )}
+          <div
+            class="slide-enter mb-8"
+            style={{ '--enter-stage': idx }}
+          >
+            <a
+              href={withBasePath(`/thoughts/${id}/`)}
+              class="block border-b-none! op-transition! no-underline!"
+            >
+              <div class="prose">
+                <Content />
+              </div>
+              <time
+                class="block mt-2 op-50 text-sm"
+                datetime={data.pubDate.toISOString()}
+              >
+                {formatDate(data.pubDate, true)}
+              </time>
+            </a>
+            {idx < sortedThoughts.length - 1 && (
+              <div class="mt-8 border-b border-dashed border-gray/25" />
+            )}
+          </div>
+        </>
+      )
+    })
+  )}
+</div>

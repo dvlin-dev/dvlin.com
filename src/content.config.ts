@@ -12,6 +12,7 @@ import {
   projectSchema,
   streamSchema,
   photoSchema,
+  thoughtSchema,
 } from '~/content/schema'
 
 const pages = defineCollection({
@@ -98,6 +99,11 @@ const streams = defineCollection({
   schema: streamSchema,
 })
 
+const thoughts = defineCollection({
+  loader: glob({ base: './src/content/thoughts', pattern: '**/[^_]*.{md,mdx}' }),
+  schema: thoughtSchema,
+})
+
 const feeds = defineCollection({
   loader: feedLoader({
     url: 'https://dvlin.com/rss.xml',
@@ -114,6 +120,7 @@ export const collections = {
   highlights,
   photos,
   changelog,
+  thoughts,
   streams,
   feeds,
 }

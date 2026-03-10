@@ -1,15 +1,14 @@
 ---
-title: Projects
-subtitle: ''
-description: dvlin's projects
-bgType: dot
-toc: true
+title: thoughts
+description: dvlin's thoughts
+bgType: false
+toc: false
 ogImage: true
 ---
 
 import BaseLayout from '~/layouts/BaseLayout.astro'
 import StandardLayout from '~/layouts/StandardLayout.astro'
-import GroupView from '~/components/views/GroupView.astro'
+import ThoughtList from '~/components/views/ThoughtList.astro'
 
 <BaseLayout
   title={frontmatter.title}
@@ -18,11 +17,10 @@ import GroupView from '~/components/views/GroupView.astro'
   ogImage={frontmatter.ogImage}
 >
   <StandardLayout
-    class="max-w-300"
+    class="prose"
     title={frontmatter.title}
     subtitle={frontmatter.subtitle}
-    isCentered={true}
   >
-    <GroupView collectionType="projects" pageToc={frontmatter.toc} />
+    <ThoughtList />
   </StandardLayout>
 </BaseLayout>

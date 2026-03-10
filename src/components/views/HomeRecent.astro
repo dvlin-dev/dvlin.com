@@ -1,0 +1,108 @@
+---
+import ListItem from '~/components/views/ListItem.astro'
+import { getFilteredPosts, getSortedPosts } from '~/utils/data'
+import { formatDate } from '~/utils/datetime'
+import { withBasePath } from '~/utils/path'
+import { render } from 'astro:content'
+
+import type { CollectionEntry } from 'astro:content'
+
+// Get latest 3 blog posts
+const blogItems = await getFilteredPosts('blog')
+const sortedBlog = getSortedPosts(blogItems).slice(0, 3) as CollectionEntry<'blog'>[]
+
+// Get latest 3 thoughts
+const thoughtItems = await getFilteredPosts('thoughts')
+const sortedThoughts = getSortedPosts(thoughtItems).slice(0, 3) as CollectionEntry<'thoughts'>[]
+
+// Extract plain text from thought body for summary
+function getThoughtSummary(thought: CollectionEntry<'thoughts'>) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const rawText = (thought as any).body || ''
+  const plainText = rawText
+    .replace(/---[\s\S]*?---/, '')
+    .replace(/<[^>]+>/g, '')
+    .replace(/[#*_~`>[\]()!]/g, '')
+    .replace(/\n+/g, ' ')
+    .trim()
+  return plainText.length > 100 ? plainText.slice(0, 100) + '...' : plainText
+}
+---
+
+<div class="mt-14">
+  {/* Recent Blog Posts */}
+  <div class="flex items-center justify-between mb-6">
+    <a href={withBasePath('/blog/')} class="op-80 hover:op-100 text-xl font-semibold border-b-none! transition-opacity duration-200">最近文章</a>
+    <a
+      href={withBasePath('/blog/')}
+      class="op-35 hover:op-80 text-sm border-b-none! transition-opacity duration-200"
+    >
+      全部 →
+    </a>
+  </div>
+
+  {sortedBlog.length === 0 ? (
+    <div class="py-2 op-50">nothing here yet</div>
+  ) : (
+    <div aria-label="Recent posts">
+      {sortedBlog.map(async (item, idx) => {
+        const { data, id } = item
+        const { remarkPluginFrontmatter } = await render(item)
+        const minutesRead = data.minutesRead || remarkPluginFrontmatter.minutesRead
+        return (
+          <ListItem
+            {idx}
+            collectionType="blog"
+            redirect={data.redirect}
+            postSlug={id}
+            title={data.title}
+            video={data.video}
+            radio={data.radio}
+            date={data.pubDate}
+            {minutesRead}
+            platform={data.platform}
+          />
+        )
+      })}
+    </div>
+  )}
+
+  {/* Recent Thoughts */}
+  <div class="flex items-center justify-between mt-14 mb-6">
+    <a href={withBasePath('/thoughts/')} class="op-80 hover:op-100 text-xl font-semibold border-b-none! transition-opacity duration-200">最近随笔</a>
+    <a
+      href={withBasePath('/thoughts/')}
+      class="op-35 hover:op-80 text-sm border-b-none! transition-opacity duration-200"
+    >
+      全部 →
+    </a>
+  </div>
+
+  {sortedThoughts.length === 0 ? (
+    <div class="py-2 op-50">nothing here yet</div>
+  ) : (
+    <div aria-label="Recent thoughts">
+      {sortedThoughts.map((item, idx) => {
+        const summary = getThoughtSummary(item)
+        return (
+          <div class:list={[idx > 0 && 'mt-4 pt-4 border-t border-dashed border-gray/15']}>
+            <a
+              href={withBasePath(`/thoughts/${item.id}/`)}
+              class="group block border-b-none! no-underline!"
+            >
+              <p class="m-0! op-60 group-hover:op-90 text-sm leading-relaxed transition-opacity duration-200">
+                {summary}
+              </p>
+              <time
+                class="block mt-2 op-35 text-xs"
+                datetime={item.data.pubDate.toISOString()}
+              >
+                {formatDate(item.data.pubDate, true)}
+              </time>
+            </a>
+          </div>
+        )
+      })}
+    </div>
+  )}
+</div>

@@ -1,0 +1,32 @@
+---
+import { render } from 'astro:content'
+
+import BaseLayout from '~/layouts/BaseLayout.astro'
+import StandardLayout from '~/layouts/StandardLayout.astro'
+import { formatDate } from '~/utils/datetime'
+
+import type { CollectionEntry } from 'astro:content'
+
+interface Props {
+  thought: CollectionEntry<'thoughts'>
+}
+
+const { thought } = Astro.props
+const { data: frontmatter } = thought
+const { Content } = await render(thought)
+
+const pubDate = frontmatter.pubDate.toISOString()
+---
+
+<BaseLayout title="thought" {pubDate}>
+  <StandardLayout title="thought">
+    <Fragment slot="head">
+      <time class="op-50 text-sm" datetime={pubDate}>
+        {formatDate(frontmatter.pubDate, true)}
+      </time>
+    </Fragment>
+    <Fragment slot="article">
+      <Content />
+    </Fragment>
+  </StandardLayout>
+</BaseLayout>

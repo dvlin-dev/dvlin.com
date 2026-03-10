@@ -205,3 +205,11 @@ export const streamSchema = z.object({
 })
 
 export type StreamSchema = z.infer<typeof streamSchema>
+
+/* Thoughts */
+export const thoughtSchema = z.object({
+  pubDate: z.coerce.date(),
+  draft: z.boolean().default(false),
+})
+
+export type ThoughtSchema = z.infer<typeof thoughtSchema>
