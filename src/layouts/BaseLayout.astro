@@ -15,7 +15,7 @@ import ToTopButton from '~/components/widgets/ToTopButton.astro'
 import Backdrop from '~/components/base/Backdrop.astro'
 
 import { SITE, UI, FEATURES } from '~/config'
-import { getUrl } from '~/utils/common'
+import { withBasePath } from '~/utils/path'
 
 import type { BgType } from '~/types'
 
@@ -56,23 +56,29 @@ if (hasCustomCursor) style['--external-link-cursor'] = cursorType
     class="relative flex flex-col min-h-screen
       font-sans text-gray-700 dark:text-gray-200"
     style={Object.keys(style).length !== 0 ? style : undefined}
-    data-no-sliding={!enableSlideEnterAnim ? true : undefined}
+    data-no-sliding={enableSlideEnterAnim ? undefined : ''}
   >
     <!-- Background -->
     {bgType && <Background type={bgType} />}
 
-    <!-- Main -->
+    <!-- Skip Link -->
     <Link
       href="#main"
       class="sr-only focus:(not-sr-only fixed start-1 top-1.5 op-20)"
     >
       Skip to content
     </Link>
+
+    <!-- Nav Bar -->
     <NavBar />
+
+    <!-- Main -->
     <main id="main" class="px-7 py-10">
+      <!-- Content -->
       <slot />
+      <!-- Share -->
       {
-        Astro.url.pathname !== getUrl('/') && (
+        Astro.url.pathname !== withBasePath('/') && (
           <footer class="slide-enter animate-delay-1000! prose mx-auto mt-8 print:hidden">
             <slot name="share" />
             <br />
@@ -80,33 +86,27 @@ if (hasCustomCursor) style['--external-link-cursor'] = cursorType
           </footer>
         )
       }
+      <!-- Comments -->
+      <slot name="giscus" />
     </main>
+
+    <!-- Footer -->
     <Footer />
     <ToTopButton />
 
     <!-- Panel Backdrop (on mobile) -->
     <Backdrop />
 
-    <!-- Progress Bar & Image Zoom -->
+    <!-- Progress Bar -->
     <script>
-      /* nprogress */
       import nprogress from 'nprogress'
+
       document.addEventListener('astro:before-preparation', () => {
         nprogress.start()
       })
+
       document.addEventListener('astro:page-load', () => {
         nprogress.done()
-      })
-
-      /* medium-zoom */
-      import mediumZoom from 'medium-zoom/dist/pure'
-      const zoom = mediumZoom({
-        background: 'rgb(0 0 0 / 0.8)',
-      })
-
-      document.addEventListener('astro:page-load', () => {
-        zoom.detach()
-        zoom.attach('.prose img:not(.no-zoom):not(a img)')
       })
     </script>
   </body>

@@ -8,7 +8,7 @@ export const SITE: Site = {
   author: 'dvlin',
   lang: 'zh-CN',
   ogLocale: 'zh_CN',
-  imageDomains: [],
+  imageDomains: ['cdn.bsky.app', 'images.unsplash.com'],
 }
 
 export const UI: Ui = {
@@ -18,22 +18,7 @@ export const UI: Ui = {
       title: 'Blog',
       displayMode: 'alwaysText',
       text: 'Blog',
-      // icon: 'i-ri-article-line',
     },
-    // {
-    //   path: '/projects',
-    //   title: 'Projects',
-    //   displayMode: 'alwaysText',
-    //   text: 'Projects',
-    //   // icon: 'i-ri-lightbulb-line',
-    // },
-    // {
-    //   path: '/changelog',
-    //   title: 'Changelog',
-    //   displayMode: 'iconToTextOnMobile',
-    //   text: 'Changelog',
-    //   icon: 'i-ri-draft-line',
-    // },
   ],
   socialLinks: [
     {
@@ -76,7 +61,7 @@ export const UI: Ui = {
     ],
     subLogoMatches: [
       [/theme/, 'i-unjs-theme-colors'],
-      [/github/, 'https://www.svgrepo.com/show/475654/github-color.svg'],
+      [/github/, 'https://github.githubassets.com/favicons/favicon.svg'],
       [/tweet/, 'i-logos-twitter'],
       [/bluesky/, 'i-logos-bluesky'],
     ],
@@ -86,6 +71,7 @@ export const UI: Ui = {
     cursorType: '',
     showNewTabIcon: false,
   },
+  postMetaStyle: 'minimal',
 }
 
 /**
@@ -94,18 +80,13 @@ export const UI: Ui = {
  *  - Set to `[true, {...}]` to enable and configure the feature.
  */
 export const FEATURES: Features = {
-  share: [
+  slideEnterAnim: [true, { enterStep: 60 }],
+  ogImage: [
     true,
     {
-      twitter: [true, '@dvlin_dev'],
-      mastodon: [false, '@ste7lin@fairy.id'],
-      facebook: false,
-      pinterest: false,
-      reddit: false,
-      telegram: false,
-      whatsapp: false,
-      email: false,
-      bluesky: false,
+      authorOrBrand: `${SITE.title}`,
+      fallbackTitle: `${SITE.description}`,
+      fallbackBgType: 'plum',
     },
   ],
   toc: [
@@ -117,13 +98,29 @@ export const FEATURES: Features = {
       displayMode: 'always',
     },
   ],
-  ogImage: [
+  share: [
     true,
     {
-      authorOrBrand: `${SITE.title}`,
-      fallbackTitle: `${SITE.description}`,
-      fallbackBgType: 'plum',
+      twitter: [true, '@dvlin_dev'],
+      bluesky: false,
+      mastodon: [false, '@ste7lin@fairy.id'],
+      facebook: false,
+      pinterest: false,
+      reddit: false,
+      telegram: false,
+      whatsapp: false,
+      email: false,
     },
   ],
-  slideEnterAnim: [true, { enterStep: 60 }],
+  giscus: false,
+  search: [
+    true,
+    {
+      includes: ['blog', 'changelog'],
+      filter: true,
+      navHighlight: true,
+      batchLoadSize: [true, 5],
+      maxItemsPerPage: [true, 3],
+    },
+  ],
 }

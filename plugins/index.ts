@@ -1,4 +1,5 @@
 import { visit } from 'unist-util-visit'
+
 import remarkDirective from 'remark-directive'
 import remarkDirectiveSugar from 'remark-directive-sugar'
 import remarkImgattr from 'remark-imgattr'
@@ -11,6 +12,8 @@ import rehypeCallouts from 'rehype-callouts'
 import rehypeKatex from 'rehype-katex'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+// @ts-expect-error(rehype-wrap-all is not typed)
+import rehypeWrapAll from 'rehype-wrap-all'
 
 import { UI, FEATURES } from '../src/config'
 
@@ -40,9 +43,7 @@ export const remarkPlugins: RemarkPlugins = [
             'aria-hidden': 'true',
           }
           if (node.attributes?.class?.includes('github'))
-            props.src =
-              'https://www.google.com/s2/favicons?domain=github.com&sz=128'
-
+            props.src = 'https://github.githubassets.com/favicons/favicon.svg'
           return props
         },
       },
@@ -63,7 +64,7 @@ export const remarkPlugins: RemarkPlugins = [
 
 export const rehypePlugins: RehypePlugins = [
   // https://docs.astro.build/en/guides/markdown-content/#heading-ids-and-plugins
-  rehypeHeadingIds,
+  [rehypeHeadingIds, { headingIdCompat: true }],
   // https://github.com/remarkjs/remark-math/tree/main/packages/rehype-katex
   rehypeKatex,
   // https://github.com/lin-stephanie/rehype-callouts
@@ -153,13 +154,22 @@ export const rehypePlugins: RehypePlugins = [
           'tab-index': 0,
           'aria-hidden': 'false',
           'aria-label': content ? `Link to ${content}` : undefined,
-          'data-pagefind-ignore': true,
+          // avoid `#` being indexed and show in search results
+          'data-pagefind-ignore': '',
         }
       },
       content: {
         type: 'text',
         value: '#',
       },
+    },
+  ],
+  // https://github.com/florentb/rehype-wrap-all
+  [
+    rehypeWrapAll,
+    {
+      selector: 'table',
+      wrapper: 'div',
     },
   ],
 ]

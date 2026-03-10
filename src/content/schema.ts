@@ -97,6 +97,12 @@ export const postSchema = z.object({
     .describe(
       'Specifies the platform where the audio or video content is published. If provided, the platform name will be displayed. If not needed, leave the field as an empty string or delete it.'
     ),
+  ogImage: z
+    .union([z.string(), z.boolean()])
+    .default(true)
+    .describe(
+      'Specifies the Open Graph (OG) image for social media sharing. To auto-generate OG image, delete the field or set to `true`. To disable it, set the field to `false`. To use a custom image, provide the full filename from `/public/og-images/`.'
+    ),
   toc: z
     .boolean()
     .default(true)
@@ -106,14 +112,16 @@ export const postSchema = z.object({
   share: z
     .boolean()
     .default(true)
-    .describe(
-      'Controls whether social sharing options are available for the post.'
-    ),
-  ogImage: z
-    .union([z.string(), z.boolean()])
+    .describe('Controls whether social sharing is available for the post.'),
+  giscus: z
+    .boolean()
+    .default(true)
+    .describe('Controls whether Giscus comments are available for the post.'),
+  search: z
+    .boolean()
     .default(true)
     .describe(
-      'Specifies the Open Graph (OG) image for social media sharing. To auto-generate OG image, delete the field or set to `true`. To disable it, set the field to `false`. To use a custom image, provide the full filename from `/public/og-images/`.'
+      'Defines a URL to redirect the post. If not needed, delete the field or set to `false`'
     ),
   redirect: z
     .string()
@@ -131,10 +139,8 @@ export const postSchema = z.object({
 export type PostSchema = z.infer<typeof postSchema>
 
 /* Projects */
-const projectSchema = z.object({
-  name: z
-    .string()
-    .describe('**Required**. Name of the project to be displayed.'),
+export const projectSchema = z.object({
+  id: z.string().describe('**Required**. Name of the project to be displayed.'),
   link: z
     .string()
     .url('Invalid url.')
@@ -151,21 +157,26 @@ const projectSchema = z.object({
     .describe(
       '**Required**. Icon representing the project. It must be in the format `i-<collection>-<icon>` or `i-<collection>:<icon>` as per [UnoCSS](https://unocss.dev/presets/icons) specs. [Check all available icons here](https://icones.js.org/).'
     ),
-})
-
-const projectGroupsSchema = z.record(z.array(projectSchema))
-
-export const projectsSchema = z.object({
-  projects: projectGroupsSchema,
+  category: z.string().describe('**Required**. Category of the project.'),
 })
 
 export type ProjectSchema = z.infer<typeof projectSchema>
-export type ProjectGroupsSchema = z.infer<typeof projectGroupsSchema>
-export type ProjectsSchema = z.infer<typeof projectsSchema>
+
+/* Photos */
+export const photoSchema = z.object({
+  id: z
+    .string()
+    .describe(
+      '**Required**. File (name/path) of the image in the `src/content/photos/` directory or a remote image URL.'
+    ),
+  desc: z.string().default('').describe('Optional description for the image.'),
+})
+
+export type PhotoSchema = z.infer<typeof photoSchema>
 
 /* Stremas */
-const streamSchema = z.object({
-  title: z.string().describe('**Required**. Sets the stream title.'),
+export const streamSchema = z.object({
+  id: z.string().describe('**Required**. Sets the stream title.'),
   pubDate: z.coerce
     .date()
     .describe(
@@ -193,11 +204,4 @@ const streamSchema = z.object({
     .describe('Specifies the platform where the stream is published.'),
 })
 
-const streamGroupsSchema = z.array(streamSchema)
-
-export const streamsSchema = z.object({
-  streams: streamGroupsSchema,
-})
-
-export type StreamGroupsSchema = z.infer<typeof streamGroupsSchema>
-export type StreamsSchema = z.infer<typeof streamsSchema>
+export type StreamSchema = z.infer<typeof streamSchema>

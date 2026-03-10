@@ -24,17 +24,34 @@ export default defineConfig({
     remarkPlugins,
     rehypePlugins,
   },
-  experimental: {
-    contentLayer: true,
-    contentIntellisense: true,
-    directRenderScript: true,
+  image: {
+    domains: SITE.imageDomains,
+    // https://docs.astro.build/en/guides/images/#responsive-image-behavior
+    // Used for all local (except `/public`) and authorized remote images using `![]()` syntax; not configurable per-image
+    // Used for all `<Image />` and `<Picture />` components unless overridden with `layout` prop
+    layout: 'constrained',
+    responsiveStyles: true,
   },
   vite: {
+    server: {
+      headers: {
+        // Enable CORS for dev: allow Giscus iframe to load local styles
+        'Access-Control-Allow-Origin': '*',
+      },
+    },
     build: { chunkSizeWarningLimit: 1200 },
   },
-  output: "static",
-  server:{
-		port: 3000,
-		host: true
-	}
+  output: 'static',
+  server: {
+    port: 3000,
+    host: true,
+  },
+  // https://docs.astro.build/en/reference/experimental-flags/
+  experimental: {
+    contentIntellisense: true,
+    preserveScriptOrder: true,
+    headingIdCompat: true,
+    chromeDevtoolsWorkspace: true,
+    failOnPrerenderConflict: true,
+  },
 })
