@@ -1,0 +1,17 @@
+---
+import RenderThought from '~/components/views/RenderThought.astro'
+import { getFilteredPosts } from '~/utils/data'
+
+export async function getStaticPaths() {
+  const thoughts = await getFilteredPosts('thoughts')
+
+  return thoughts.map((thought) => ({
+    params: { slug: thought.id },
+    props: { thought },
+  }))
+}
+
+const { thought } = Astro.props
+---
+
+<RenderThought {thought} />

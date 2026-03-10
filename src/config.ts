@@ -19,8 +19,32 @@ export const UI: Ui = {
       displayMode: 'alwaysText',
       text: 'Blog',
     },
+    {
+      path: '/thoughts',
+      title: 'Thoughts',
+      displayMode: 'alwaysText',
+      text: 'Thoughts',
+    },
+    {
+      path: '/projects',
+      title: 'Projects',
+      displayMode: 'alwaysText',
+      text: 'Projects',
+    },
   ],
   socialLinks: [
+    {
+      link: 'https://github.com/dvlin-dev',
+      title: `${SITE.author} on GitHub`,
+      displayMode: 'alwaysText',
+      text: 'GitHub',
+    },
+    {
+      link: 'https://x.com/dvlin_dev',
+      title: `${SITE.author} on Twitter`,
+      displayMode: 'alwaysText',
+      text: 'Twitter',
+    },
     {
       link: 'https://space.bilibili.com/519295997?spm_id_from=333.1007.0.0',
       title: `${SITE.author} on bilibili`,
