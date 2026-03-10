@@ -2,14 +2,15 @@
 import { getCollection } from 'astro:content'
 
 import CardItem from '~/components/views/CardItem.astro'
+import Loader from '~/components/widgets/Loader.astro'
 import Warning from '~/components/base/Warning.astro'
 import { processBlueskyPosts, getShortsFromBlog } from '~/utils/data'
 
-import type { ContentCollectionKey, DataCollectionKey } from 'astro:content'
+import type { CollectionKey } from 'astro:content'
 import type { CardItemData } from '~/components/views/CardItem.astro'
 
 interface Props {
-  collectionType: ContentCollectionKey | DataCollectionKey
+  collectionType: CollectionKey
   mode: 'masonry' | 'grid'
   gap?: 'number'
   minCardWidth?: number
@@ -40,7 +41,7 @@ if (collectionType === 'highlights') {
   )
 }
 
-if (collectionType === ('shorts' as ContentCollectionKey)) {
+if (collectionType === ('shorts' as CollectionKey)) {
   const posts = await getCollection('blog')
   dataForGrid = await getShortsFromBlog(posts)
 }
@@ -54,20 +55,26 @@ if (dataForMasonry.length === 0 && dataForGrid.length === 0) isEmpty = true
   ) : (
     <>
       {mode === 'masonry' && (
-        <responsive-masonry
-          class="block relative w-full min-h-screen op-0 op-transition-500"
-          data-gap={gap}
-          data-min-card-width={minCardWidth}
-          data-max-card-width={maxCardWidth}
-        >
-          {dataForMasonry.map((item) => (
-            <CardItem class="card-masonry absolute top-0 left-0" item={item} />
-          ))}
-        </responsive-masonry>
+        <>
+          <responsive-masonry
+            class="block relative w-full op-0 op-transition-500"
+            data-gap={gap}
+            data-min-card-width={minCardWidth}
+            data-max-card-width={maxCardWidth}
+          >
+            {dataForMasonry.map((item) => (
+              <CardItem
+                class="card-masonry absolute top-0 left-0"
+                item={item}
+              />
+            ))}
+          </responsive-masonry>
+          <Loader class="card-loader" />
+        </>
       )}
       {mode === 'grid' && (
         <div
-          class="grid mx-20 lt-md:mx-1"
+          class="grid mx-20 lt-md:mx-1 fade-in"
           style={{
             '--fade-in-duration': '0.6s',
             'gap': `${gap}px`,
@@ -75,10 +82,7 @@ if (dataForMasonry.length === 0 && dataForGrid.length === 0) isEmpty = true
           }}
         >
           {dataForGrid.map((item) => (
-            <CardItem
-              class="card-grid fade-in min-h-40 lt-md:min-h-0 "
-              item={item}
-            />
+            <CardItem class="card-grid min-h-40 lt-md:min-h-0" item={item} />
           ))}
         </div>
       )}
@@ -89,6 +93,7 @@ if (dataForMasonry.length === 0 && dataForGrid.length === 0) isEmpty = true
 <script>
   export class ResponsiveMasonry extends HTMLElement {
     #initialized = false
+    #loader: HTMLElement | null = null
     #resizeObserver: ResizeObserver | null = null
     #mutationObserver: MutationObserver | null = null
     #debounceTimeout: number | null = null
@@ -104,6 +109,8 @@ if (dataForMasonry.length === 0 && dataForGrid.length === 0) isEmpty = true
     connectedCallback() {
       if (this.#initialized) return
       this.#initialized = true
+
+      this.#loader = document.querySelector('.card-loader')
 
       this.#resizeObserver = new ResizeObserver(this.#handleResize)
       this.#resizeObserver.observe(this)
@@ -134,16 +141,6 @@ if (dataForMasonry.length === 0 && dataForGrid.length === 0) isEmpty = true
       }
 
       this.#initialized = false
-    }
-
-    attributeChangedCallback = (
-      _name: string,
-      oldValue: string,
-      newValue: string
-    ) => {
-      if (this.#initialized && oldValue !== newValue) {
-        this.#debounceUpdateLayout()
-      }
     }
 
     #getParseInt = (data: string) => {
@@ -210,6 +207,7 @@ if (dataForMasonry.length === 0 && dataForGrid.length === 0) isEmpty = true
       })
 
       const maxHeight = Math.max(...columnHeights)
+      if (this.#loader) this.#loader.style.display = 'none'
       this.style.height = `${maxHeight}px`
       if (this.classList.contains('op-0')) this.classList.remove('op-0')
     }

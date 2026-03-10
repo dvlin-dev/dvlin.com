@@ -1,4 +1,4 @@
-@import 'medium-zoom/dist/style.css';
+@import 'viewerjs/dist/viewer.css';
 @import 'rehype-callouts/theme/vitepress';
 @import url('./katex.min.css');
 
@@ -101,6 +101,10 @@ html.dark .prose {
   --uno: 'bg-[#88888820] dark:bg-[#88888830]';
 }
 
+.prose div:has(> table) {
+  overflow-x: auto;
+}
+
 /* Toc */
 .toc-desktop {
   position: fixed;
@@ -195,10 +199,6 @@ html.dark .prose {
   right: 0rem;
 }
 
-#toc-panel > ul {
-  overflow-y: auto;
-}
-
 #toc-panel ul {
   margin-top: 0;
   margin-bottom: 0;
@@ -206,7 +206,7 @@ html.dark .prose {
 
 #toc-panel ul > li > a {
   color: inherit;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .toc-desktop [aria-current='true'],
@@ -257,10 +257,32 @@ html.dark .prose {
   padding-inline: 1ch !important;
 }
 
-/* Medium Zoom */
-.medium-zoom-overlay,
-.medium-zoom-image--opened {
-  z-index: 300;
+.expressive-code .collapsible-start .code {
+  height: 1.4em;
+}
+
+/* viewerjs */
+.viewer-canvas.viewer-loading > img {
+  opacity: 0;
+}
+
+.viewer-backdrop {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.viewer-navbar {
+  margin-bottom: 5px;
+  background-color: transparent;
+}
+
+.viewer-list > li {
+  margin-right: -1px;
+  border-radius: 1px;
+  border: 1px solid #000;
+}
+
+article img:not(.no-zoom) {
+  cursor: zoom-in;
 }
 
 /* rehype-autolink-headings */

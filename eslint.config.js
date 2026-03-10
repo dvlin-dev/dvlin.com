@@ -42,16 +42,13 @@ export default ts.config(
           ignoreRestSiblings: true,
         },
       ],
-      // https://typescript-eslint.io/rules/triple-slash-reference/
-      '@typescript-eslint/triple-slash-reference': [
-        'error',
-        { path: 'always' },
-      ],
       // https://eslint.org/docs/latest/rules/no-unused-expressions
       '@typescript-eslint/no-unused-expressions': [
         'error',
         { allowTernary: true },
       ],
+      // https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/label-has-associated-control/
+      'astro/jsx-a11y/label-has-associated-control': 'off',
     },
   }
 )
