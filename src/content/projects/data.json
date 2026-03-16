@@ -2,8 +2,22 @@
   {
     "id": "Moryflow",
     "link": "https://github.com/dvlin-dev/moryflow",
-    "desc": "A local-first AI workflow product for writing, thinking, syncing, and publishing",
+    "desc": "一个 local-first 的 AI 智能体与知识管理平台",
     "icon": "i-carbon-pen-fountain",
+    "category": "My Projects"
+  },
+  {
+    "id": "Agent Trace",
+    "link": "https://github.com/dvlin-dev/agent-trace",
+    "desc": "一个用于实时捕获、检查和调试 AI agent 流量的桌面工具",
+    "icon": "i-carbon-debug",
+    "category": "My Projects"
+  },
+  {
+    "id": "Resume Builder",
+    "link": "https://github.com/dvlin-dev/resume-builder",
+    "desc": "一个 Markdown 驱动的简历编辑器，支持实时预览与导出 PDF",
+    "icon": "i-carbon-document",
     "category": "My Projects"
   },
   {
