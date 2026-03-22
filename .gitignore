@@ -28,3 +28,9 @@ pnpm-debug.log*
 
 # local archive
 .local
+
+# private / sensitive
+.info
+docs/
+claude/
+codex/
