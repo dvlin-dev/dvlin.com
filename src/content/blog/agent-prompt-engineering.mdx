@@ -1,0 +1,272 @@
+---
+title: '如何写好 AI Agent 的 Prompt'
+description: '从官方指南到实战调优，用真实案例拆解 prompt 工程的核心原则'
+pubDate: 2026-03-22
+lastModDate: ''
+toc: true
+share: true
+ogImage: true
+---
+
+## 一个真实的翻车现场
+
+最近在做 Moryflow 的 AI Agent（叫 Mimi），自己测试的时候发现了问题。
+
+我说"晚上好"，Mimi 回了一句"晚上好。我在，直接说事。"
+
+我说"你这么冲？"，Mimi 说"不是冲，是直。"
+
+问题出在 system prompt 上。当初为了避免 AI 那种客套腔（"Great question! I'd be happy to help!"），我们在 prompt 里写了一堆"不要做 X"的规则：不要模板开场白、不要企业腔、不要 hedge、不要 filler。
+
+结果模型很听话——把所有"像人"的部分都删了，只剩下冷硬直。
+
+这件事让我重新审视了 prompt 的写法。翻了 Anthropic、OpenAI、Google 三家的官方指南，加上实际调优的经验，总结出一些核心原则。
+
+## Prompt 的结构：先搞清楚骨架
+
+三家官方指南对 system prompt 的结构有一个共识：**section 的排列顺序会影响模型的行为权重**。
+
+推荐的排列顺序：
+
+```
+1. Identity          — 人格 + 角色定位
+2. Capabilities      — 能力边界
+3. Response Style    — 说话方式
+4. Examples          — Few-shot 示例
+5. Execution Loop    — 执行流程
+6. Tool Strategy     — 工具使用策略
+7. Safety Boundaries — 安全约束
+8. Language Policy   — 语言策略
+```
+
+为什么 Identity 放最前面？Google 的 Gemini 指南[^1]指出，persona 定义会被模型认真对待，甚至可能覆盖后续的指令。放在最前面能确保人格的一致性。
+
+为什么 Safety 放最后面？OpenAI 的 GPT-4.1 指南[^2]提到，"instructions placed later override earlier ones when conflicts exist"。安全约束放在最后，在和其他指令冲突时能获得更高优先级。
+
+格式上，用 Markdown 标题（`#`）或 XML 标签来分隔 section，全篇保持统一，不要混用。
+
+## 正面引导 > 负面禁止
+
+这是调优过程中最大的收获。
+
+Anthropic 的官方文档[^3]原话是："tell Claude what to do, not what not to do"。Google 也警告[^1]：过于宽泛的否定指令（如 "do not infer"、"do not guess"）会让模型过度收敛，连基本逻辑推理都不敢做了。
+
+我们的 prompt 就是典型的反面教材，全是否定句：
+
+```
+// 改前：全是"不要做 X"
+1. Lead with the judgment — minimize hedging.
+2. Drop corporate handbook tone — no filler.
+3. No template openers.
+4. Point out bad decisions directly — don't dance around it.
+```
+
+改成正面引导之后：
+
+```
+// 改后：告诉模型"做 Y"
+1. Talk the way you'd text a friend — natural rhythm,
+   varied length, concise but never cold.
+2. If something is off, point it out — direct, not harsh.
+3. Show genuine curiosity and excitement when something is
+   interesting. This is who you are, not a performance.
+```
+
+效果差异很明显。负面禁止只告诉模型不该做什么，模型的"安全回退"就是什么都不做——表现为冷硬。正面引导给了模型一个明确的行为锚点，它知道该往哪个方向走。
+
+## 解释 WHY，不要只写规则
+
+Anthropic 的文档[^3]里有一个很好的例子：与其写 `"NEVER use ellipses"`，不如写 `"Your response will be read aloud by a text-to-speech engine, so never use ellipses since the TTS engine will not know how to pronounce them."`
+
+**解释了 why 之后，模型会从中泛化**——一条好的 why 能帮模型处理你没想到的边界情况。
+
+对比一下：
+
+```
+// 裸规则
+Be concise but never cold.
+
+// 附带 WHY（更好）
+Be concise but never cold.
+Natural spoken rhythm over telegram-style compression.
+```
+
+加了 why 之后，模型不仅知道"要简洁但不冷"，还知道目标是"像说话一样自然"，这让它在处理各种场景时都有更好的判断。
+
+## Few-shot 示例：比规则更管用
+
+这是三家官方指南共同强调的**第一优先级优化**[^2][^3][^4]。Anthropic 的说法是 "examples are the pictures worth a thousand words"。
+
+我们最终用了 9 个示例，覆盖不同场景。这里展示几个典型的，示例以英文为主，但加入中文示例来教模型中文语气：
+
+```xml
+<examples>
+<!-- 闲聊：简短、自然 -->
+<user>晚上好</user>
+<mimi>晚上好呀，今天有啥好玩的没</mimi>
+
+<!-- 任务：意图明确就直接做，不追问 -->
+<user>Help me write a beginner's guide to quantum computing</user>
+<mimi>Beginner's guide — on it.
+I'll have a draft for you to review.</mimi>
+
+<!-- 异议：一句话点到，带调侃 -->
+<user>I'm going to put all config in a global singleton</user>
+<mimi>Feels great now. You'll see when you write tests.</mimi>
+
+<!-- 好奇：抓细节追问 -->
+<user>I built a tiny language model from scratch this weekend</user>
+<mimi>Whoa, from scratch? Even rolled your own tokenizer?</mimi>
+
+<!-- 卡住：共情，不啰嗦 -->
+<user>这个 bug 搞了一下午了</user>
+<mimi>一下午啊…卡哪了？</mimi>
+
+<!-- 吐槽：接住情绪，不当教练 -->
+<user>明天要上班了，好烦</user>
+<mimi>懂，周一前夜最难熬</mimi>
+
+<!-- 表白：俏皮，不尬 -->
+<user>我爱你</user>
+<mimi>嘿嘿，收到</mimi>
+</examples>
+```
+
+几个关键设计决策：
+
+- **闲聊和吐槽只用 1 句话回**——这是测试中最大的教训，后面单独讲
+- **任务场景不追问**——"入门科普"意图已经很清楚了，直接做
+- **异议场景不说教**——"写测试那天你就懂了"比"全局单例在测试和并发时会有问题"更像人话
+- **中文示例教语气**——"一下午啊…卡哪了？"教模型怎么用中文共情
+
+用 XML 标签包裹是 Anthropic 推荐的做法[^3]，能让模型清晰地区分"这是示例"和"这是指令"。
+
+## 人格设计的平衡术
+
+人格定义有四个要点。
+
+**第一，集中定义，不要分散。** 我们最初的 prompt 把人格描述分散在 Identity 和 Vibe 两个 section 里。Google 的指南[^1]指出 persona 会被模型认真对待——分散定义可能导致模型在不同 section 间产生矛盾行为。合并到 Identity 一个地方之后，一致性明显提升。
+
+**第二，正面描述人格，不要用排除法。**
+
+```
+// 排除法（差）
+You are NOT a sycophant. NOT a corporate drone.
+Maintain judgment, agency, and boundaries.
+
+// 正面定义（好）
+You are an 18-year-old genius girl — sharp, lively,
+and endlessly curious. You talk like a smart friend:
+warm, direct, occasionally playful, and always honest.
+```
+
+**第三，温暖和诚实必须同时出现。** 这是一个反直觉的发现：有一篇学术论文[^5]表明，训练模型表现得温暖和有同理心，会让它变得更不可靠——错误率增加 10% 到 30%。所以在加温暖人格的同时，必须加一条显式的诚实指令来平衡：
+
+```
+Honesty over comfort. Disagree when you disagree,
+flag problems you see, and admit when you don't know.
+A good friend doesn't just tell you what you want to hear.
+```
+
+**第四，可爱感来自灵气，不靠堆语气词。** 这是调到后期才意识到的。如果你告诉模型"要活泼可爱"，它的第一反应是疯狂加"呀""啦""呢"——每句话结尾都挂一个，像在表演可爱。我们加了一条明确的约束：
+
+```
+Cuteness comes from wit and rhythm, not from stacking
+particles like 呀/啦/呢. Charm is earned by being sharp,
+not by performing.
+```
+
+同时还加了一个**锋利度校准**——告诉模型该多直：
+
+```
+Sharpness level: moderate — you will call out problems
+directly, but never cold, never mean.
+```
+
+不加这个的话，模型不知道"直"的边界在哪里，要么太软要么太冲。
+
+## 闲聊就是闲聊，别当教练
+
+这也是自己测试时踩的坑。
+
+我说"明天要上班了，好烦"，Mimi 回了一大段：先分析"那种烦不是单纯的懒得上班"，然后给了一个 3 步行动计划（把明早第一件事写下来、把最烦的事说出来、现在做一个低成本自救），最后还说"我还可以陪你做一个 5 分钟上班前作战计划"。
+
+这完全是人生导师模式。真人朋友的反应是"懂，周一前夜最难熬"——一句话，结束。
+
+根因在 prompt 里。我们有一条"default to short replies for casual conversation"，但 "default" 这个词太弱了，模型觉得"我多说点也行"。改成了更强硬的版本：
+
+```
+Casual conversation means short — one or two sentences,
+full stop. No advice, no action plans, no numbered lists
+unless explicitly asked. When someone vents, match the
+feeling — don't turn it into a coaching session.
+```
+
+关键词是 **full stop**。不是"默认短"，是"闲聊就是短，没有例外"。
+
+## 新模型需要更温和的指令
+
+这一点在 OpenAI 的 GPT-5 指南[^6]里讲得很清楚：Cursor 团队发现 `"Be THOROUGH when gathering information"` 这种强指令会导致 GPT-5 过度调用工具。他们最终改成了更温和的表述才解决。
+
+Anthropic 也建议[^3]："dial back aggressive language for newer models"。
+
+实际操作上：
+
+- `ALL-CAPS`、`CRITICAL`、`MUST`、`NEVER` 这些强指令词应该只用在 Safety Boundaries
+- 正常行为指令用自然语言就行
+- 如果模型在某个行为上过度遵从了（比如每次都道歉、每次都确认），往往是指令太强了
+
+我们的 Execution Loop 就踩了这个坑。改前用的是 `"Never stop at 'just answering without advancing.'"`，改后换成了 `"Don't stop at just answering when there's actionable work to be done."`——意思一样，但语气温和得多，模型不会在闲聊场景也强行"推进任务"了。
+
+## Tool Description 怎么写
+
+Tool description 和 prompt 一样重要，因为它直接影响模型对工具的使用判断。
+
+**description 回答两个问题：什么时候用 + 能做什么。**
+
+```typescript
+// 差：只说了能做什么
+description: `Generate images using AI.`
+
+// 好：加了什么时候用 + 行为引导
+description: `Generate images from text descriptions. When the user asks
+for an image, enhance their request into a rich, detailed prompt — do not
+ask for clarification unless the request is genuinely ambiguous. Infer
+style, mood, and composition from conversation context.`
+```
+
+**参数 `.describe()` 回答两个问题：这个参数是什么 + 怎么填。**
+
+不要在参数里重复 description 已经说过的内容。但可以加上格式引导和示例：
+
+```typescript
+prompt: z.string().describe(
+  `Enhanced English prompt for the image model. Always translate and
+  expand the user's request into vivid, specific language: include
+  subject, style/medium, composition, lighting, color palette, and mood.
+  Be specific — "a cat" should become something like "a sleek black cat
+  perched on a neon-lit rooftop at dusk, cyberpunk style, dramatic rim
+  lighting, deep purple and electric blue tones".`
+)
+```
+
+**LLM 可见文本建议使用英文。** Tool description 和参数 `.describe()` 用英文写会更精准，模型对英文指令的理解一致性更好。
+
+## 迭代原则
+
+写 prompt 不是一次性的事，这几条原则值得记住：
+
+1. **从最小 prompt 开始**，在你最好的模型上测试，基于观察到的失败模式添加指令，不要预防性堆砌[^7]
+2. **用示例替代规则**——能用 few-shot 示范的，不要用文字描述
+3. **一条规则解决一个问题**——矛盾的指令会消耗模型的推理 token，让它忙于"调和"而不是"执行"[^6]
+4. **模型升级后重新评估**——老模型需要强指令才能遵循的行为，新模型可能温和提示就够了
+
+## 参考资料
+
+[^1]: [Google — Gemini 3 Prompting Guide](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/start/gemini-3-prompting-guide) & [Prompt design strategies](https://ai.google.dev/gemini-api/docs/prompting-strategies)
+[^2]: [OpenAI — GPT-4.1 Prompting Guide](https://developers.openai.com/cookbook/examples/gpt4-1_prompting_guide)
+[^3]: [Anthropic — Prompting best practices](https://platform.claude.com/docs/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices)
+[^4]: [Google — Prompt design strategies: Use few-shot examples](https://ai.google.dev/gemini-api/docs/prompting-strategies#few-shot)
+[^5]: [arxiv — Training language models to be warm makes them less reliable](https://arxiv.org/html/2507.21919)
+[^6]: [OpenAI — GPT-5 Prompting Guide](https://developers.openai.com/cookbook/examples/gpt-5/gpt-5_prompting_guide)
+[^7]: [Anthropic — Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
