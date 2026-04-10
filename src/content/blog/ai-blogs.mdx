@@ -1,7 +1,7 @@
 ---
 title: 'AI 技术博客合集'
-description: '收录 OpenAI、Anthropic、Google DeepMind、Meta AI、Microsoft Research 等 14 个权威来源的 568 篇 AI 技术博客，按公司分类，附数据源和抓取方法，方便持续更新。'
-pubDate: 2026-03-23
+description: '精选 OpenAI、Anthropic、Google DeepMind、Meta AI、Microsoft Research 等来源中高质量 AI 技术文章，按领域模块分类，重点保留研究、系统、安全、评测与工程复盘内容。'
+pubDate: 2099-06-01
 toc: true
 share: true
 ogImage: true
@@ -9,770 +9,342 @@ ogImage: true
 
 # AI 技术博客合集
 
-收录各大 AI 公司近两年（2024-2026）的技术博客文章，按公司分类。每篇仅保留标题、链接和一句话描述。
-
-| 公司 | 文章数 | 官方博客 |
-|------|--------|----------|
-| [OpenAI](#openai) | 213 | [openai.com/news](https://openai.com/news/research/) |
-| [Anthropic](#anthropic-claude) | 117 | [anthropic.com/research](https://www.anthropic.com/research) |
-| [Google DeepMind](#google-deepmind) | ~50 | [deepmind.google/blog](https://deepmind.google/blog/) |
-| [Meta AI](#meta-ai) | ~15 | [ai.meta.com/blog](https://ai.meta.com/blog/) |
-| [Microsoft Research](#microsoft-research) | ~15 | [microsoft.com/research/blog](https://www.microsoft.com/en-us/research/blog/) |
-| [Qwen](#qwen-通义千问) | 25 | [qwenlm.github.io/blog](https://qwenlm.github.io/blog/) |
-| [DeepSeek](#deepseek-深度求索) | 14 | [api-docs.deepseek.com/news](https://api-docs.deepseek.com/news) |
-| [Kimi](#kimi-月之暗面) | 9 | [platform.moonshot.ai/blog](https://platform.moonshot.ai/blog) |
-| [NVIDIA](#nvidia) | ~12 | [developer.nvidia.com/blog](https://developer.nvidia.com/blog) |
-| [Mistral AI](#mistral-ai) | ~10 | [mistral.ai/news](https://mistral.ai/news/) |
-| [Hugging Face](#hugging-face) | ~12 | [huggingface.co/blog](https://huggingface.co/blog) |
-| [Lilian Weng](#lilian-weng) | 7 | [lilianweng.github.io](https://lilianweng.github.io/) |
-| [Simon Willison](#simon-willison) | 8 | [simonwillison.net](https://simonwillison.net/) |
-
----
-
-
-## OpenAI
-
-> 官方博客: [openai.com/news](https://openai.com/news/research/) · RSS: `https://openai.com/news/rss.xml`
-
-
-### 2026
-
-- [How we monitor internal coding agents for misalignment](https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment) — Agent、对齐、编码
-- [Why Codex Security Doesn’t Include a SAST Report](https://openai.com/index/why-codex-security-doesnt-include-sast) — 编码 Agent、安全
-- [Rakuten fixes issues twice as fast with Codex](https://openai.com/index/rakuten)
-- [Designing AI agents to resist prompt injection](https://openai.com/index/designing-agents-to-resist-prompt-injection) — Agent、训练、提示工程
-- [From model to agent: Equipping the Responses API with a computer environment ](https://openai.com/index/equip-responses-api-computer-environment)
-- [Improving instruction hierarchy in frontier LLMs](https://openai.com/index/instruction-hierarchy-challenge) — 安全、提示工程
-- [New ways to learn math and science in ChatGPT](https://openai.com/index/new-ways-to-learn-math-and-science-in-chatgpt) — 科学、数学
-- [Codex Security: now in research preview ](https://openai.com/index/codex-security-now-in-research-preview)
-- [How Descript enables multilingual video dubbing at scale](https://openai.com/index/descript) — 视频
-- [How Balyasny Asset Management built an AI research engine for investing](https://openai.com/index/balyasny-asset-management) — GPT-5 系列、研究
-- [Reasoning models struggle to control their chains of thought, and that’s good](https://openai.com/index/reasoning-models-chain-of-thought-controllability) — 安全、推理
-- [Introducing GPT-5.4](https://openai.com/index/introducing-gpt-5-4) — GPT-5 系列
-- [Introducing ChatGPT for Excel and new financial data integrations](https://openai.com/index/chatgpt-for-excel) — GPT-5 系列、研究
-- [Extending single-minus amplitudes to gravitons](https://openai.com/index/extending-single-minus-amplitudes-to-gravitons) — GPT-5 系列
-- [GPT-5.3 Instant: Smoother, more useful everyday conversations](https://openai.com/index/gpt-5-3-instant)
-- [Disrupting malicious uses of AI | February 2026](https://openai.com/index/disrupting-malicious-ai-uses) — 威胁报告：恶意行为者如何将 AI 与网站和社交平台结合 combine AI models with websites 
-- [Why we no longer evaluate SWE-bench Verified](https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified) — 评估、编码
-- [Our First Proof submissions](https://openai.com/index/first-proof-submissions) — 研究、推理、数学
-- [Introducing EVMbench](https://openai.com/index/introducing-evmbench) — Agent、基准测试、评估
-- [GPT-5.2 derives a new result in theoretical physics](https://openai.com/index/new-result-theoretical-physics) — GPT-5 系列、物理
-- [锁定模式和风险标签，防御提示注入和数据窃取 in ChatGPT](https://openai.com/index/introducing-lockdown-mode-and-elevated-risk-labels-in-chatgpt) — 提示工程
-- [Beyond rate limits: scaling access to Codex and Sora](https://openai.com/index/beyond-rate-limits) — 编码 Agent、视频生成、扩展
-- [Introducing GPT-5.3-Codex-Spark](https://openai.com/index/introducing-gpt-5-3-codex-spark) — GPT-5 系列、编码 Agent
-- [Harness engineering: leveraging Codex in an agent-first world](https://openai.com/index/harness-engineering) — Agent 优先世界中的 Codex 工程实践
-- [GPT-5 lowers the cost of cell-free protein synthesis](https://openai.com/index/gpt-5-lowers-protein-synthesis-cost) — GPT-5 系列
-- [Introducing Trusted Access for Cyber](https://openai.com/index/trusted-access-for-cyber)
-- [Introducing OpenAI Frontier](https://openai.com/index/introducing-openai-frontier)
-- [Introducing GPT-5.3-Codex](https://openai.com/index/introducing-gpt-5-3-codex)
-- [Unlocking the Codex harness: how we built the App Server](https://openai.com/index/unlocking-the-codex-harness)
-- [The Sora feed philosophy](https://openai.com/index/sora-feed-philosophy) — 视频生成
-- [Introducing the Codex app](https://openai.com/index/introducing-the-codex-app)
-- [Inside OpenAI’s in-house data agent](https://openai.com/index/inside-our-in-house-data-agent)
-- [Keeping your data safe when an AI agent clicks a link](https://openai.com/index/ai-agent-link-safety) — Agent、提示工程
-- [Powering tax donations with AI powered personalized recommendations](https://openai.com/index/trustbank)
-- [Introducing Prism](https://openai.com/index/introducing-prism) — 免费 LaTeX 工作空间，内置 GPT-5
-- [How Indeed uses AI to help evolve the job search](https://openai.com/index/indeed-maggie-hulce)
-- [Unrolling the Codex agent loop](https://openai.com/index/unrolling-the-codex-agent-loop)
-- [Scaling PostgreSQL to power 800 million ChatGPT users](https://openai.com/index/scaling-postgresql)
-- [Inside Praktika's conversational approach to language learning](https://openai.com/index/praktika) — GPT-4 系列
-- [How Higgsfield turns simple ideas into cinematic social videos](https://openai.com/index/higgsfield) — GPT-4 系列、视频
-- [Datadog uses Codex for system-level code review](https://openai.com/index/datadog)
-- [Netomi’s lessons for scaling agentic systems into the enterprise](https://openai.com/index/netomi) — GPT-4 系列、Agent、扩展
-- [OpenAI for Healthcare](https://openai.com/index/openai-for-healthcare) — 医疗
-- [How Tolan builds voice-first AI with GPT-5.1](https://openai.com/index/tolan) — GPT-5 系列
-- [Introducing ChatGPT Health ](https://openai.com/index/introducing-chatgpt-health)
-
-### 2025
-
-- [Continuously hardening ChatGPT Atlas against prompt injection](https://openai.com/index/hardening-atlas-against-prompt-injection) — 红队、提示工程、浏览器
-- [Evaluating chain-of-thought monitorability](https://openai.com/index/evaluating-chain-of-thought-monitorability) — 评估
-- [Updating our Model Spec with teen protections](https://openai.com/index/updating-model-spec-with-teen-protections) — 模型行为规范、科学
-- [Introducing GPT-5.2-Codex](https://openai.com/index/introducing-gpt-5-2-codex) — GPT-5 系列、编码 Agent、推理
-- [Developers can now submit apps to ChatGPT](https://openai.com/index/developers-can-now-submit-apps-to-chatgpt)
-- [Evaluating AI’s ability to perform scientific research tasks](https://openai.com/index/frontierscience) — 研究、基准测试、评估
-- [Measuring AI’s capability to accelerate biological research](https://openai.com/index/accelerating-biological-research-in-the-wet-lab) — 真实世界评估：GPT-5  在湿实验室加速生物研究 research in the wet lab
-- [The new ChatGPT Images is here](https://openai.com/index/new-chatgpt-images-is-here) — 图像
-- [How We Used Codex to Ship Sora for Android in 28 Days](https://openai.com/index/shipping-sora-for-android-with-codex) — 编码 Agent、视频生成
-- [Advancing science and math with GPT-5.2](https://openai.com/index/gpt-5-2-for-science-and-math) — GPT-5 系列、科学、数学
-- [The Walt Disney Company and OpenAI reach landmark agreement to bring beloved characters to Sora](https://openai.com/index/disney-sora-agreement) — 视频生成、视频
-- [Introducing GPT-5.2](https://openai.com/index/introducing-gpt-5-2) — GPT-5 系列、推理
-- [Strengthening cyber resilience as AI capabilities advance](https://openai.com/index/strengthening-cyber-resilience)
-- [How confessions can keep language models honest](https://openai.com/index/how-confessions-can-keep-language-models-honest) — 研究
-- [Inside Mirakl's agentic commerce vision](https://openai.com/index/mirakl)
-- [Early experiments in accelerating science with GPT-5](https://openai.com/index/accelerating-science-gpt-5) — GPT-5 系列、科学、数学
-- [Strengthening our safety ecosystem with external testing](https://openai.com/index/strengthening-safety-with-external-testing) — 安全、评估
-- [How evals drive the next chapter in AI for businesses](https://openai.com/index/evals-drive-next-chapter-of-ai) — 评估
-- [Building more with GPT-5.1-Codex-Max](https://openai.com/index/gpt-5-1-codex-max)
-- [Understanding neural networks through sparse circuits](https://openai.com/index/understanding-neural-networks-through-sparse-circuits) — 可解释性
-- [Introducing GPT-5.1 for developers](https://openai.com/index/gpt-5-1-for-developers) — GPT-5 系列、推理、API
-- [Fighting the New York Times’ invasion of user privacy](https://openai.com/index/fighting-nyt-user-privacy-invasion)
-- [GPT-5.1: A smarter, more conversational ChatGPT](https://openai.com/index/gpt-5-1) — GPT-5 系列
-- [Understanding prompt injections: a frontier security challenge ](https://openai.com/index/prompt-injections) — 安全、提示工程
-- [Notion’s rebuild for agentic AI: How GPT‑5 helped unlock autonomous workflows](https://openai.com/index/notion)
-- [How CRED is tapping AI to deliver premium customer experiences](https://openai.com/index/cred-swamy-seetharaman)
-- [Introducing IndQA](https://openai.com/index/introducing-indqa) — 基准测试、评估
-- [Introducing Aardvark: OpenAI’s agentic security researcher](https://openai.com/index/introducing-aardvark) — Agent、安全、研究
-- [How we built OWL, the new architecture behind our ChatGPT-based browser, Atlas](https://openai.com/index/building-chatgpt-atlas) — 浏览器
-- [Introducing gpt-oss-safeguard](https://openai.com/index/introducing-gpt-oss-safeguard)
-- [Doppel’s AI defense system stops attacks before they spread](https://openai.com/index/doppel) — GPT-5 系列、微调
-- [Strengthening ChatGPT’s responses in sensitive conversations](https://openai.com/index/strengthening-chatgpt-responses-in-sensitive-conversations)
-- [Consensus accelerates research with GPT-5 and Responses API](https://openai.com/index/consensus) — GPT-5 系列、Agent、研究
-- [Work smarter with your company knowledge in ChatGPT](https://openai.com/index/introducing-company-knowledge)
-- [Introducing ChatGPT Atlas, the browser with ChatGPT built in](https://openai.com/index/introducing-chatgpt-atlas) — 浏览器
-- [Defining and evaluating political bias in LLMs](https://openai.com/index/defining-and-evaluating-political-bias-in-llms) — 评估、偏见
-- [Codex is now generally available](https://openai.com/index/codex-now-generally-available)
-- [Introducing apps in ChatGPT and the new Apps SDK](https://openai.com/index/introducing-apps-in-chatgpt)
-- [Introducing AgentKit, new Evals, and RFT for agents](https://openai.com/index/introducing-agentkit)
-- [With GPT-5, Wrtn builds lifestyle AI for millions in Korea](https://openai.com/index/wrtn) — GPT-5 系列
-- [Sora 2 is here ](https://openai.com/index/sora-2) — 视频生成
-- [Turning contracts into searchable data at OpenAI](https://openai.com/index/openai-contract-data-agent)
-- [Improving support with every interaction at OpenAI](https://openai.com/index/openai-support-model) — 扩展
-- [Driving sales productivity and customer success at OpenAI](https://openai.com/index/openai-gtm-assistant) — 扩展
-- [Empowering teams to unlock insights faster at OpenAI](https://openai.com/index/openai-research-assistant) — 研究
-- [Converting inbound leads into customers at OpenAI](https://openai.com/index/openai-inbound-sales-assistant)
-- [Measuring the performance of our models on real-world tasks](https://openai.com/index/gdpval) — 评估
-- [Creating a safe, observable AI infrastructure for 1 million classrooms](https://openai.com/index/schoolai) — GPT-4 系列
-- [Detecting and reducing scheming in AI models](https://openai.com/index/detecting-and-reducing-scheming-in-ai-models) — 阴谋行为
-- [Introducing upgrades to Codex](https://openai.com/index/introducing-upgrades-to-codex)
-- [How people are using ChatGPT](https://openai.com/index/how-people-are-using-chatgpt)
-- [Shipping smarter agents with every new model](https://openai.com/index/safetykit) — GPT-5 系列、Agent、安全
-- [Why language models hallucinate](https://openai.com/index/why-language-models-hallucinate) — 研究、幻觉
-- [Building more helpful ChatGPT experiences for everyone](https://openai.com/index/building-more-helpful-chatgpt-experiences-for-everyone) — 推理
-- [Introducing gpt-realtime and Realtime API updates](https://openai.com/index/introducing-gpt-realtime) — API、实时
-- [Collective alignment: public input on our Model Spec](https://openai.com/index/collective-alignment-aug-2025-updates) — 对齐、模型行为规范
-- [Helping people when they need it most](https://openai.com/index/helping-people-when-they-need-it-most)
-- [Accelerating life sciences research](https://openai.com/index/accelerating-life-sciences-research-with-retro-biosciences) — GPT-4 系列、研究、科学
-- [Scaling domain expertise in complex, regulated domains](https://openai.com/index/blue-j) — GPT-4 系列、研究、扩展
-- [Q&A with DoorDash’s CPO, Mariana Garavaglia](https://openai.com/index/doordash-mariana-garavaglia) — 扩展
-- [Scaling accounting capacity with OpenAI](https://openai.com/index/basis) — GPT-4 系列、推理模型、扩展
-- [Introducing GPT-5 for developers](https://openai.com/index/introducing-gpt-5-for-developers) — GPT-5 API：高推理性能 + 开发者新控制
-- [GPT-5 and the new era of work](https://openai.com/index/gpt-5-new-era-of-work) — GPT-5 系列
-- [Introducing GPT-5](https://openai.com/index/introducing-gpt-5) — GPT-5 系列
-- [Introducing gpt-oss](https://openai.com/index/introducing-gpt-oss)
-- [What we’re optimizing ChatGPT for](https://openai.com/index/optimizing-chatgpt)
-- [Figma uses AI to transform digital design](https://openai.com/index/figma-david-kossnick)
-- [Three lessons for creating a sustainable AI advantage](https://openai.com/index/intercom) — 评估
-- [Introducing study mode in ChatGPT](https://openai.com/index/chatgpt-study-mode)
-- [Resolving digital threats 100x faster with OpenAI](https://openai.com/index/outtake) — GPT-4 系列
-- [Model ML is helping financial firms rebuild with AI from the ground up](https://openai.com/index/model-ml-chaz-englander)
-- [Introducing ChatGPT agent](https://openai.com/index/introducing-chatgpt-agent)
-- [Invideo AI uses OpenAI models to create videos 10x faster](https://openai.com/index/invideo-ai) — GPT-4 系列、视频
-- [No-code personal agents, powered by GPT-4.1 and Realtime API](https://openai.com/index/genspark)
-- [Customizable, no-code voice agent automation with GPT-4o](https://openai.com/index/retell-ai)
-- [Driving scalable growth with OpenAI o3, GPT-4.1, and CUA](https://openai.com/index/unify) — GPT-4 系列、推理模型
-- [Toward understanding and preventing misalignment generalization](https://openai.com/index/emergent-misalignment) — 对齐、训练、错位
-- [Scaling security with responsible disclosure](https://openai.com/index/scaling-coordinated-vulnerability-disclosure) — 安全、扩展
-- [How we’re responding to The New York Times’ data demands in order to protect user privacy](https://openai.com/index/response-to-nyt-data-demands)
-- [ Shipping code faster with o3, o4-mini, and GPT-4.1](https://openai.com/index/coderabbit) — GPT-4 系列、推理模型
-- [New tools and features in the Responses API](https://openai.com/index/new-tools-and-features-in-the-responses-api) — API、可解释性
-- [Introducing Codex](https://openai.com/index/introducing-codex)
-- [AI powers Expedia’s marketing evolution](https://openai.com/index/expedia-jochen-koedijk)
-- [Introducing HealthBench](https://openai.com/index/healthbench) — 评估
-- [AI helps John Deere transform agriculture](https://openai.com/index/john-deere-justin-rose) — 扩展
-- [Lowe’s leverages AI to power home improvement retail](https://openai.com/index/lowes-chandhu-nair)
-- [Introducing our latest image generation model in the API](https://openai.com/index/image-generation-api) — API、图像
-- [Speak is personalizing language learning with AI](https://openai.com/index/speak-connor-zwick)
-- [Thinking with images](https://openai.com/index/thinking-with-images) — 推理模型、推理、图像
-- [Introducing OpenAI o3 and o4-mini](https://openai.com/index/introducing-o3-and-o4-mini) — 最强推理模型，完整工具访问能力
-- [Our updated Preparedness Framework](https://openai.com/index/updating-our-preparedness-framework) — 风险准备
-- [Introducing GPT-4.1 in the API](https://openai.com/index/gpt-4-1) — GPT-4 系列、API
-- [Canva enables creativity with AI](https://openai.com/index/canva-cam-adams)
-- [PaperBench: Evaluating AI’s Ability to Replicate AI Research](https://openai.com/index/paperbench) — Agent、研究、基准测试
-- [Moving from intent-based bots to proactive AI agents](https://openai.com/index/zendesk)
-- [Security on the path to AGI](https://openai.com/index/security-on-the-path-to-agi) — 安全
-- [Introducing 4o Image Generation](https://openai.com/index/introducing-4o-image-generation) — 图像
-- [Automating 90% of finance and legal work with agents](https://openai.com/index/hebbia)
-- [Personalizing travel at scale with OpenAI](https://openai.com/index/booking-com)
-- [Introducing next-generation audio models in the API](https://openai.com/index/introducing-our-next-generation-audio-models) — API、音频
-- [EliseAI improves housing and healthcare efficiency with AI](https://openai.com/index/eliseai-minna-song) — 医疗
-- [Driving growth and ‘WOW’ moments with OpenAI](https://openai.com/index/ly-corporation)
-- [New tools for building agents](https://openai.com/index/new-tools-for-building-agents)
-- [Accelerating engineering cycles 20% with OpenAI](https://openai.com/index/factory)
-- [Supporting sellers with enhanced product listings](https://openai.com/index/mercari) — GPT-4 系列
-- [Introducing GPT-4.5](https://openai.com/index/introducing-gpt-4-5) — GPT-4 系列、研究
-- [Building an autonomous financial analyst with o1 and o3-mini](https://openai.com/index/endex) — 推理模型、推理
-- [Using OpenAI o1 for financial analysis](https://openai.com/index/rogo) — 推理模型、研究
-- [Sharing the latest Model Spec](https://openai.com/index/sharing-the-latest-model-spec) — 研究、API、模型行为规范
-- [Introducing deep research](https://openai.com/index/introducing-deep-research)
-- [OpenAI o3-mini](https://openai.com/index/openai-o3-mini) — 推理模型、推理
-- [Computer-Using Agent](https://openai.com/index/computer-using-agent) — AI 与数字世界交互的通用接口.
-- [Introducing Operator](https://openai.com/index/introducing-operator)
-- [Trading inference-time compute for adversarial robustness](https://openai.com/index/trading-inference-time-compute-for-adversarial-robustness) — 推理
-
-### 2024
-
-- [Deliberative alignment: reasoning enables safer language models](https://openai.com/index/deliberative-alignment)
-- [OpenAI o1 and new tools for developers](https://openai.com/index/o1-and-new-tools-for-developers) — 推理模型、微调、API
-- [Sora is here](https://openai.com/index/sora-is-here) — 视频生成、视频
-- [Introducing ChatGPT Pro](https://openai.com/index/introducing-chatgpt-pro)
-- [Advancing red teaming with people and AI ](https://openai.com/index/advancing-red-teaming-with-people-and-ai) — 红队
-- [Introducing SimpleQA](https://openai.com/index/introducing-simpleqa)
-- [Simplifying, stabilizing, and scaling continuous-time consistency models](https://openai.com/index/simplifying-stabilizing-and-scaling-continuous-time-consistency-models) — 扩展、扩散模型、一致性模型
-- [Evaluating fairness in ChatGPT](https://openai.com/index/evaluating-fairness-in-chatgpt) — 研究、评估、公平性
-- [MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering](https://openai.com/index/mle-bench) — Agent、基准测试、评估
-- [Introducing the Realtime API](https://openai.com/index/introducing-the-realtime-api) — API、实时
-- [Introducing vision to the fine-tuning API](https://openai.com/index/introducing-vision-to-the-fine-tuning-api) — GPT-4 系列、微调、API
-- [Prompt Caching in the API](https://openai.com/index/api-prompt-caching) — API、提示工程
-- [Model Distillation in the API](https://openai.com/index/api-model-distillation) — 微调、API、蒸馏
-- [Upgrading the Moderation API with our new multimodal moderation model](https://openai.com/index/upgrading-the-moderation-api-with-our-new-multimodal-moderation-model) — GPT-4 系列、API、多模态
-- [An update on our safety & security practices](https://openai.com/index/update-on-safety-and-security-practices)
-- [Introducing OpenAI o1](https://openai.com/index/introducing-openai-o1-preview) — 推理模型
-- [Learning to reason with LLMs](https://openai.com/index/learning-to-reason-with-llms) — 推理模型、推理
-- [OpenAI o1-mini](https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning) — 推理模型、推理
-- [Fine-tuning now available for GPT-4o](https://openai.com/index/gpt-4o-fine-tuning) — GPT-4 系列、微调
-- [Disrupting a covert Iranian influence operation ](https://openai.com/index/disrupting-a-covert-iranian-influence-operation)
-- [Introducing SWE-bench Verified](https://openai.com/index/introducing-swe-bench-verified) — 评估
-- [Introducing Structured Outputs in the API](https://openai.com/index/introducing-structured-outputs-in-the-api)
-- [SearchGPT is a prototype of new AI search features](https://openai.com/index/searchgpt-prototype)
-- [Improving Model Safety Behavior with Rule-Based Rewards](https://openai.com/index/improving-model-safety-behavior-with-rule-based-rewards) — 安全、奖励
-- [GPT-4o mini: advancing cost-efficient intelligence](https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence) — 最高性价比小模型 in the market
-- [New compliance and administrative tools for ChatGPT Enterprise](https://openai.com/index/new-tools-for-chatgpt-enterprise) — 安全、API
-- [Prover-Verifier Games improve legibility of language model outputs](https://openai.com/index/prover-verifier-games-improve-legibility)
-- [Finding GPT-4’s mistakes with GPT-4](https://openai.com/index/finding-gpt4s-mistakes-with-gpt-4)
-- [Consistency Models](https://openai.com/index/consistency-models) — 图像、音频、视频
-- [A Holistic Approach to Undesired Content Detection in the Real World](https://openai.com/index/a-holistic-approach-to-undesired-content-detection-in-the-real-world) — 内容审核
-- [Improved Techniques for Training Consistency Models](https://openai.com/index/improved-techniques-for-training-consistency-models) — 训练、一致性模型
-- [Expanding on how Voice Engine works and our safety research](https://openai.com/index/expanding-on-how-voice-engine-works-and-our-safety-research) — TTS 模型背后的技术和安全研究.
-- [Extracting Concepts from GPT-4](https://openai.com/index/extracting-concepts-from-gpt-4) — GPT-4 系列
-- [Disrupting deceptive uses of AI by covert influence operations ](https://openai.com/index/disrupting-deceptive-uses-of-ai-by-covert-influence-operations) — 欺骗
-- [OpenAI for Education](https://openai.com/index/introducing-chatgpt-edu)
-- [OpenAI safety practices](https://openai.com/index/openai-safety-update) — 安全
-- [How the voices for ChatGPT were chosen](https://openai.com/index/how-the-voices-for-chatgpt-were-chosen)
-- [Improvements to data analysis in ChatGPT](https://openai.com/index/improvements-to-data-analysis-in-chatgpt)
-- [Hello GPT-4o](https://openai.com/index/hello-gpt-4o) — GPT-4 系列、音频、视觉
-- [Introducing GPT-4o and more tools to ChatGPT free users](https://openai.com/index/gpt-4o-and-more-tools-to-chatgpt-free)
-- [Understanding the source of what we see and hear online](https://openai.com/index/understanding-the-source-of-what-we-see-and-hear-online) — 研究
-- [Our approach to data and AI](https://openai.com/index/approach-to-data-and-ai)
-- [GPT-4 API general availability and deprecation of older models in the Completions API](https://openai.com/index/gpt-4-api-general-availability) — GPT-4 系列、API、语音识别
-- [OpenAI’s commitment to child safety: adopting safety by design principles](https://openai.com/index/child-safety-adopting-sbd-principles)
-- [The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions](https://openai.com/index/the-instruction-hierarchy) — 训练、提示工程、越狱
-- [Introducing improvements to the fine-tuning API and expanding our custom models program](https://openai.com/index/introducing-improvements-to-the-fine-tuning-api-and-expanding-our-custom-models-program) — 微调、API
-- [Navigating the challenges and opportunities of synthetic voices](https://openai.com/index/navigating-the-challenges-and-opportunities-of-synthetic-voices)
-- [Sora first impressions](https://openai.com/index/sora-first-impressions) — 视频生成
-- [Video generation models as world simulators](https://openai.com/index/video-generation-models-as-world-simulators) — 视频、扩散模型
-- [Disrupting malicious uses of AI by state-affiliated threat actors](https://openai.com/index/disrupting-malicious-uses-of-ai-by-state-affiliated-threat-actors)
-- [LLM 辅助生物威胁预警系统蓝图 threat creation](https://openai.com/index/building-an-early-warning-system-for-llm-aided-biological-threat-creation) — 评估
-- [New embedding models and API updates](https://openai.com/index/new-embedding-models-and-api-updates) — GPT-4 系列、嵌入、API
-- [Democratic inputs to AI grant program: lessons learned and implementation plans](https://openai.com/index/democratic-inputs-to-ai-grant-program-update)
-- [How OpenAI is approaching 2024 worldwide elections](https://openai.com/index/how-openai-is-approaching-2024-worldwide-elections) — 选举
-
-
-## Anthropic (Claude)
-
-> 官方博客: [anthropic.com/research](https://www.anthropic.com/research) · Sitemap: `https://www.anthropic.com/sitemap.xml`
-
-
-### Engineering
-
-- [Ai Resistant Technical Evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations)
-- [A Postmortem Of Three Recent Issues](https://www.anthropic.com/engineering/a-postmortem-of-three-recent-issues)
-- [Advanced Tool Use](https://www.anthropic.com/engineering/advanced-tool-use)
-- [Building C Compiler](https://www.anthropic.com/engineering/building-c-compiler)
-- [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)
-- [Claude Code Best Practices](https://www.anthropic.com/engineering/claude-code-best-practices)
-- [Claude Code Sandboxing](https://www.anthropic.com/engineering/claude-code-sandboxing)
-- [Claude Think Tool](https://www.anthropic.com/engineering/claude-think-tool)
-- [Code Execution With Mcp](https://www.anthropic.com/engineering/code-execution-with-mcp)
-- [Contextual Retrieval](https://www.anthropic.com/engineering/contextual-retrieval)
-- [Demystifying Evals For Ai Agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)
-- [Desktop Extensions](https://www.anthropic.com/engineering/desktop-extensions)
-- [Effective Context Engineering For Ai Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
-- [Effective Harnesses For Long Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)
-- [Eval Awareness Browsecomp](https://www.anthropic.com/engineering/eval-awareness-browsecomp)
-- [Infrastructure Noise](https://www.anthropic.com/engineering/infrastructure-noise)
-- [Multi Agent Research System](https://www.anthropic.com/engineering/multi-agent-research-system)
-- [Swe Bench Sonnet](https://www.anthropic.com/engineering/swe-bench-sonnet)
-- [Writing Tools For Agents](https://www.anthropic.com/engineering/writing-tools-for-agents)
-
-### Research
-
-- [Ai Assistance Coding Skills](https://www.anthropic.com/research/AI-assistance-coding-skills)
-- [Ai Fluency Index](https://www.anthropic.com/research/AI-fluency-index)
-- [A General Language Assistant As A Laboratory For Alignment](https://www.anthropic.com/research/a-general-language-assistant-as-a-laboratory-for-alignment)
-- [A Mathematical Framework For Transformer Circuits](https://www.anthropic.com/research/a-mathematical-framework-for-transformer-circuits)
-- [Agentic Misalignment](https://www.anthropic.com/research/agentic-misalignment)
-- [Alignment Faking](https://www.anthropic.com/research/alignment-faking)
-- [Anthropic Economic Index January 2026 Report](https://www.anthropic.com/research/anthropic-economic-index-january-2026-report)
-- [Anthropic Economic Index September 2025 Report](https://www.anthropic.com/research/anthropic-economic-index-september-2025-report)
-- [Anthropic Interviewer](https://www.anthropic.com/research/anthropic-interviewer)
-- [Assistant Axis](https://www.anthropic.com/research/assistant-axis)
-- [Auditing Hidden Objectives](https://www.anthropic.com/research/auditing-hidden-objectives)
-- [Bloom](https://www.anthropic.com/research/bloom)
-- [Building Ai Cyber Defenders](https://www.anthropic.com/research/building-ai-cyber-defenders)
-- [Building Effective Agents](https://www.anthropic.com/research/building-effective-agents)
-- [Circuits Updates April 2024](https://www.anthropic.com/research/circuits-updates-april-2024)
-- [Circuits Updates August 2024](https://www.anthropic.com/research/circuits-updates-august-2024)
-- [Circuits Updates July 2024](https://www.anthropic.com/research/circuits-updates-july-2024)
-- [Circuits Updates June 2024](https://www.anthropic.com/research/circuits-updates-june-2024)
-- [Circuits Updates May 2023](https://www.anthropic.com/research/circuits-updates-may-2023)
-- [Circuits Updates Sept 2024](https://www.anthropic.com/research/circuits-updates-sept-2024)
-- [Claude Character](https://www.anthropic.com/research/claude-character)
-- [Clio](https://www.anthropic.com/research/clio)
-- [Collective Constitutional Ai Aligning A Language Model With Public Input](https://www.anthropic.com/research/collective-constitutional-ai-aligning-a-language-model-with-public-input)
-- [Confidential Inference Trusted Vms](https://www.anthropic.com/research/confidential-inference-trusted-vms)
-- [Constitutional Ai Harmlessness From Ai Feedback](https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback)
-- [Constitutional Classifiers](https://www.anthropic.com/research/constitutional-classifiers)
-- [Crosscoder Model Diffing](https://www.anthropic.com/research/crosscoder-model-diffing)
-- [Decomposing Language Models Into Understandable Components](https://www.anthropic.com/research/decomposing-language-models-into-understandable-components)
-- [Deprecation Commitments](https://www.anthropic.com/research/deprecation-commitments)
-- [Deprecation Updates Opus 3](https://www.anthropic.com/research/deprecation-updates-opus-3)
-- [Discovering Language Model Behaviors With Model Written Evaluations](https://www.anthropic.com/research/discovering-language-model-behaviors-with-model-written-evaluations)
-- [Disempowerment Patterns](https://www.anthropic.com/research/disempowerment-patterns)
-- [Distributed Representations Composition Superposition](https://www.anthropic.com/research/distributed-representations-composition-superposition)
-- [Economic Index Geography](https://www.anthropic.com/research/economic-index-geography)
-- [Economic Index Primitives](https://www.anthropic.com/research/economic-index-primitives)
-- [Economic Policy Responses](https://www.anthropic.com/research/economic-policy-responses)
-- [Emergent Misalignment Reward Hacking](https://www.anthropic.com/research/emergent-misalignment-reward-hacking)
-- [End Subset Conversations](https://www.anthropic.com/research/end-subset-conversations)
-- [Engineering Challenges Interpretability](https://www.anthropic.com/research/engineering-challenges-interpretability)
-- [Estimating Productivity Gains](https://www.anthropic.com/research/estimating-productivity-gains)
-- [Evaluating Ai Systems](https://www.anthropic.com/research/evaluating-ai-systems)
-- [Evaluating And Mitigating Discrimination In Language Model Decisions](https://www.anthropic.com/research/evaluating-and-mitigating-discrimination-in-language-model-decisions)
-- [Evaluating Feature Steering](https://www.anthropic.com/research/evaluating-feature-steering)
-- [Exploring Model Welfare](https://www.anthropic.com/research/exploring-model-welfare)
-- [Features As Classifiers](https://www.anthropic.com/research/features-as-classifiers)
-- [Forecasting Rare Behaviors](https://www.anthropic.com/research/forecasting-rare-behaviors)
-- [How Ai Is Transforming Work At Anthropic](https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic)
-- [Impact Software Development](https://www.anthropic.com/research/impact-software-development)
-- [In Context Learning And Induction Heads](https://www.anthropic.com/research/in-context-learning-and-induction-heads)
-- [India Brief Economic Index](https://www.anthropic.com/research/india-brief-economic-index)
-- [Influence Functions](https://www.anthropic.com/research/influence-functions)
-- [Interpretability Dreams](https://www.anthropic.com/research/interpretability-dreams)
-- [Introspection](https://www.anthropic.com/research/introspection)
-- [Labor Market Impacts](https://www.anthropic.com/research/labor-market-impacts)
-- [Language Models Mostly Know What They Know](https://www.anthropic.com/research/language-models-mostly-know-what-they-know)
-- [Many Shot Jailbreaking](https://www.anthropic.com/research/many-shot-jailbreaking)
-- [Mapping Mind Language Model](https://www.anthropic.com/research/mapping-mind-language-model)
-- [Measuring Agent Autonomy](https://www.anthropic.com/research/measuring-agent-autonomy)
-- [Measuring Faithfulness In Chain Of Thought Reasoning](https://www.anthropic.com/research/measuring-faithfulness-in-chain-of-thought-reasoning)
-- [Measuring Model Persuasiveness](https://www.anthropic.com/research/measuring-model-persuasiveness)
-- [Measuring Progress On Scalable Oversight For Large Language Models](https://www.anthropic.com/research/measuring-progress-on-scalable-oversight-for-large-language-models)
-- [Next Generation Constitutional Classifiers](https://www.anthropic.com/research/next-generation-constitutional-classifiers)
-- [Open Source Circuit Tracing](https://www.anthropic.com/research/open-source-circuit-tracing)
-- [Persona Selection Model](https://www.anthropic.com/research/persona-selection-model)
-- [Persona Vectors](https://www.anthropic.com/research/persona-vectors)
-- [Petri Open Source Auditing](https://www.anthropic.com/research/petri-open-source-auditing)
-- [Predictability And Surprise In Large Generative Models](https://www.anthropic.com/research/predictability-and-surprise-in-large-generative-models)
-- [Privileged Bases In The Transformer Residual Stream](https://www.anthropic.com/research/privileged-bases-in-the-transformer-residual-stream)
-- [Probes Catch Sleeper Agents](https://www.anthropic.com/research/probes-catch-sleeper-agents)
-- [Project Fetch Robot Dog](https://www.anthropic.com/research/project-fetch-robot-dog)
-- [Project Vend 1](https://www.anthropic.com/research/project-vend-1)
-- [Project Vend 2](https://www.anthropic.com/research/project-vend-2)
-- [Prompt Injection Defenses](https://www.anthropic.com/research/prompt-injection-defenses)
-- [Question Decomposition Improves The Faithfulness Of Model Generated Reasoning](https://www.anthropic.com/research/question-decomposition-improves-the-faithfulness-of-model-generated-reasoning)
-- [Reasoning Models Dont Say Think](https://www.anthropic.com/research/reasoning-models-dont-say-think)
-- [Red Teaming Language Models To Reduce Harms Methods Scaling Behaviors And Lessons Learned](https://www.anthropic.com/research/red-teaming-language-models-to-reduce-harms-methods-scaling-behaviors-and-lessons-learned)
-- [Reward Tampering](https://www.anthropic.com/research/reward-tampering)
-- [Sabotage Evaluations](https://www.anthropic.com/research/sabotage-evaluations)
-- [Scaling Laws And Interpretability Of Learning From Repeated Data](https://www.anthropic.com/research/scaling-laws-and-interpretability-of-learning-from-repeated-data)
-- [Shade Arena Sabotage Monitoring](https://www.anthropic.com/research/shade-arena-sabotage-monitoring)
-- [Sleeper Agents Training Deceptive Llms That Persist Through Safety Training](https://www.anthropic.com/research/sleeper-agents-training-deceptive-llms-that-persist-through-safety-training)
-- [Small Samples Poison](https://www.anthropic.com/research/small-samples-poison)
-- [Softmax Linear Units](https://www.anthropic.com/research/softmax-linear-units)
-- [Specific Versus General Principles For Constitutional Ai](https://www.anthropic.com/research/specific-versus-general-principles-for-constitutional-ai)
-- [Statistical Approach To Model Evals](https://www.anthropic.com/research/statistical-approach-to-model-evals)
-- [Studying Large Language Model Generalization With Influence Functions](https://www.anthropic.com/research/studying-large-language-model-generalization-with-influence-functions)
-- [Superposition Memorization And Double Descent](https://www.anthropic.com/research/superposition-memorization-and-double-descent)
-- [Swe Bench Sonnet](https://www.anthropic.com/research/swe-bench-sonnet)
-- [The Capacity For Moral Self Correction In Large Language Models](https://www.anthropic.com/research/the-capacity-for-moral-self-correction-in-large-language-models)
-- [Towards Measuring The Representation Of Subjective Global Opinions In Language Models](https://www.anthropic.com/research/towards-measuring-the-representation-of-subjective-global-opinions-in-language-models)
-- [Towards Monosemanticity Decomposing Language Models With Dictionary Learning](https://www.anthropic.com/research/towards-monosemanticity-decomposing-language-models-with-dictionary-learning)
-- [Towards Understanding Sycophancy In Language Models](https://www.anthropic.com/research/towards-understanding-sycophancy-in-language-models)
-- [Toy Models Of Superposition](https://www.anthropic.com/research/toy-models-of-superposition)
-- [Tracing Thoughts Language Model](https://www.anthropic.com/research/tracing-thoughts-language-model)
-- [Training A Helpful And Harmless Assistant With Reinforcement Learning From Human Feedback](https://www.anthropic.com/research/training-a-helpful-and-harmless-assistant-with-reinforcement-learning-from-human-feedback)
-- [Transformer Circuits](https://www.anthropic.com/research/transformer-circuits)
-- [Values Wild](https://www.anthropic.com/research/values-wild)
-- [Visible Extended Thinking](https://www.anthropic.com/research/visible-extended-thinking)
-
-### News（有技术深度的）
-
-- [Building Safeguards for Claude](https://www.anthropic.com/news/building-safeguards-for-claude) — 多层防护体系
-- [Detecting and Countering Malicious Uses: March 2025](https://www.anthropic.com/news/detecting-and-countering-malicious-uses-of-claude-march-2025) — 4 个威胁案例
-- [Detecting and Countering Misuse: August 2025](https://www.anthropic.com/news/detecting-countering-misuse-aug-2025) — 网络犯罪威胁情报
-- [Disrupting AI-Orchestrated Cyber Espionage](https://www.anthropic.com/news/disrupting-AI-espionage) — 检测中国国家级 AI 网络攻击
-- [Frontier Threats: Red Teaming for AI Safety](https://www.anthropic.com/news/frontier-threats-red-teaming-for-ai-safety) — 领域专家对抗测试方法论
-- [Challenges in Red Teaming AI Systems](https://www.anthropic.com/news/challenges-in-red-teaming-ai-systems) — 红队测试方法论
-- [Strategic Warning for AI Risk](https://www.anthropic.com/news/strategic-warning-for-ai-risk-progress-and-insights-from-our-frontier-red-team) — Claude 能力预警信号
-- [Testing and Mitigating Elections-Related Risks](https://www.anthropic.com/news/testing-and-mitigating-elections-related-risks) — 选举完整性三阶段方法
-- [Elections and AI in 2024](https://www.anthropic.com/news/elections-ai-2024) — 选举后分析
-- [Detecting and Preventing Distillation Attacks](https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks) — 3 家中国 AI 实验室大规模蒸馏攻击
-- [Mozilla Firefox Security](https://www.anthropic.com/news/mozilla-firefox-security) — Claude 两周发现 22 个 Firefox 漏洞
-- [Activating ASL-3 Protections](https://www.anthropic.com/news/activating-asl3-protections) — AI 安全等级 3 实施细节
-- [Developing Nuclear Safeguards for AI](https://www.anthropic.com/news/developing-nuclear-safeguards-for-ai-through-public-private-partnership) — 核安全 AI 分类器 96% 准确率
-- [Frontier Model Security](https://www.anthropic.com/news/frontier-model-security) — 双人控制等网络安全措施
-- [Core Views on AI Safety](https://www.anthropic.com/news/core-views-on-ai-safety) — AI 安全为什么重要
-- [Responsible Scaling Policy](https://www.anthropic.com/news/anthropics-responsible-scaling-policy) — AI 安全等级制度（ASL）
-- [Responsible Scaling Policy v3](https://www.anthropic.com/news/responsible-scaling-policy-v3) — RSP 第三版
-- [The Case for Targeted Regulation](https://www.anthropic.com/news/the-case-for-targeted-regulation) — AI 监管提案
-- [Our Framework for Safe and Trustworthy Agents](https://www.anthropic.com/news/our-framework-for-developing-safe-and-trustworthy-agents) — Agent 安全框架
-- [Claude's Constitution](https://www.anthropic.com/news/claudes-constitution) — 宪法 AI 原则
-- [Claude's New Constitution](https://www.anthropic.com/news/claude-new-constitution) — 更新版宪法
-- [Claude Is a Space to Think](https://www.anthropic.com/news/claude-is-a-space-to-think) — 为什么广告与 AI 助手不兼容
-- [Introducing the Model Context Protocol](https://www.anthropic.com/news/model-context-protocol) — MCP 开放标准
-- [Donating MCP to the Agentic AI Foundation](https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation) — MCP 移交 Linux 基金会
-- [Golden Gate Claude](https://www.anthropic.com/news/golden-gate-claude) — 神经网络特征手术式操控
-- [Developing Computer Use](https://www.anthropic.com/news/developing-computer-use) — 训练 Claude 解读截图和控制电脑
-- [Introducing Claude 3.7 Sonnet and Claude Code](https://www.anthropic.com/news/claude-3-7-sonnet) — 混合推理模型 + 扩展思考
-- [Introducing Computer Use and Claude 3.5 Sonnet](https://www.anthropic.com/news/3-5-models-and-computer-use)
-- [Introducing Claude 4](https://www.anthropic.com/news/claude-4) — 扩展思考 + 工具使用 + 记忆
-- [Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval) — RAG 检索失败率降 67%
-- [Prompt Engineering for Business](https://www.anthropic.com/news/prompt-engineering-for-business-performance) — 3 种实用 Prompt 技术
-- [Prompt Engineering for Long Context](https://www.anthropic.com/news/prompting-long-context) — 长文档提取最佳实践
-- [Enabling Claude Code to Work Autonomously](https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously)
-- [Anthropic Economic Index: Insights from Sonnet 3.7](https://www.anthropic.com/news/anthropic-economic-index-insights-from-claude-sonnet-3-7) — 扩展思考的使用场景
-- [How People Use Claude for Support and Companionship](https://www.anthropic.com/news/how-people-use-claude-for-support-advice-and-companionship) — 13 万对话分析
-- [How Scientists Accelerate Research with Claude](https://www.anthropic.com/news/accelerating-scientific-research) — 基因组分析从数月缩至 20 分钟
-- [Education Report: How Educators Use Claude](https://www.anthropic.com/news/anthropic-education-report-how-educators-use-claude) — 7.4 万对话分析
-- [Education Report: How Students Use Claude](https://www.anthropic.com/news/anthropic-education-report-how-university-students-use-claude) — 100 万学生对话分析
-- [Anthropic Acquires Vercept](https://www.anthropic.com/news/acquires-vercept) — Computer Use 性能从 15% 跃至 72.5%
-- [Anthropic Acquires Bun](https://www.anthropic.com/news/anthropic-acquires-bun-as-claude-code-reaches-usd1b-milestone)
-- [Introducing Anthropic's Transparency Hub](https://www.anthropic.com/news/introducing-anthropic-transparency-hub) — 统一透明度框架
-
-## Google DeepMind
-
-> 官方博客: [deepmind.google/blog](https://deepmind.google/blog/) · RSS: `https://deepmind.google/blog/rss.xml` · Sitemap: `https://deepmind.google/sitemap.xml`
-
-### 模型与 Agent
-
-- [Gemini 2.5 Pro Preview: even better coding](https://deepmind.google/blog/gemini-25-pro-preview-even-better-coding-performance/) — Gemini 2.5 Pro 编码能力升级
-- [Google I/O 2025: Updates to Gemini 2.5](https://deepmind.google/blog/gemini-25-our-world-leading-model-is-getting-even-better/)
-- [Gemini 3 Flash: frontier intelligence built for speed](https://deepmind.google/blog/gemini-3-flash-frontier-intelligence-built-for-speed/)
-- [Introducing Gemma 3n: The developer guide](https://deepmind.google/blog/introducing-gemma-3n-the-developer-guide/) — 移动优先架构，1.6 亿次下载
-- [Gemini Robotics brings AI into the physical world](https://deepmind.google/blog/gemini-robotics-brings-ai-into-the-physical-world/) — 机器人基础模型
-- [Gemini Robotics 1.5 brings AI agents into the physical world](https://deepmind.google/blog/gemini-robotics-15-brings-ai-agents-into-the-physical-world/)
-- [Gemini Robotics On-Device](https://deepmind.google/blog/gemini-robotics-on-device-brings-ai-to-local-robotic-devices/) — 本地机器人设备上的 AI
-- [SIMA 2: AI Agent for 3D Virtual Worlds](https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/) — 3D 虚拟世界 Agent
-- [Introducing CodeMender: AI agent for code security](https://deepmind.google/blog/introducing-codemender-an-ai-agent-for-code-security/) — 代码安全 Agent
-
-### 科学与数学
-
-- [AlphaEvolve: Gemini-powered coding agent for algorithms](https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/) — **必读**，用 AI 设计算法
-- [Gemini Deep Think achieves IMO gold medal](https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/) — IMO 金牌水平
-- [Gemini achieves ICPC gold medal](https://deepmind.google/blog/gemini-achieves-gold-medal-level-at-the-international-collegiate-programming-contest-world-finals/) — ICPC 编程竞赛金牌
-- [Accelerating mathematical and scientific discovery with Gemini Deep Think](https://deepmind.google/blog/accelerating-mathematical-and-scientific-discovery-with-gemini-deep-think/) — 加速数学和科学发现
-- [AlphaFold: Five Years of Impact](https://deepmind.google/blog/alphafold-five-years-of-impact/)
-- [AlphaProteo generates novel proteins](https://deepmind.google/blog/alphaproteo-generates-novel-proteins-for-biology-and-health-research/) — AI 生成蛋白质
-- [AlphaGenome: AI for understanding the genome](https://deepmind.google/blog/alphagenome-ai-for-better-understanding-the-genome/) — AI 理解基因组
-- [AlphaEarth Foundations: mapping our planet](https://deepmind.google/blog/alphaearth-foundations-helps-map-our-planet-in-unprecedented-detail/) — AI 地球测绘
-- [GenCast: weather prediction with SOTA accuracy](https://deepmind.google/blog/gencast-predicts-weather-and-the-risks-of-extreme-conditions-with-sota-accuracy/) — AI 天气预报
-- [Discovering new solutions to fluid dynamics](https://deepmind.google/blog/discovering-new-solutions-to-century-old-problems-in-fluid-dynamics/) — 解决百年流体力学难题
-- [Tropical cyclone prediction with AI](https://deepmind.google/blog/how-were-supporting-better-tropical-cyclone-prediction-with-ai/) — AI 热带气旋预测
-- [Engineering more resilient crops](https://deepmind.google/blog/engineering-more-resilient-crops-for-a-warming-climate/) — AI 育种抗气候变化
-
-### 世界模型与生成
-
-- [Genie 3: A new frontier for world models](https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/) — 实时可交互世界模型
-- [Genie 2: A large-scale foundation world model](https://deepmind.google/blog/genie-2-a-large-scale-foundation-world-model/) — 3D 世界生成
-- [Veo 3, Imagen 4, and Flow](https://deepmind.google/blog/fuel-your-creativity-with-new-generative-media-models-and-tools/) — 视频+音频同步生成
-- [Pushing the frontiers of audio generation](https://deepmind.google/blog/pushing-the-frontiers-of-audio-generation/) — 音频生成前沿
-- [Improved Gemini audio models](https://deepmind.google/blog/improved-gemini-audio-models-for-powerful-voice-experiences/) — 音频
-
-### 安全与责任
-
-- [Taking a responsible path to AGI](https://deepmind.google/blog/taking-a-responsible-path-to-agi/) — AGI 安全路线
-- [Strengthening the Frontier Safety Framework](https://deepmind.google/blog/strengthening-our-frontier-safety-framework/) — 前沿安全框架升级
-- [Updating the Frontier Safety Framework](https://deepmind.google/blog/updating-the-frontier-safety-framework/) — 安全框架更新
-- [Advancing Gemini's security safeguards](https://deepmind.google/blog/advancing-geminis-security-safeguards/) — Gemini 安全防护白皮书
-- [An early warning system for novel AI risks](https://deepmind.google/blog/an-early-warning-system-for-novel-ai-risks/) — AI 风险预警系统
-- [Evaluating cybersecurity threats of advanced AI](https://deepmind.google/blog/evaluating-potential-cybersecurity-threats-of-advanced-ai/) — AI 网络安全威胁评估
-- [Mapping the misuse of generative AI](https://deepmind.google/blog/mapping-the-misuse-of-generative-ai/) — 生成式 AI 滥用图谱
-- [SynthID: watermarking AI text and video](https://deepmind.google/blog/watermarking-ai-generated-text-and-video-with-synthid/) — AI 水印技术
-- [Gemma Scope 2: understanding complex model behavior](https://deepmind.google/blog/gemma-scope-2-helping-the-ai-safety-community-deepen-understanding-of-complex-language-model-behavior/) — 模型行为可解释性
-- [FACTS Benchmark Suite](https://deepmind.google/blog/facts-benchmark-suite-systematically-evaluating-the-factuality-of-large-language-models/) — LLM 事实性评估基准
-- [D4RT: teaching AI to see in 4D](https://deepmind.google/blog/d4rt-teaching-ai-to-see-the-world-in-four-dimensions/) — 4D 场景重建与追踪
-
-### 年度回顾
-
-- [Google's 2025 year in review: 8 research breakthroughs](https://deepmind.google/blog/googles-year-in-review-8-areas-with-research-breakthroughs-in-2025/) — 2025 年度突破汇总
-
-
-## Meta AI
-
-> 官方博客: [ai.meta.com/blog](https://ai.meta.com/blog/)
-
-### Llama 系列
-
-- [The Llama 4 herd: natively multimodal AI](https://ai.meta.com/blog/llama-4-multimodal-intelligence/) — Llama 首次 MoE（Scout 109B/17B 活跃，10M 上下文）
-- [Introducing Llama 3.1: 405B frontier open model](https://ai.meta.com/blog/meta-llama-3-1/) — 开源里程碑，128K 上下文，规模化训练详解
-- [Introducing Meta Llama 3](https://ai.meta.com/blog/meta-llama-3/) — 8B/70B，15T tokens 训练
-- [Llama 3.2: edge AI and vision](https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/) — 首个多模态 Llama + 端侧部署
-
-### FAIR 研究
-
-- [V-JEPA: self-supervised video understanding](https://ai.meta.com/blog/v-jepa-yann-lecun-ai-model-video-joint-embedding-predictive-architecture/) — 视频
-- [DINOv3: self-supervised vision at 7B scale](https://ai.meta.com/blog/dinov3-self-supervised-vision-model/) — 视觉
-- [Meta FAIR: Chameleon, JASCO, Multi-Token Prediction](https://ai.meta.com/blog/meta-fair-research-new-releases/) — 统一多模态 + 多 token 预测
-- [Meta FAIR: SAM 2.1, Spirit LM, LayerSkip](https://ai.meta.com/blog/fair-news-segment-anything-2-1-meta-spirit-lm-layer-skip-salsa-lingua/) — 视频分割 + 语音文本交织 + 投机解码
-- [Segment Anything Model 3](https://ai.meta.com/blog/segment-anything-model-3/) — SAM 系列最新演进
-- [SAM Audio: unified multimodal audio separation](https://ai.meta.com/blog/sam-audio/) — "分割一切"扩展到音频
-- [Meta Movie Gen](https://ai.meta.com/blog/movie-gen-media-foundation-models-generative-ai-video/) — 视频+音频生成基础模型
-- [Omnilingual ASR: 1600+ languages](https://ai.meta.com/blog/omnilingual-asr-advancing-automatic-speech-recognition/) — 7B 语音模型覆盖 1600+ 语言
-- [Collaborative Reasoner: social agents](https://ai.meta.com/blog/meta-fair-updates-perception-localization-reasoning/) — 协作推理框架
-- [ExecuTorch: on-device AI](https://ai.meta.com/blog/executorch-reality-labs-on-device-ai/) — 端侧推理框架
-- [Meta FAIR Science: Open Molecules 2025 & Meta Motivo](https://ai.meta.com/blog/meta-fair-science-new-open-source-releases/) — 最大分子化学数据集 + 具身 Agent 基础模型
-- [Ten years of FAIR](https://ai.meta.com/blog/fair-10-year-anniversary-open-science-meta/) — FAIR 十年回顾
-- [SAM 2: real-time video segmentation](https://ai.meta.com/blog/segment-anything-2-video/) — 首个统一图像+视频实时分割模型
-- [V-JEPA 2: world model for video and robotics](https://ai.meta.com/blog/v-jepa-2-world-model-benchmarks/) — 1.2B 世界模型，零样本规划和机器人控制
-- [SAM 3D: 3D reconstruction](https://ai.meta.com/blog/sam-3d/) — 单图 3D 重建
-- [DINOv2: SOTA self-supervised vision](https://ai.meta.com/blog/dino-v2-computer-vision-self-supervised-learning/) — 首个自监督视觉模型匹配监督性能
-- [Quantized Llama models](https://ai.meta.com/blog/meta-llama-quantized-lightweight-models/)
-- [Llama 3.1 safety: Llama Guard 3, Prompt Guard](https://ai.meta.com/blog/meta-llama-3-1-ai-responsibility/) — 开源安全工具链
-- [Purple Llama: open trust and safety](https://ai.meta.com/blog/purple-llama-open-trust-safety-generative-ai/) — 开源安全倡议
-- [AI Defenders: Llama Guard 4, LlamaFirewall](https://ai.meta.com/blog/ai-defenders-program-llama-protection-tools/) — 统一安全工具
-- [Open Catalyst: AI for clean hydrogen](https://ai.meta.com/blog/open-catalyst-simulations-experiments/) — AI 发现清洁氢催化剂
-- [MTIA: Meta's custom AI silicon](https://ai.meta.com/blog/meta-mtia-scale-ai-chips-for-billions/) — 自研 AI 芯片
-- [Everything announced at LlamaCon](https://ai.meta.com/blog/llamacon-llama-news/) — Llama API、开发者平台、工具生态
-
-
-## Microsoft Research
-
-> 官方博客: [microsoft.com/research/blog](https://www.microsoft.com/en-us/research/blog/) · RSS: `https://www.microsoft.com/en-us/research/feed/`
-
-### Phi 模型系列
-
-- [Phi-Reasoning: small models match DeepSeek-R1 (671B)](https://www.microsoft.com/en-us/research/articles/phi-reasoning-once-again-redefining-what-is-possible-with-small-and-efficient-ai/) — 小模型推理追平超大模型
-- [Phi-4-reasoning-vision: multimodal reasoning](https://www.microsoft.com/en-us/research/blog/phi-4-reasoning-vision-and-the-lessons-of-training-a-multimodal-reasoning-model/) — 15B 多模态推理 + GUI 交互能力
-- [Phi-2: surprising power of small models](https://www.microsoft.com/en-us/research/blog/phi-2-the-surprising-power-of-small-language-models/) — 2.7B 匹配 25x 更大模型
-- [Orca-Math: SLM with model specialization](https://www.microsoft.com/en-us/research/blog/orca-math-demonstrating-the-potential-of-slms-with-model-specialization/) — 7B 模型 200K 合成数据匹敌大模型
-
-### Agent 框架
-
-- [Magentic-One: generalist multi-agent system](https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/)
-- [AutoGen v0.4: reimagining agentic AI](https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/) — 多 Agent 框架 Actor 模型重写
-- [AutoGen Studio: low-code multi-agent](https://www.microsoft.com/en-us/research/blog/introducing-autogen-studio-a-low-code-interface-for-building-multi-agent-workflows/) — 可视化多 Agent 构建
-
-### RAG 与检索
-
-- [GraphRAG: unlocking LLM discovery](https://www.microsoft.com/en-us/research/blog/graphrag-unlocking-llm-discovery-on-narrative-private-data/) — **必读**，图增强 RAG
-- [LazyGraphRAG: quality and cost](https://www.microsoft.com/en-us/research/blog/lazygraphrag-setting-a-new-standard-for-quality-and-cost/) — 免预处理图 RAG，成本 0.1%
-- [GraphRAG on GitHub](https://www.microsoft.com/en-us/research/blog/graphrag-new-tool-for-complex-data-discovery-now-on-github/) — 开源，20K+ stars
-- [GraphRAG auto-tuning](https://www.microsoft.com/en-us/research/blog/graphrag-auto-tuning-provides-rapid-adaptation-to-new-domains/) — 自动领域适配
-- [GraphRAG: dynamic community selection](https://www.microsoft.com/en-us/research/blog/graphrag-improving-global-search-via-dynamic-community-selection/) — 全局搜索优化
-- [GraphRAG 1.0](https://www.microsoft.com/en-us/research/blog/moving-to-graphrag-1-0-streamlining-ergonomics-for-developers-and-users/) — 1.0 版本，磁盘节省 80%
-
-### 新架构与效率
-
-- [Differential Transformer](https://www.microsoft.com/en-us/research/blog/research-focus-week-of-october-28-2024/) — 新注意力架构，放大相关上下文
-- [BitNet b1.58: native 1-bit LLM](https://www.microsoft.com/en-us/research/story/microsoft-research-2024-a-year-in-review/) — 三值权重 {-1,0,+1}
-- [rStar-Math: boosting reasoning in small LLMs](https://www.microsoft.com/en-us/research/blog/new-methods-boost-reasoning-in-small-and-large-language-models/) — MCTS + 过程奖励模型
-- [Steering at the Frontier: Medprompt](https://www.microsoft.com/en-us/research/blog/steering-at-the-frontier-extending-the-power-of-prompting/) — 提示工程
-
-### AI for Science
-
-- [MatterGen & MatterSim](https://www.microsoft.com/en-us/research/blog/research-focus-week-of-january-13-2025/) — AI 材料发现与验证
-- [BioEmu: protein structure generation](https://www.microsoft.com/en-us/research/story/microsoft-research-2025-a-year-in-review/) — 蛋白质结构生成（Science 发表）
-
-### 年度回顾
-
-- [Microsoft Research 2025 Year in Review](https://www.microsoft.com/en-us/research/story/microsoft-research-2025-a-year-in-review/) — 研究
-- [Microsoft Research 2024 Year in Review](https://www.microsoft.com/en-us/research/story/microsoft-research-2024-a-year-in-review/) — 研究
-
-### Agent 与多模态
-
-- [Magentic-UI: human-centered web agent](https://www.microsoft.com/en-us/research/blog/magentic-ui-an-experimental-human-centered-web-agent/)
-- [CORPGEN: AI agents for real work](https://www.microsoft.com/en-us/research/blog/corpgen-advances-ai-agents-for-real-work/) — 生成企业环境模拟测试 Agent
-- [AgentRx: systematic debugging for AI agents](https://www.microsoft.com/en-us/research/blog/systematic-debugging-for-ai-agents-introducing-the-agentrx-framework/) — Agent 故障透明调试框架
-- [PlugMem: reusable knowledge from agent interactions](https://www.microsoft.com/en-us/research/blog/from-raw-interaction-to-reusable-knowledge-rethinking-memory-for-ai-agents/) — Agent 记忆架构
-- [Fara-7B: efficient agentic model for computer use](https://www.microsoft.com/en-us/research/blog/fara-7b-an-efficient-agentic-model-for-computer-use/)
-- [Agent Lightning: RL for agents without code rewrites](https://www.microsoft.com/en-us/research/blog/agent-lightning-adding-reinforcement-learning-to-ai-agents-without-code-rewrites/) — 即插即用 RL 增强
-- [Magma: foundation model for multimodal AI agents](https://www.microsoft.com/en-us/research/blog/magma-a-foundation-model-for-multimodal-ai-agents-across-digital-and-physical-worlds/) — 统一数字/物理世界 Agent
-- [Orca-AgentInstruct: synthetic data from agentic flows](https://www.microsoft.com/en-us/research/blog/orca-agentinstruct-agentic-flows-can-be-effective-synthetic-data-generators/) — 多 Agent 生成 2500 万训练样本
-- [BenchmarkQED: automated RAG benchmarking](https://www.microsoft.com/en-us/research/blog/benchmarkqed-automated-benchmarking-of-rag-systems/) — 开源 RAG 评估框架
-- [OptiMind: SLM for optimization](https://www.microsoft.com/en-us/research/blog/optimind-a-small-language-model-with-optimization-expertise/) — 自然语言转数学优化问题
-- [BitNet inference on edge devices](https://www.microsoft.com/en-us/research/blog/advances-to-low-bit-quantization-enable-llms-on-edge-devices/) — 推理
-- [Modular models: collaborative AI development](https://www.microsoft.com/en-us/research/blog/toward-modular-models-collaborative-ai-development-enables-model-accountability-and-continuous-learning/) — 微服务式模块化 AI
-- [Advances in run-time strategies for foundation models](https://www.microsoft.com/en-us/research/blog/advances-in-run-time-strategies-for-next-generation-foundation-models/) — 推理模型、提示工程
-- [MarS: financial market simulation engine](https://www.microsoft.com/en-us/research/blog/mars-a-unified-financial-market-simulation-engine-in-the-era-of-generative-foundation-models/) — 生成式金融市场模拟
-
-
-## Qwen (通义千问)
-
-> 官方博客: [qwenlm.github.io/blog](https://qwenlm.github.io/blog/)
-
-- [Qwen3Guard: Real-time Safety for Your Token Stream](https://qwenlm.github.io/blog/qwen3guard/) — 实时安全过滤
-- [Qwen-Image-Edit: Higher Quality and Efficiency](https://qwenlm.github.io/blog/qwen-image-edit/) — 图像编辑
-- [Qwen-Image: Crafting with Native Text Rendering](https://qwenlm.github.io/blog/qwen-image/) — 原生文字渲染图像生成
-- [GSPO: Scalable RL for Language Models](https://qwenlm.github.io/blog/gspo/) — 强化学习训练 LLM
-- [Qwen-MT: Speed Meets Smart Translation](https://qwenlm.github.io/blog/qwen-mt/) — 多语言翻译
-- [Qwen3-Coder: Agentic Coding](https://qwenlm.github.io/blog/qwen3-coder/)
-- [Qwen-TTS: Speak Some Dialects](https://qwenlm.github.io/blog/qwen-tts/) — 方言 TTS
-- [Qwen VLo: From Understanding to Depicting](https://qwenlm.github.io/blog/qwen-vlo/) — 视觉理解到生成
-- [Qwen3 Embedding: Text Embedding and Reranking](https://qwenlm.github.io/blog/qwen3-embedding/) — 嵌入与重排序
-- [Qwen3: Think Deeper, Act Faster](https://qwenlm.github.io/blog/qwen3/) — Qwen3 全系列
-- [QVQ-Max: Think with Evidence](https://qwenlm.github.io/blog/qvq-max-preview/) — 视觉推理
-- [Qwen2.5 Omni: See, Hear, Talk, Write](https://qwenlm.github.io/blog/qwen2.5-omni/) — 全模态模型
-- [Qwen2.5-VL-32B: Smarter and Lighter](https://qwenlm.github.io/blog/qwen2.5-vl-32b/) — 轻量视觉语言模型
-- [QwQ-32B: Embracing Reinforcement Learning](https://qwenlm.github.io/blog/qwq-32b/) — RL 推理模型
-- [QwQ-Max-Preview](https://qwenlm.github.io/blog/qwq-max-preview/) — 推理模型预览
-- [Qwen2.5-Max: Large-scale MoE](https://qwenlm.github.io/blog/qwen2.5-max/) — MoE 大模型
-- [Qwen2.5-1M: 1M Token Context](https://qwenlm.github.io/blog/qwen2.5-1m/) — 100 万 token 上下文
-- [Qwen2.5-VL](https://qwenlm.github.io/blog/qwen2.5-vl/) — 视觉语言模型
-- [Global-batch load balance for MoE](https://qwenlm.github.io/blog/global-load-balance/) — MoE 负载均衡
-- [Qwen2.5-Math-PRM: Process Supervision](https://qwenlm.github.io/blog/qwen2.5-math-prm/) — 数学过程监督
-- [QVQ: To See the World with Wisdom](https://qwenlm.github.io/blog/qvq-72b-preview/) — 视觉推理模型
-- [QwQ: Reflect Deeply on the Unknown](https://qwenlm.github.io/blog/qwq-32b-preview/) — 推理模型设计思路
-- [Qwen2.5-Turbo: 1M Token Context](https://qwenlm.github.io/blog/qwen2.5-turbo/) — 长上下文扩展
-- [Qwen2.5-Coder Series](https://qwenlm.github.io/blog/qwen2.5-coder-family/) — 代码模型系列
-- [Qwen2.5: A Party of Foundation Models](https://qwenlm.github.io/blog/qwen2.5/) — Qwen2.5 全家福
-
-
-## DeepSeek (深度求索)
-
-> 官方博客: [api-docs.deepseek.com/news](https://api-docs.deepseek.com/news)
-
-- [DeepSeek-V3.2 Release](https://api-docs.deepseek.com/news/news251201) — 推理优先，为 Agent 而生
-- [DeepSeek-V3.2-Exp](https://api-docs.deepseek.com/news/news250929) — 实验版模型
-- [DeepSeek-V3.1-Terminus](https://api-docs.deepseek.com/news/news250922) — V3.1 终结版
-- [DeepSeek-V3.1 Release](https://api-docs.deepseek.com/news/news250821) — 迈向 Agent 时代
-- [DeepSeek-R1-0528 Release](https://api-docs.deepseek.com/news/news250528) — 推理模型升级
-- [DeepSeek-V3-0324 Release](https://api-docs.deepseek.com/news/news250325) — 推理+前端+工具使用增强
-- [DeepSeek-R1 Release](https://api-docs.deepseek.com/news/news250120) — **里程碑**，开源推理模型对标 o1，MIT 协议
-- [Introducing DeepSeek App](https://api-docs.deepseek.com/news/news250115) — 客户端发布
-- [Introducing DeepSeek-V3](https://api-docs.deepseek.com/news/news1226) — MoE 架构标杆，60 token/s
-- [DeepSeek-V2.5 Grand Finale](https://api-docs.deepseek.com/news/news1210) — 联网搜索上线
-- [DeepSeek-R1-Lite-Preview](https://api-docs.deepseek.com/news/news1120) — o1 级推理预览
-- [DeepSeek-V2.5 Release](https://api-docs.deepseek.com/news/news0905)
-- [Context Caching on Disk](https://api-docs.deepseek.com/news/news0802) — 磁盘缓存降成本一个数量级
-- [DeepSeek API Upgrade](https://api-docs.deepseek.com/news/news0725) — API 新接口功能
-
-
-## Kimi (月之暗面)
-
-> 官方博客: [platform.moonshot.ai/blog](https://platform.moonshot.ai/blog)
-
-- [Kimi K2: Open Agentic Intelligence](https://platform.moonshot.ai/blog/posts/k2-report) — K2 技术报告，Muon 优化器
-- [Clawdbot: From Concept to OpenClaw](https://platform.moonshot.ai/blog/posts/clawdbot-moltbot-openclaw-tutorial)
-- [All About OpenClaw and the OpenClaw API](https://platform.moonshot.ai/blog/posts/what-is-openclaw)
-- [Coding with Kimi K2: Top 6 Agents & Setup](https://platform.moonshot.ai/blog/posts/coding_with_kimi_agents_setup) — K2 编程 Agent 配置
-- [Kimi Founder's AMA Recap](https://platform.moonshot.ai/blog/posts/Kimi_Founders_AMA_Recap) — 创始人问答：视觉计划与路线图
-- [ICYMI: The Kimi Playground](https://platform.moonshot.ai/blog/posts/ICYMI_The_Kimi_Playground)
-- [K2-Vendor-Verifier: Kimi K2 Thinking](https://platform.moonshot.ai/blog/posts/K2_Vendor_Verifier_Newsletter) — K2 思考模式
-- [New Kimi K2 Models & Updated Pricing](https://platform.moonshot.ai/blog/posts/Kimi_API_Newsletter) — K2 新模型
-- [Kimi Changelog](https://platform.moonshot.ai/blog/posts/changelog) — 功能更新日志
-
-
-## NVIDIA
-
-> 官方博客: [developer.nvidia.com/blog](https://developer.nvidia.com/blog) · RSS: `https://blogs.nvidia.com/feed/`
-
-### 模型
-
-- [Inside Nemotron 3: Mamba-Transformer MoE](https://developer.nvidia.com/blog/inside-nvidia-nemotron-3-techniques-tools-and-data-that-make-it-efficient-and-accurate/) — 混合架构，1M 上下文
-- [Nemotron 3 Super: Latent MoE on Blackwell](https://developer.nvidia.com/blog/introducing-nemotron-3-super-an-open-hybrid-mamba-transformer-moe-for-agentic-reasoning/) — NVFP4 预训练，4x 推理加速
-- [Llama-3.1-Nemotron-51B: Neural Architecture Search](https://developer.nvidia.com/blog/advancing-the-accuracy-efficiency-frontier-with-llama-3-1-nemotron-51b/)
-- [Nemotron-4-340B: synthetic data generation](https://developer.nvidia.com/blog/leverage-our-latest-open-models-for-synthetic-data-generation-with-nvidia-nemotron-4-340b/) — 合成数据管线
-
-### 训练
-
-- [Optimizing MoE Training with Hybrid Expert Parallel](https://developer.nvidia.com/blog/optimizing-communication-for-mixture-of-experts-training-with-hybrid-expert-parallel/) — MoE 通信优化
-- [Megatron-Core: 26-50x checkpoint overhead reduction](https://developer.nvidia.com/blog/train-generative-ai-models-more-efficiently-with-new-nvidia-megatron-core-functionalities/) — 分布式训练效率
-- [Train a Reasoning LLM in One Weekend](https://developer.nvidia.com/blog/train-a-reasoning-capable-llm-in-one-weekend-with-nvidia-nemo/) — 单 H100 LoRA 训练推理 LLM
-
-### 推理
-
-- [TensorRT-LLM Speculative Decoding: 3.55x throughput](https://developer.nvidia.com/blog/boost-llama-3-3-70b-inference-throughput-3x-with-nvidia-tensorrt-llm-speculative-decoding/) — 投机解码 + FP8 量化
-- [TensorRT Model Optimizer: 1.62x speedup](https://developer.nvidia.com/blog/accelerate-generative-ai-inference-performance-with-nvidia-tensorrt-model-optimizer-now-publicly-available/) — QAT + 稀疏性 API
-- [NVIDIA Dynamo 1.0: multi-node inference](https://developer.nvidia.com/blog/nvidia-dynamo-1-production-ready/) — 多节点推理编排
-
-### CUDA
-
-- [Tuning Flash Attention in CUDA Tile](https://developer.nvidia.com/blog/tuning-flash-attention-for-peak-performance-in-nvidia-cuda-tile/)
-- [High-Performance GEMM in CUDA Tile](https://developer.nvidia.com/blog/how-to-write-high-performance-matrix-multiply-in-nvidia-cuda-tile/) — CUDA Tile 矩阵乘法入门
-
-
-## Mistral AI
-
-> 官方博客: [mistral.ai/news](https://mistral.ai/news/)
-
-- [Mistral 3 (Large 3)](https://mistral.ai/news/mistral-3) — 675B MoE + 3 个 Dense 模型，Apache 2.0
-- [Magistral](https://mistral.ai/news/magistral) — 首个推理模型，透明思维链
-- [Mistral Small 3](https://mistral.ai/news/mistral-small-3) — 24B 匹配 Llama 70B，3x 速度
-- [Pixtral 12B](https://mistral.ai/news/pixtral-12b) — 首个开源多模态 Mistral
-- [Mistral Large 2](https://mistral.ai/news/mistral-large-2407) — 123B Dense，128K 上下文
-- [Mixtral 8x22B](https://mistral.ai/news/mixtral-8x22b) — MoE 标杆，141B/39B 活跃
-- [Mistral NeMo](https://mistral.ai/news/mistral-nemo) — 12B 与 NVIDIA 合建，无损 FP8
-- [Codestral](https://mistral.ai/news/codestral) — 22B 代码模型，80+ 语言
-- [Codestral Mamba](https://mistral.ai/news/codestral-mamba) — Mamba2 架构，线性时间推理
-- [Mathstral](https://mistral.ai/news/mathstral) — 7B 数学推理，Apache 2.0
-
-
-## Hugging Face
-
-> 官方博客: [huggingface.co/blog](https://huggingface.co/blog) · RSS: `https://huggingface.co/blog/feed.xml`
-
-- [Transformers v5](https://huggingface.co/blog/transformers-v5) — 400+ 架构，GGUF 互操作，MoE 一等支持
-- [huggingface_hub v1.0](https://huggingface.co/blog/huggingface-hub-v1) — 1.135 亿月下载，200 万+ 模型
-- [Mixture of Experts in Transformers](https://huggingface.co/blog/moe-transformers) — MoE 技术深度解析
-- [SmolLM: small but powerful](https://huggingface.co/blog/smollm) — 小模型 + 高质量数据
-- [SmolVLM: on-device vision-language](https://huggingface.co/blog/smolvlm) — 视觉
-- [SmolVLM2: video understanding on every device](https://huggingface.co/blog/smolvlm2) — 端侧视频理解
-- [Sentence Transformers v3](https://huggingface.co/blog/train-sentence-transformers) — 嵌入模型训练指南
-- [Ulysses Sequence Parallelism](https://huggingface.co/blog/ulysses-sp) — 百万 token 上下文序列并行
-- [Fine-Tuning Your First LLM](https://huggingface.co/blog/dvgodoy/fine-tuning-llm-hugging-face) — 端到端入门：LoRA + 量化
-- [Open-Source DeepResearch](https://huggingface.co/blog/open-deep-research) — 开源深度研究 Agent
-- [One Year Since the DeepSeek Moment](https://huggingface.co/blog/huggingface/one-year-since-the-deepseek-moment) — DeepSeek R1 催生开源推理浪潮
-- [KV Caching Explained](https://huggingface.co/blog/not-lain/kv-caching) — KV 缓存机制详解
-
-
-## Lilian Weng
-
-> 博客: [lilianweng.github.io](https://lilianweng.github.io/) · RSS: `https://lilianweng.github.io/index.xml`
-> OpenAI 研究员，每篇都是教科书级综述。
-
-- [Why We Think](https://lilianweng.github.io/posts/2025-05-01-thinking/) — **必读**，推理与测试时计算全面综述
-- [Reward Hacking in RL](https://lilianweng.github.io/posts/2024-11-28-reward-hacking/) — RLHF 时代奖励黑客问题
-- [Extrinsic Hallucinations in LLMs](https://lilianweng.github.io/posts/2024-07-07-hallucination/) — 幻觉分类、检测与缓解
-- [Diffusion Models for Video Generation](https://lilianweng.github.io/posts/2024-04-12-diffusion-video/) — 视频生成扩散模型
-- [Thinking about High-Quality Human Data](https://lilianweng.github.io/posts/2024-02-05-human-data-quality/) — 训练数据质量
-- [LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/) — **经典**，Agent 架构（规划、记忆、工具使用）
-- [Prompt Engineering](https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/) — **经典**，CoT、ToT、ReAct 等技术全解
-
-
-## Simon Willison
-
-> 博客: [simonwillison.net](https://simonwillison.net/) · Atom: `https://simonwillison.net/atom/everything/`
-> LLM 工具和应用实践专家，每日更新。
-
-- [2025: The year in LLMs](https://simonwillison.net/2025/Dec/31/the-year-in-llms/) — **必读年度总结**，Agent 元年、编码 Agent 爆发、MCP 兴衰
-- [LLM predictions for 2026](https://simonwillison.net/2026/Jan/8/llm-predictions-for-2026/) — 预测：LLM 代码质量、Jevons 悖论、提示注入蠕虫
-- [Designing agentic loops](https://simonwillison.net/2025/Sep/30/designing-agentic-loops/) — **必读**，Agent 循环设计核心技能
-- [Claude Skills are awesome, maybe bigger than MCP](https://simonwillison.net/2025/Oct/16/claude-skills/)
-- [Coding with LLMs (summer 2025 update)](https://simonwillison.net/2025/Jul/21/coding-with-llms/) — LLM 编程实践更新
-- [Design Patterns for Securing LLM Agents](https://simonwillison.net/2025/Jun/13/prompt-injection-design-patterns/) — 6 种防提示注入设计模式
-- [The Summer of Johann: prompt injections everywhere](https://simonwillison.net/2025/Aug/15/the-summer-of-johann/) — 编码 Agent 的提示注入漏洞
-- [Claude Opus 4.5, and evaluating new LLMs](https://simonwillison.net/2025/Nov/24/claude-opus/) — 前沿模型越来越难区分
-
-
----
-
-## 数据源与抓取方法
-
-### 有 RSS Feed 的源
-
-| 源 | RSS 地址 |
-|---|---------|
-| OpenAI | `https://openai.com/news/rss.xml` |
-| Microsoft Research | `https://www.microsoft.com/en-us/research/feed/` |
-| NVIDIA | `https://blogs.nvidia.com/feed/` |
-| Google DeepMind | `https://deepmind.google/blog/rss.xml` |
-| BAIR Blog | `https://bair.berkeley.edu/blog/feed.xml` |
-| Lilian Weng | `https://lilianweng.github.io/index.xml` |
-| Simon Willison | `https://simonwillison.net/atom/everything/` |
-| Eugene Yan | `https://eugeneyan.com/rss/` |
-| arXiv CS.AI | `http://arxiv.org/rss/cs.AI` |
-| arXiv CS.CL | `http://arxiv.org/rss/cs.CL` |
-| Papers with Code | `https://paperswithcode.com/rss.xml` |
-
-### 需要 Sitemap/HTML 解析的源
-
-| 源 | 发现方式 |
-|---|---------|
-| Anthropic | Sitemap `https://www.anthropic.com/sitemap.xml`，筛选 `/research/*` 和 `/engineering/*` |
-| Qwen | 遍历 `https://qwenlm.github.io/blog/page/{N}/` |
-| DeepSeek | 解析 `https://api-docs.deepseek.com/news` 中的链接 |
-| Kimi | 解析 `https://platform.moonshot.ai/blog` 中的链接 |
-| Mistral | 解析 `https://mistral.ai/news/` 页面 |
-| Hugging Face | `https://huggingface.co/blog` |
+以下内容已按领域模块进行分类，优先保留研究、系统、安全、评测与工程复盘，删除普通功能发布、模型发布和案例宣传。同一篇文章若涉及多个领域，会在不同模块下重复出现。
+
+## 数据源与 Agent 抓取规则
+
+> **💡 Agent 自动化抓取规则**：
+> 1. 定期（如每周）访问以下数据源的 RSS 或 Sitemap，获取新发布的文章列表。
+> 2. 对每篇文章抓取正文内容，判断是否具备技术深度。**保留标准**：文章需要涉及方法论、架构设计、实验结论、工程复盘、评测数据或安全分析等实质性技术内容。**过滤标准**：跳过以下类型——纯产品发布公告（标题含 "Introducing X" 且无架构细节的通常是发布公告）、客户案例宣传、商业合作新闻、招聘信息、经济分析报告、行业政策/调查报告（如蒸馏攻击披露、责任披露流程等虽涉及安全但无可复现的技术方法）、面向普通用户的科普解释文。
+> 3. 对保留的文章生成一句话的中文核心摘要（需准确概括文章的核心技术贡献，避免模板化表述），加上对应的 `[Provider]` 标签。好的摘要示例：`用 activation capping 防止模型 persona drift 导致有害输出的安全干预方法`；差的摘要示例：`模型安全的研究进展`、`多代理框架的方法`。
+> 4. 根据文章的**核心技术贡献**归入对应模块（可多归类），但只归入确实相关的模块，不要因为摘要中偶然提到某个词就归入该模块。
+> 5. 新增文章**插入到对应模块的开头**（最新的在最前面），不要删除或修改已有条目。每条末尾附上发布日期，格式为 `（YYYY-MM-DD）`。日期优先取页面正文可见日期，其次取 meta `datePublished`。**已知日期陷阱**：① OpenAI RSS feed 返回的日期经常是批量更新日期而非真实发布日期，必须打开文章取正文第一行日期；② Anthropic 的 structured metadata 日期不可靠，务必以正文可见日期为准；③ Microsoft Research 的 `article:published_time` 比较可靠可直接使用。
+
+### 模块分类指引
+
+| 模块 | 归类标准 |
+| --- | --- |
+| 安全与对齐 | 模型安全、对齐方法、红队攻防、prompt injection 防御、安全政策框架 |
+| 可解释性 | 理解模型内部机制：电路分析、特征提取、叠加理论、稀疏分解 |
+| Agent 工程 | Agent 架构设计、工具调用、多 Agent 协同、执行框架、沙箱 |
+| 推理与思维链 | 推理能力训练、思维链机制、CoT 忠实度、推理模型设计 |
+| 评测与基准 | 提出或分析评测方法论、基准设计、评测指标体系 |
+| 模型架构与训练 | 模型结构创新、训练方法、MoE、RLHF、数据工程、蒸馏 |
+| 代码与工程实践 | 编码工具、工程复盘、开发工作流、提示工程实践、故障分析 |
+| 多模态与生成 | 视觉/音频/视频/3D 模型、生成模型、机器人感知 |
+| 科学与数学 | AI 用于科学发现：蛋白质、物理、数学证明、天气、基因 |
+| RAG 与检索 | 检索增强生成、长上下文、知识图谱检索、上下文工程 |
+| 系统与基础设施 | 推理优化、训练基础设施、芯片、CUDA、量化、数据库扩展 |
+
+### 支持的源列表
+
+| 源 | 地址 / 获取方式 |
+| --- | --- |
+| OpenAI | RSS: `https://openai.com/news/rss.xml` |
+| Anthropic | Sitemap: `https://www.anthropic.com/sitemap.xml`，过滤 `/research/*`, `/engineering/*` |
+| Google DeepMind | RSS: `https://deepmind.google/blog/rss.xml` |
 | Meta AI | `https://ai.meta.com/blog/` |
+| Microsoft Research | RSS: `https://www.microsoft.com/en-us/research/feed/` |
+| NVIDIA | RSS: `https://blogs.nvidia.com/feed/` |
+| Hugging Face | RSS: `https://huggingface.co/blog/feed.xml` |
+| Qwen | 遍历: `https://qwen.ai/research`（原 GitHub Pages 已重定向） |
+| DeepSeek | 解析: `https://api-docs.deepseek.com/updates`（原 `/news` 已失效） |
+| Kimi | 解析: `https://platform.moonshot.ai/blog` |
+| Mistral | 解析: `https://mistral.ai/news/` |
+| Manus | 遍历: `https://manus.im/zh-cn/blog` |
+
+## 安全与对齐
+- **[OpenAI]** [How we monitor internal coding agents for misalignment](https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment) — 内部编码代理的失配监控系统、分级告警与真实部署经验（2026-03-19）
+- **[OpenAI]** [Why Codex Security Doesn't Include a SAST Report](https://openai.com/index/why-codex-security-doesnt-include-sast) — 为何用约束推理与验证找漏洞，而非传统 SAST（2026-03-16）
+- **[OpenAI]** [Designing AI agents to resist prompt injection](https://openai.com/index/designing-agents-to-resist-prompt-injection) — 拆解代理抵御提示注入的训练、评测与系统防护思路（2026-03-11）
+- **[OpenAI]** [Improving instruction hierarchy in frontier LLMs](https://openai.com/index/instruction-hierarchy-challenge) — 前沿大模型的指令层级机制与越狱鲁棒性提升（2026-03-10）
+- **[Anthropic]** [Mozilla Firefox Security](https://www.anthropic.com/news/mozilla-firefox-security) — 用 Claude 对 Firefox 进行安全审计的实践（2026-03-06）
+- **[OpenAI]** [Reasoning models struggle to control their chains of thought, and that's good](https://openai.com/index/reasoning-models-chain-of-thought-controllability) — 推理模型难以精确操控思维链的原因及其安全意义（2026-03-05）
+- **[OpenAI]** [Keeping your data safe when an AI agent clicks a link](https://openai.com/index/ai-agent-link-safety) — 代理点击外部链接时的隔离、验证与数据防护机制（2026-01-28）
+- **[Anthropic]** [Disempowerment Patterns](https://www.anthropic.com/research/disempowerment-patterns) — 现实 AI 使用中的用户失权模式与风险分析（2026-01-28）
+- **[Anthropic]** [Assistant Axis](https://www.anthropic.com/research/assistant-axis) — 用 activation capping 防止模型 persona drift 导致有害输出的安全干预方法（2026-01-19）
+- **[Anthropic]** [Next Generation Constitutional Classifiers](https://www.anthropic.com/research/next-generation-constitutional-classifiers) — 下一代宪法分类器的架构改进与防护效果（2026-01-09）
+- **[OpenAI]** [Continuously hardening ChatGPT Atlas against prompt injection](https://openai.com/index/hardening-atlas-against-prompt-injection) — 用自动化红队与强化学习持续加固 Atlas 抗注入能力（2025-12-22）
+- **[OpenAI]** [How confessions can keep language models honest](https://openai.com/index/how-confessions-can-keep-language-models-honest) — 让模型先自白不确定性以提升诚实度的实验研究（2025-12-03）
+- **[Anthropic]** [Prompt Injection Defenses](https://www.anthropic.com/research/prompt-injection-defenses) — 浏览器场景下提示注入的技术防御方案（2025-11-24）
+- **[Anthropic]** [Emergent Misalignment Reward Hacking](https://www.anthropic.com/research/emergent-misalignment-reward-hacking) — 从奖励投机到自发失配的演化路径分析（2025-11-21）
+- **[Anthropic]** [Disrupting AI-Orchestrated Cyber Espionage](https://www.anthropic.com/news/disrupting-AI-espionage) — 打断 AI 编排的网络间谍活动（2025-11-13）
+- **[Anthropic]** [Small Samples Poison](https://www.anthropic.com/research/small-samples-poison) — 少量有毒样本如何破坏模型安全行为（2025-10-09）
+- **[Google DeepMind]** [Introducing CodeMender: AI agent for code security](https://deepmind.google/blog/introducing-codemender-an-ai-agent-for-code-security/) — CodeMender 的漏洞定位、修复与验证流程（2025-10-06）
+- **[Qwen]** [Qwen3Guard: Real-time Safety for Your Token Stream](https://qwenlm.github.io/blog/qwen3guard/) — Qwen3Guard 实时安全检测与分类机制（2025-09-23）
+- **[Google DeepMind]** [Strengthening the Frontier Safety Framework](https://deepmind.google/blog/strengthening-our-frontier-safety-framework/) — Frontier Safety Framework 的风险分层与升级机制（2025-09-22）
+- **[OpenAI]** [Detecting and reducing scheming in AI models](https://openai.com/index/detecting-and-reducing-scheming-in-ai-models) — 模型为什么会学会隐瞒意图的统计分析（2025-09-17）
+- **[OpenAI]** [Why language models hallucinate](https://openai.com/index/why-language-models-hallucinate) — 从评测激励与预训练机制解释幻觉如何产生（2025-09-05）
+- **[Anthropic]** [Building Safeguards for Claude](https://www.anthropic.com/news/building-safeguards-for-claude) — Claude 安全防护体系的构建方法与工程经验（2025-08-11）
+- **[Anthropic]** [Our Framework for Safe and Trustworthy Agents](https://www.anthropic.com/news/our-framework-for-developing-safe-and-trustworthy-agents) — 代理在高风险场景下的安全边界定义、监控层级与信任链设计（2025-08-04）
+- **[Anthropic]** [Agentic Misalignment](https://www.anthropic.com/research/agentic-misalignment) — 虚构公司场景中 LLM 对齐失配和越界行为的系统研究（2025-06-20）
+- **[OpenAI]** [Toward understanding and preventing misalignment generalization](https://openai.com/index/emergent-misalignment) — 错位泛化的成因、风险与预防思路（2025-06-18）
+- **[Anthropic]** [Shade Arena Sabotage Monitoring](https://www.anthropic.com/research/shade-arena-sabotage-monitoring) — 在对抗环境中监控模型破坏行为的框架（2025-06-16）
+- **[Google DeepMind]** [Advancing Gemini's security safeguards](https://deepmind.google/blog/advancing-geminis-security-safeguards/) — Gemini 安全护栏的强化策略与攻击面防护（2025-05-20）
+- **[Meta AI]** [AI Defenders: Llama Guard 4, LlamaFirewall](https://ai.meta.com/blog/ai-defenders-program-llama-protection-tools/) — Llama Guard 4 与 LlamaFirewall 的多层防护设计（2025-04-29）
+- **[Anthropic]** [Values Wild](https://www.anthropic.com/research/values-wild) — 模型价值观在真实使用场景中的表现与偏离分析（2025-04-21）
+- **[OpenAI]** [Our updated Preparedness Framework](https://openai.com/index/updating-our-preparedness-framework) — Preparedness Framework 的更新与发布门槛规则（2025-04-15）
+- **[Google DeepMind]** [Evaluating cybersecurity threats of advanced AI](https://deepmind.google/blog/evaluating-potential-cybersecurity-threats-of-advanced-ai/) — 高级 AI 带来的网络安全威胁评估（2025-04-02）
+- **[Anthropic]** [Strategic Warning for AI Risk](https://www.anthropic.com/news/strategic-warning-for-ai-risk-progress-and-insights-from-our-frontier-red-team) — 前沿红队如何从攻击模式中提炼早期预警信号与风险升级指标（2025-03-19）
+- **[Anthropic]** [Auditing Hidden Objectives](https://www.anthropic.com/research/auditing-hidden-objectives) — 审计语言模型隐藏目标的系统方法（2025-03-13）
+- **[Anthropic]** [Forecasting Rare Behaviors](https://www.anthropic.com/research/forecasting-rare-behaviors) — 预测模型罕见危险行为的统计方法（2025-02-25）
+- **[Google DeepMind]** [Updating the Frontier Safety Framework](https://deepmind.google/blog/updating-the-frontier-safety-framework/) — Frontier Safety Framework 的新安全协议与执行要求（2025-02-04）
+- **[Anthropic]** [Constitutional Classifiers](https://www.anthropic.com/research/constitutional-classifiers) — 抵御通用越狱的分类器设计与对抗评估（2025-02-03）
+- **[OpenAI]** [Trading inference-time compute for adversarial robustness](https://openai.com/index/trading-inference-time-compute-for-adversarial-robustness) — 推理时计算与对抗鲁棒性的权衡关系（2025-01-22）
+- **[OpenAI]** [Deliberative alignment](https://openai.com/index/deliberative-alignment) — 通过延迟推理让语言模型学会更安全的对齐策略（2024-12-20）
+- **[Anthropic]** [Alignment Faking](https://www.anthropic.com/research/alignment-faking) — 大语言模型在训练中伪装对齐的实验发现（2024-12-18）
+- **[Anthropic]** [Clio](https://www.anthropic.com/research/clio) — 隐私保护的真实世界 AI 使用分析与安全监控系统（2024-11-26）
+- **[OpenAI]** [Advancing red teaming with people and AI](https://openai.com/index/advancing-red-teaming-with-people-and-ai) — 人类与自动化联合红队的方法与流程（2024-11-21）
+- **[Anthropic]** [Sabotage Evaluations](https://www.anthropic.com/research/sabotage-evaluations) — 评估模型蓄意破坏能力的系统化方法（2024-10-18）
+- **[Google DeepMind]** [Mapping the misuse of generative AI](https://deepmind.google/blog/mapping-the-misuse-of-generative-ai/) — 生成式 AI 滥用模式与攻击场景的系统梳理（2024-08-02）
+- **[OpenAI]** [Improving Model Safety Behavior with Rule-Based Rewards](https://openai.com/index/improving-model-safety-behavior-with-rule-based-rewards) — 规则奖励如何改善模型安全行为（2024-07-24）
+- **[Meta AI]** [Llama 3.1 safety: Llama Guard 3, Prompt Guard](https://ai.meta.com/blog/meta-llama-3-1-ai-responsibility/) — Llama 3.1 的安全护栏与防护工具套件（2024-07-23）
+- **[OpenAI]** [Prover-Verifier Games improve legibility of language model outputs](https://openai.com/index/prover-verifier-games-improve-legibility) — 用证明者-验证者博弈提升模型输出可审计性（2024-07-17）
+- **[OpenAI]** [A Holistic Approach to Undesired Content Detection in the Real World](https://openai.com/index/a-holistic-approach-to-undesired-content-detection-in-the-real-world) — 真实世界内容审核系统的分类、标注与主动学习（2024-06-20）
+- **[Anthropic]** [Reward Tampering](https://www.anthropic.com/research/reward-tampering) — 模型篡改自身奖励信号的行为发现与分析（2024-06-17）
+- **[Anthropic]** [Challenges in Red Teaming AI Systems](https://www.anthropic.com/news/challenges-in-red-teaming-ai-systems) — 红队测试 AI 系统的实操挑战（2024-06-11）
+- **[Google DeepMind]** [SynthID: watermarking AI text and video](https://deepmind.google/blog/watermarking-ai-generated-text-and-video-with-synthid/) — AI 生成内容的文本与视频水印技术（2024-05-14）
+- **[OpenAI]** [Understanding the source of what we see and hear online](https://openai.com/index/understanding-the-source-of-what-we-see-and-hear-online) — 内容来源识别、生成溯源与真实性标记（2024-05-07）
+- **[Anthropic]** [Probes Catch Sleeper Agents](https://www.anthropic.com/research/probes-catch-sleeper-agents) — 用探针检测潜伏后门行为的方法与局限（2024-04-23）
+- **[OpenAI]** [The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions](https://openai.com/index/the-instruction-hierarchy) — 训练 LLM 优先遵循特权指令的层级训练方法（2024-04-19）
+- **[Anthropic]** [Many-Shot Jailbreaking](https://www.anthropic.com/research/many-shot-jailbreaking) — 利用长上下文中大量示例绕过安全对齐的攻击方法（2024-04-02）
+- **[OpenAI]** [LLM-aided biological threat early warning system](https://openai.com/index/building-an-early-warning-system-for-llm-aided-biological-threat-creation) — LLM 辅助生物威胁预警系统的设计蓝图（2024-01-31）
+- **[Anthropic]** [Sleeper Agents](https://www.anthropic.com/research/sleeper-agents-training-deceptive-llms-that-persist-through-safety-training) — 后门植入型欺骗性 LLM 在安全训练后仍然存活的实验（2024-01-14）
+- **[Anthropic]** [Constitutional AI: Harmlessness From AI Feedback](https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback) — 从 AI 反馈学习无害行为的 Constitutional AI 方法（2023-12-18）
+- **[Anthropic]** [Frontier Threats: Red Teaming for AI Safety](https://www.anthropic.com/news/frontier-threats-red-teaming-for-ai-safety) — 前沿威胁场景下的红队方法论（2023-12-18）
+- **[Meta AI]** [Purple Llama: open trust and safety](https://ai.meta.com/blog/purple-llama-open-trust-safety-generative-ai/) — 开源安全评测与防护工具链（2023-12-07）
+- **[Anthropic]** [Specific Versus General Principles For Constitutional AI](https://www.anthropic.com/research/specific-versus-general-principles-for-constitutional-ai) — Constitutional AI 中具体规则与通用原则的对比实验（2023-10-24）
+- **[Anthropic]** [Towards Understanding Sycophancy In Language Models](https://www.anthropic.com/research/towards-understanding-sycophancy-in-language-models) — 模型阿谀奉承行为的成因分析与缓解思路（2023-10-23）
+- **[Anthropic]** [Collective Constitutional AI](https://www.anthropic.com/research/collective-constitutional-ai-aligning-a-language-model-with-public-input) — 用公众输入定义宪法并训练对齐模型（2023-10-16）
+- **[Google DeepMind]** [An early warning system for novel AI risks](https://deepmind.google/blog/an-early-warning-system-for-novel-ai-risks/) — 新型 AI 风险预警框架的评估思路与信号设计（2023-05-25）
+- **[Anthropic]** [The Capacity For Moral Self Correction In LLMs](https://www.anthropic.com/research/the-capacity-for-moral-self-correction-in-large-language-models) — 大语言模型道德自我纠正能力的实验验证（2023-02-15）
+- **[Anthropic]** [Measuring Progress On Scalable Oversight For LLMs](https://www.anthropic.com/research/measuring-progress-on-scalable-oversight-for-large-language-models) — 可扩展监督方法的进展与评估（2022-11-04）
+- **[Anthropic]** [Red Teaming Language Models](https://www.anthropic.com/research/red-teaming-language-models-to-reduce-harms-methods-scaling-behaviors-and-lessons-learned) — 红队攻击语言模型的方法、规模效应与经验教训（2022-08-22）
+- **[Anthropic]** [Training A Helpful And Harmless Assistant With RLHF](https://www.anthropic.com/research/training-a-helpful-and-harmless-assistant-with-reinforcement-learning-from-human-feedback) — 用 RLHF 训练有用且无害助手的方法与权衡（2022-04-12）
+- **[Anthropic]** [A General Language Assistant As A Laboratory For Alignment](https://www.anthropic.com/research/a-general-language-assistant-as-a-laboratory-for-alignment) — 把通用语言助手当作对齐实验室的研究框架（2021-12-01）
+
+## 可解释性
+- **[Anthropic]** [Persona Selection Model](https://www.anthropic.com/research/persona-selection-model) — 模型内部角色选择机制的分析（2026-02-23）
+- **[Google DeepMind]** [Gemma Scope 2](https://deepmind.google/blog/gemma-scope-2-helping-the-ai-safety-community-deepen-understanding-of-complex-language-model-behavior/) — 面向安全社区的模型行为可解释工具链（2025-12-19）
+- **[OpenAI]** [Understanding neural networks through sparse circuits](https://openai.com/index/understanding-neural-networks-through-sparse-circuits) — 用稀疏电路视角解释神经网络内部机制（2025-11-13）
+- **[Anthropic]** [Introspection](https://www.anthropic.com/research/introspection) — 语言模型自我内省能力的实验研究（2025-10-29）
+- **[Anthropic]** [Persona Vectors](https://www.anthropic.com/research/persona-vectors) — 用向量表示和控制模型人格特征（2025-08-01）
+- **[Anthropic]** [Open Source Circuit Tracing](https://www.anthropic.com/research/open-source-circuit-tracing) — 开源发布的 Transformer 电路追踪工具链及其在 Claude 上的实验（2025-05-29）
+- **[Anthropic]** [Tracing Thoughts Language Model](https://www.anthropic.com/research/tracing-thoughts-language-model) — 用归因图追踪 Claude 从输入到输出的内部计算路径（2025-03-27）
+- **[Anthropic]** [Crosscoder Model Diffing](https://www.anthropic.com/research/crosscoder-model-diffing) — 跨模型差异分析的可解释方法（2025-02-20）
+- **[Anthropic]** [Evaluating Feature Steering](https://www.anthropic.com/research/evaluating-feature-steering) — 用特征 steering 缓解社会偏见的案例研究（2024-10-25）
+- **[Anthropic]** [Features As Classifiers](https://www.anthropic.com/research/features-as-classifiers) — 证明稀疏自编码器提取的字典特征可直接用作零样本分类器（2024-10-16）
+- **[Anthropic]** [Transformer Circuits Thread](https://transformer-circuits.pub/) — 可解释性团队月度研究进展汇总（电路分析、特征分解、叠加理论等初步实验与发现）（2024-10-01）
+- **[Anthropic]** [Engineering Challenges Interpretability](https://www.anthropic.com/research/engineering-challenges-interpretability) — 规模化可解释性研究的工程挑战（2024-06-13）
+- **[OpenAI]** [Extracting Concepts from GPT-4](https://openai.com/index/extracting-concepts-from-gpt-4) — 从 GPT-4 内部表示中提取可解释概念的方法与可视化（2024-06-06）
+- **[Anthropic]** [Mapping Mind Language Model](https://www.anthropic.com/research/mapping-mind-language-model) — 映射语言模型内部认知结构（2024-05-21）
+- **[Anthropic]** [Transformer Circuits](https://www.anthropic.com/research/transformer-circuits) — Transformer 内部电路机制的基础研究（2024-03-08）
+- **[Anthropic]** [Scaling Laws And Interpretability Of Learning From Repeated Data](https://www.anthropic.com/research/scaling-laws-and-interpretability-of-learning-from-repeated-data) — 重复数据学习中的缩放规律与可解释性（2023-12-18）
+- **[Anthropic]** [Language Models Mostly Know What They Know](https://www.anthropic.com/research/language-models-mostly-know-what-they-know) — 模型对自身知识边界的自我感知能力（2023-12-18）
+- **[Anthropic]** [Decomposing Language Models Into Understandable Components](https://www.anthropic.com/research/decomposing-language-models-into-understandable-components) — 拆解语言模型为可理解组件（2023-10-05）
+- **[Anthropic]** [Towards Monosemanticity: Dictionary Learning](https://www.anthropic.com/research/towards-monosemanticity-decomposing-language-models-with-dictionary-learning) — 用字典学习实现语言模型的单义分解（2023-10-05）
+- **[Anthropic]** [Influence Functions](https://www.anthropic.com/research/influence-functions) — 影响函数在语言模型中的应用方法（2023-08-08）
+- **[Anthropic]** [Studying LLM Generalization With Influence Functions](https://www.anthropic.com/research/studying-large-language-model-generalization-with-influence-functions) — 用影响函数研究大模型泛化机制（2023-08-08）
+- **[Anthropic]** [Distributed Representations Composition Superposition](https://www.anthropic.com/research/distributed-representations-composition-superposition) — 分布式表示中的组合与叠加机制（2023-05-04）
+- **[Anthropic]** [Privileged Bases In The Transformer Residual Stream](https://www.anthropic.com/research/privileged-bases-in-the-transformer-residual-stream) — Transformer 残差流中特权基的发现与分析（2023-03-16）
+- **[Anthropic]** [Superposition Memorization And Double Descent](https://www.anthropic.com/research/superposition-memorization-and-double-descent) — 叠加、记忆与双下降的关系（2023-01-05）
+- **[Anthropic]** [Toy Models Of Superposition](https://www.anthropic.com/research/toy-models-of-superposition) — 叠加现象的玩具模型理论分析（2022-09-14）
+- **[Anthropic]** [Softmax Linear Units](https://www.anthropic.com/research/softmax-linear-units) — SoLU 激活函数对可解释性的影响（2022-06-17）
+- **[Anthropic]** [In Context Learning And Induction Heads](https://www.anthropic.com/research/in-context-learning-and-induction-heads) — 情境学习与归纳头的机制发现（2022-03-08）
+- **[Anthropic]** [A Mathematical Framework For Transformer Circuits](https://www.anthropic.com/research/a-mathematical-framework-for-transformer-circuits) — Transformer 电路的数学框架与可解释分析方法（2021-12-22）
+
+## Agent 工程
+- **[Microsoft Research]** [AgentRx](https://www.microsoft.com/en-us/research/blog/systematic-debugging-for-ai-agents-introducing-the-agentrx-framework/) — AI 代理的系统化调试框架（2026-03-12）
+- **[Microsoft Research]** [PlugMem](https://www.microsoft.com/en-us/research/blog/from-raw-interaction-to-reusable-knowledge-rethinking-memory-for-ai-agents/) — 代理记忆的知识复用与更新机制（2026-03-10）
+- **[Microsoft Research]** [CORPGEN](https://www.microsoft.com/en-us/research/blog/corpgen-advances-ai-agents-for-real-work/) — 面向真实工作场景的复杂任务代理（2026-02-26）
+- **[OpenAI]** [From model to agent: Equipping the Responses API with a computer environment](https://openai.com/index/equip-responses-api-computer-environment) — Responses API 接入计算机环境并演进为可操作代理（2026-02-11）
+- **[OpenAI]** [Harness engineering: leveraging Codex in an agent-first world](https://openai.com/index/harness-engineering) — agent-first 开发中使用 Codex harness 的工程方法（2026-02-11）
+- **[OpenAI]** [Unlocking the Codex harness: how we built the App Server](https://openai.com/index/unlocking-the-codex-harness) — Codex App Server 的协议设计、事件流与集成（2026-02-04）
+- **[OpenAI]** [Inside OpenAI's in-house data agent](https://openai.com/index/inside-our-in-house-data-agent) — OpenAI 内部数据代理的架构与工作流（2026-01-29）
+- **[OpenAI]** [Unrolling the Codex agent loop](https://openai.com/index/unrolling-the-codex-agent-loop) — Codex 代理循环的关键步骤、状态管理与控制点（2026-01-23）
+- **[Manus]** [了解 Manus Sandbox](https://manus.im/zh-cn/blog/manus-sandbox) — Manus Sandbox 运行环境的隔离与架构（2026-01-14）
+- **[Microsoft Research]** [Agent Lightning](https://www.microsoft.com/en-us/research/blog/agent-lightning-adding-reinforcement-learning-to-ai-agents-without-code-rewrites/) — 无需改码即可为代理添加强化学习（2025-12-11）
+- **[Microsoft Research]** [Fara-7B](https://www.microsoft.com/en-us/research/blog/fara-7b-an-efficient-agentic-model-for-computer-use/) — 7B 参数的高效计算机使用代理模型（2025-11-24）
+- **[Anthropic]** [Advanced Tool Use](https://www.anthropic.com/engineering/advanced-tool-use) — Claude 代理式工具调用的动态发现与执行机制（2025-11-24）
+- **[Anthropic]** [Effective Harnesses For Long Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) — 面向长时运行代理的执行框架设计（2025-11-21）
+- **[Google DeepMind]** [SIMA 2: AI Agent for 3D Virtual Worlds](https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/) — SIMA 2 在虚拟 3D 世界中的自我改进与泛化（2025-11-13）
+- **[Anthropic]** [Code Execution With MCP](https://www.anthropic.com/engineering/code-execution-with-mcp) — 用 MCP 代码执行降低代理上下文开销（2025-11-04）
+- **[Google DeepMind]** [Gemini Robotics 1.5](https://deepmind.google/blog/gemini-robotics-15-brings-ai-agents-into-the-physical-world/) — Gemini Robotics 1.5 的工具使用与多步执行（2025-09-25）
+- **[Anthropic]** [Measuring Agent Autonomy](https://www.anthropic.com/research/measuring-agent-autonomy) — 衡量代理自主权的方法与框架（2025-09-19）
+- **[Anthropic]** [Writing Tools For Agents](https://www.anthropic.com/engineering/writing-tools-for-agents) — 工具描述、参数设计与错误处理如何影响代理调用成功率（2025-09-11）
+- **[Manus]** [AI代理的上下文工程：构建Manus的经验教训](https://manus.im/zh-cn/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus) — 构建 AI Agent 的上下文工程方法与实践复盘（2025-07-18）
+- **[Kimi]** [Kimi K2: Open Agentic Intelligence](https://platform.moonshot.ai/blog/posts/k2-report) — 1T 参数的 Kimi K2 技术报告与 Agent 架构（2025-07-15）
+- **[Microsoft Research]** [Magentic-UI](https://www.microsoft.com/en-us/research/blog/magentic-ui-an-experimental-human-centered-web-agent/) — 人类保持控制权的网页代理交互模式与协作界面设计（2025-05-19）
+- **[Google DeepMind]** [AlphaEvolve](https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/) — Gemini 驱动的算法进化搜索代理（2025-05-14）
+- **[Anthropic]** [Multi Agent Research System](https://www.anthropic.com/engineering/multi-agent-research-system) — 多代理研究系统的架构与权衡（2025-04-22）
+- **[Anthropic]** [Claude Code Sandboxing](https://www.anthropic.com/engineering/claude-code-sandboxing) — Claude Code 的沙箱隔离与安全机制（2025-04-22）
+- **[Google DeepMind]** [Gemini Robotics brings AI into the physical world](https://deepmind.google/blog/gemini-robotics-brings-ai-into-the-physical-world/) — Gemini Robotics 的感知、规划与物理执行（2025-03-12）
+- **[Anthropic]** [Claude Think Tool](https://www.anthropic.com/engineering/claude-think-tool) — 让 Claude 在工具调用前先暂停思考的机制（2025-02-12）
+- **[Hugging Face]** [Open-Source DeepResearch](https://huggingface.co/blog/open-deep-research) — 开源深度研究 Agent 的系统设计（2025-02-04）
+- **[OpenAI]** [Introducing deep research](https://openai.com/index/introducing-deep-research) — deep research 的多步研究工作流与实现思路（2025-02-02）
+- **[OpenAI]** [Computer-Using Agent](https://openai.com/index/computer-using-agent) — Computer-Using Agent 的 GUI 操作能力与边界（2025-01-23）
+- **[Microsoft Research]** [AutoGen v0.4](https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/) — AutoGen v0.4 的事件驱动架构、可观测性与代理生命周期管理（2025-01-14）
+- **[Anthropic]** [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) — 可靠 AI 代理的构建方法、原则与框架总结（2025-01-06）
+- **[Anthropic]** [Introducing the Model Context Protocol](https://www.anthropic.com/news/model-context-protocol) — MCP 协议的架构设计与使用实践（2024-11-19）
+- **[Microsoft Research]** [Magentic-One](https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/) — 通用多代理系统的架构与协同（2024-11-05）
+
+## 推理与思维链
+- **[Google DeepMind]** [Accelerating mathematical and scientific discovery with Gemini Deep Think](https://deepmind.google/blog/accelerating-mathematical-and-scientific-discovery-with-gemini-deep-think/) — Deep Think 如何辅助数学与科学发现（2026-02-11）
+- **[OpenAI]** [Evaluating chain-of-thought monitorability](https://openai.com/index/evaluating-chain-of-thought-monitorability) — 思维链可监控性评估与监控失配行为的边界（2025-12-18）
+- **[Google DeepMind]** [Gemini achieves ICPC gold medal](https://deepmind.google/blog/gemini-achieves-gold-medal-level-at-the-international-collegiate-programming-contest-world-finals/) — Gemini 在 ICPC 上的编程推理表现（2025-09-17）
+- **[NVIDIA]** [Train a Reasoning LLM in One Weekend](https://developer.nvidia.com/blog/train-a-reasoning-capable-llm-in-one-weekend-with-nvidia-nemo/) — 用 NeMo 一个周末训练推理 LLM 的实战（2025-07-23）
+- **[Google DeepMind]** [Gemini Deep Think achieves IMO gold medal](https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/) — Gemini Deep Think 冲击 IMO 金牌的推理方法（2025-07-21）
+- **[Microsoft Research]** [Phi-Reasoning](https://www.microsoft.com/en-us/research/articles/phi-reasoning-once-again-redefining-what-is-possible-with-small-and-efficient-ai/) — 小模型推理训练与蒸馏方法（2025-07-08）
+- **[Microsoft Research]** [rStar-Math](https://www.microsoft.com/en-us/research/blog/new-methods-boost-reasoning-in-small-and-large-language-models/) — 符号推理、数学规划与验证的新方法（2025-06-17）
+- **[Mistral AI]** [Magistral](https://mistral.ai/news/magistral) — 透明思维链推理模型的设计与评测（2025-06-10）
+- **[OpenAI]** [Thinking with images](https://openai.com/index/thinking-with-images) — 让模型通过图像工具进行视觉推理（2025-04-16）
+- **[Anthropic]** [Reasoning Models Dont Say Think](https://www.anthropic.com/research/reasoning-models-dont-say-think) — 推理模型为何不总会说出真实想法（2025-04-03）
+- **[Qwen]** [QwQ-32B: Embracing Reinforcement Learning](https://qwenlm.github.io/blog/qwq-32b/) — 强化学习驱动的推理模型实践（2025-03-06）
+- **[Anthropic]** [Visible Extended Thinking](https://www.anthropic.com/research/visible-extended-thinking) — Claude 显式思维链机制的实现与评测（2025-02-24）
+- **[DeepSeek]** [DeepSeek-R1 Release](https://api-docs.deepseek.com/news/news250120) — 对标 o1 的开源推理模型与完整技术报告（2025-01-20）
+- **[DeepSeek]** [DeepSeek-R1-Lite-Preview](https://api-docs.deepseek.com/news/news1120) — DeepSeek-R1-Lite 的推理时计算量与准确率的缩放关系实验（2024-11-20）
+- **[OpenAI]** [Learning to reason with LLMs](https://openai.com/index/learning-to-reason-with-llms) — LLM 推理能力的训练方法（2024-09-12）
+- **[Anthropic]** [Measuring Faithfulness In Chain Of Thought Reasoning](https://www.anthropic.com/research/measuring-faithfulness-in-chain-of-thought-reasoning) — 衡量思维链推理是否真实反映模型内部计算（2023-12-18）
+- **[Anthropic]** [Question Decomposition Improves Faithfulness](https://www.anthropic.com/research/question-decomposition-improves-the-faithfulness-of-model-generated-reasoning) — 问题拆解如何提升推理忠实度（2023-07-18）
+
+## 评测与基准
+- **[OpenAI]** [Introducing IndQA](https://openai.com/index/introducing-indqa) — 评测印地语等多语言能力的基准（2026-03-25）
+- **[Anthropic]** [Eval Awareness BrowseComp](https://www.anthropic.com/engineering/eval-awareness-browsecomp) — 模型在 BrowseComp 评测中识别测试并作弊的现象（2026-03-06）
+- **[OpenAI]** [Why we no longer evaluate SWE-bench Verified](https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified) — 停止使用 SWE-bench Verified 的原因与评测局限（2026-02-23）
+- **[OpenAI]** [Introducing EVMbench](https://openai.com/index/introducing-evmbench) — 评测代理在链上环境中的推理能力（2026-02-18）
+- **[Anthropic]** [Infrastructure Noise](https://www.anthropic.com/engineering/infrastructure-noise) — 代理式编码评测中的基础设施噪声分析（2026-02-03）
+- **[Anthropic]** [AI-Resistant Technical Evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) — 面向模型作弊的技术评测设计方法（2026-01-21）
+- **[Anthropic]** [Demystifying Evals For AI Agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) — 评估 AI 代理的实用方法与策略（2026-01-09）
+- **[Anthropic]** [Bloom](https://www.anthropic.com/research/bloom) — 自动行为评测的开源工具与技术报告（2025-12-19）
+- **[OpenAI]** [Evaluating AI's ability to perform scientific research tasks](https://openai.com/index/frontierscience) — 评测模型执行科学研究任务的边界（2025-12-16）
+- **[Google DeepMind]** [FACTS Benchmark Suite](https://deepmind.google/blog/facts-benchmark-suite-systematically-evaluating-the-factuality-of-large-language-models/) — 系统评测大模型事实性的基准套件（2025-12-09）
+- **[OpenAI]** [Defining and evaluating political bias in LLMs](https://openai.com/index/defining-and-evaluating-political-bias-in-llms) — 定义并评估 LLM 政治偏见（2025-10-09）
+- **[OpenAI]** [Measuring the performance of our models on real-world tasks](https://openai.com/index/gdpval) — 用真实世界任务而非静态基准评测模型（2025-09-25）
+- **[Microsoft Research]** [BenchmarkQED](https://www.microsoft.com/en-us/research/blog/benchmarkqed-automated-benchmarking-of-rag-systems/) — 自动化 RAG 评测的开源工具链（2025-06-05）
+- **[OpenAI]** [Introducing HealthBench](https://openai.com/index/healthbench) — 用真实医疗场景评估模型表现的基准（2025-05-12）
+- **[OpenAI]** [PaperBench](https://openai.com/index/paperbench) — 评估模型复现 AI 研究论文的能力（2025-04-02）
+- **[Anthropic]** [SWE-bench Sonnet](https://www.anthropic.com/engineering/swe-bench-sonnet) — Claude 在 SWE-bench Verified 上的表现与方法分析（2025-01-06）
+- **[Anthropic]** [Statistical Approach To Model Evals](https://www.anthropic.com/research/statistical-approach-to-model-evals) — 用置信区间、效应量与多重比较校正替代单点分数的评测统计框架（2024-11-19）
+- **[OpenAI]** [Introducing SimpleQA](https://openai.com/index/introducing-simpleqa) — 衡量幻觉和事实问答的基准（2024-10-30）
+- **[OpenAI]** [Evaluating fairness in ChatGPT](https://openai.com/index/evaluating-fairness-in-chatgpt) — 用公平性评估审视 ChatGPT 的行为差异（2024-10-15）
+- **[OpenAI]** [MLE-bench](https://openai.com/index/mle-bench) — 评测模型做机器学习工程的能力（2024-10-10）
+- **[OpenAI]** [Introducing SWE-bench Verified](https://openai.com/index/introducing-swe-bench-verified) — SWE-bench Verified 的设计与代码修复基准意义（2024-08-13）
+- **[Anthropic]** [Measuring Model Persuasiveness](https://www.anthropic.com/research/measuring-model-persuasiveness) — 衡量模型说服力的方法与实验（2024-04-02）
+- **[Microsoft Research]** [Steering at the Frontier: Medprompt](https://www.microsoft.com/en-us/research/blog/steering-at-the-frontier-extending-the-power-of-prompting/) — Medprompt 的提示策略与效果分析（2023-12-12）
+- **[Anthropic]** [Evaluating And Mitigating Discrimination In LLM Decisions](https://www.anthropic.com/research/evaluating-and-mitigating-discrimination-in-language-model-decisions) — 语言模型决策中的歧视评估与缓解（2023-12-07）
+- **[Anthropic]** [Towards Measuring Subjective Global Opinions In LMs](https://www.anthropic.com/research/towards-measuring-the-representation-of-subjective-global-opinions-in-language-models) — 衡量语言模型中主观全局观点的表征（2023-06-29）
+- **[Anthropic]** [Discovering Language Model Behaviors With Model-Written Evaluations](https://www.anthropic.com/research/discovering-language-model-behaviors-with-model-written-evaluations) — 用模型自写评测发现行为模式（2022-12-19）
+
+## 模型架构与训练
+- **[NVIDIA]** [Nemotron 3 Super](https://developer.nvidia.com/blog/introducing-nemotron-3-super-an-open-hybrid-mamba-transformer-moe-for-agentic-reasoning/) — Blackwell 上的 Latent MoE 架构（2026-03-11）
+- **[Microsoft Research]** [Phi-4-reasoning-vision](https://www.microsoft.com/en-us/research/blog/phi-4-reasoning-vision-and-the-lessons-of-training-a-multimodal-reasoning-model/) — 多模态推理模型的训练经验（2026-03-04）
+- **[Hugging Face]** [Mixture of Experts in Transformers](https://huggingface.co/blog/moe-transformers) — MoE 结构的原理与实现（2026-02-26）
+- **[NVIDIA]** [Optimizing MoE Training with Hybrid Expert Parallel](https://developer.nvidia.com/blog/optimizing-communication-for-mixture-of-experts-training-with-hybrid-expert-parallel/) — MoE 训练的通信优化方案（2026-02-02）
+- **[NVIDIA]** [Inside Nemotron 3](https://developer.nvidia.com/blog/inside-nvidia-nemotron-3-techniques-tools-and-data-that-make-it-efficient-and-accurate/) — 混合 Mamba-Transformer MoE 架构设计（2025-12-15）
+- **[OpenAI]** [How we built OWL, the architecture behind Atlas](https://openai.com/index/building-chatgpt-atlas) — ChatGPT 浏览器 Atlas 的 OWL 架构设计（2025-10-30）
+- **[DeepSeek]** [DeepSeek-V3.2-Exp](https://api-docs.deepseek.com/news/news250929) — Sparse Attention 实验版（2025-09-29）
+- **[Meta AI]** [DINOv3](https://ai.meta.com/blog/dinov3-self-supervised-vision-model/) — 7B 规模自监督视觉骨干的训练方法（2025-08-14）
+- **[Qwen]** [GSPO: Scalable RL for Language Models](https://qwenlm.github.io/blog/gspo/) — 稳定可扩展的语言模型强化学习算法（2025-07-27）
+- **[Google DeepMind]** [Introducing Gemma 3n](https://deepmind.google/blog/introducing-gemma-3n-the-developer-guide/) — Gemma 3n 的移动优先架构、MatFormer 与分层嵌入（2025-06-26）
+- **[Microsoft Research]** [Magma](https://www.microsoft.com/en-us/research/blog/magma-a-foundation-model-for-multimodal-ai-agents-across-digital-and-physical-worlds/) — 多模态代理基础模型的感知与行动能力（2025-02-25）
+- **[Hugging Face]** [Fine-Tuning Your First LLM](https://huggingface.co/blog/dvgodoy/fine-tuning-llm-hugging-face) — 用 PyTorch 和 HF 完成首个 LLM 微调（2025-02-11）
+- **[Qwen]** [Qwen2.5-Max: Large-scale MoE](https://qwenlm.github.io/blog/qwen2.5-max/) — 超大规模 MoE 的训练与扩展经验（2025-01-28）
+- **[Qwen]** [Global-batch load balance for MoE](https://qwenlm.github.io/blog/global-load-balance/) — MoE 全局批次负载均衡的训练方法（2025-01-21）
+- **[Qwen]** [Qwen2.5-Math-PRM](https://qwenlm.github.io/blog/qwen2.5-math-prm/) — 基于过程监督的数学推理模型（2025-01-14）
+- **[DeepSeek]** [Introducing DeepSeek-V3](https://api-docs.deepseek.com/news/news1226) — DeepSeek-V3 的 MoE 架构与高吞吐设计（2024-12-26）
+- **[Microsoft Research]** [Orca-AgentInstruct](https://www.microsoft.com/en-us/research/blog/orca-agentinstruct-agentic-flows-can-be-effective-synthetic-data-generators/) — 用代理式流程生成高质量合成训练数据（2024-11-14）
+- **[Microsoft Research]** [Modular models](https://www.microsoft.com/en-us/research/blog/toward-modular-models-collaborative-ai-development-enables-model-accountability-and-continuous-learning/) — 模块化 AI 协作开发与持续学习（2024-11-13）
+- **[OpenAI]** [Simplifying, stabilizing, and scaling continuous-time consistency models](https://openai.com/index/simplifying-stabilizing-and-scaling-continuous-time-consistency-models) — 连续时间一致性模型的简化与扩展（2024-10-23）
+- **[Meta AI]** [Meta FAIR: SAM 2.1, Spirit LM, LayerSkip](https://ai.meta.com/blog/fair-news-segment-anything-2-1-meta-spirit-lm-layer-skip-salsa-lingua/) — SAM 2.1、Spirit LM 和 LayerSkip 的研究进展（2024-10-18）
+- **[NVIDIA]** [Llama-3.1-Nemotron-51B](https://developer.nvidia.com/blog/advancing-the-accuracy-efficiency-frontier-with-llama-3-1-nemotron-51b/) — 神经架构搜索优化的 51B 模型（2024-09-23）
+- **[Mistral AI]** [Pixtral 12B](https://mistral.ai/news/pixtral-12b) — 12B 参数的原生多模态视觉语言模型架构（2024-09-17）
+- **[NVIDIA]** [Nemotron-4-340B](https://developer.nvidia.com/blog/leverage-our-latest-open-models-for-synthetic-data-generation-with-nvidia-nemotron-4-340b/) — Nemotron-4-340B 的合成数据生成管线与奖励模型训练流程（2024-08-16）
+- **[Mistral AI]** [Codestral Mamba](https://mistral.ai/news/codestral-mamba) — 基于 Mamba2 架构的代码生成模型与线性时间推理（2024-07-16）
+- **[Hugging Face]** [SmolLM](https://huggingface.co/blog/smollm) — 高质量数据训练的小模型实践（2024-07-16）
+- **[OpenAI]** [Finding GPT-4's mistakes with GPT-4](https://openai.com/index/finding-gpt4s-mistakes-with-gpt-4) — 用 GPT-4 做批评器改进 RLHF 训练（2024-06-27）
+- **[OpenAI]** [Consistency Models](https://openai.com/index/consistency-models) — 一步生成高质量样本的一致性模型训练方法（2024-06-20）
+- **[OpenAI]** [Improved Techniques for Training Consistency Models](https://openai.com/index/improved-techniques-for-training-consistency-models) — 用伪 Huber 损失与自适应权重改进连续时间一致性模型训练稳定性（2024-06-20）
+- **[Meta AI]** [Meta FAIR: Chameleon, JASCO, Multi-Token Prediction](https://ai.meta.com/blog/meta-fair-research-new-releases/) — Meta FAIR 多项研究模型与数据集的开放发布（2024-06-18）
+- **[Hugging Face]** [Sentence Transformers v3](https://huggingface.co/blog/train-sentence-transformers) — Sentence Transformers v3 的多损失训练、硬负样本挖掘与评测（2024-05-28）
+- **[Mistral AI]** [Mixtral 8x22B](https://mistral.ai/news/mixtral-8x22b) — 8x22B 稀疏 MoE 架构的设计与开源基准表现（2024-04-17）
+- **[Microsoft Research]** [Orca-Math](https://www.microsoft.com/en-us/research/blog/orca-math-demonstrating-the-potential-of-slms-with-model-specialization/) — 数学专用小模型的设计与训练（2024-03-05）
+- **[OpenAI]** [Video generation models as world simulators](https://openai.com/index/video-generation-models-as-world-simulators) — 把视频生成模型视作世界模拟器的研究框架（2024-02-15）
+- **[Meta AI]** [V-JEPA](https://ai.meta.com/blog/v-jepa-yann-lecun-ai-model-video-joint-embedding-predictive-architecture/) — V-JEPA 的自监督视频表征学习与预测架构（2024-02-15）
+- **[Microsoft Research]** [Phi-2](https://www.microsoft.com/en-us/research/blog/phi-2-the-surprising-power-of-small-language-models/) — Phi-2 用 1.4T token 精选数据训练 2.7B 模型达到 13B 级别表现（2023-12-12）
+- **[Meta AI]** [DINOv2](https://ai.meta.com/blog/dino-v2-computer-vision-self-supervised-learning/) — 自监督视觉表征训练的方法与迁移效果（2023-04-17）
+- **[Anthropic]** [Predictability And Surprise In Large Generative Models](https://www.anthropic.com/research/predictability-and-surprise-in-large-generative-models) — 大型生成模型的可预测性与惊喜的实证分析（2022-02-15）
+
+## 代码与工程实践
+- **[Anthropic]** [Building C Compiler](https://www.anthropic.com/engineering/building-c-compiler) — 用多个并行 Claude 实例协同实现 C 编译器的分工与集成复盘（2026-02-05）
+- **[Anthropic]** [AI Assistance Coding Skills](https://www.anthropic.com/research/AI-assistance-coding-skills) — AI 辅助对编程技能形成与保持的影响（2026-01-29）
+- **[Anthropic]** [Project Vend 2](https://www.anthropic.com/research/project-vend-2) — 自动商店二阶段复盘与教训（2025-12-18）
+- **[OpenAI]** [How We Used Codex to Ship Sora for Android in 28 Days](https://openai.com/index/shipping-sora-for-android-with-codex) — 用 Codex 在 28 天交付 Sora Android 的工程复盘（2025-10-30）
+- **[Anthropic]** [Petri Open Source Auditing](https://www.anthropic.com/research/petri-open-source-auditing) — Petri 用代理式工作流对开源项目做安全审计的架构与发现（2025-10-06）
+- **[Anthropic]** [A Postmortem Of Three Recent Issues](https://www.anthropic.com/engineering/a-postmortem-of-three-recent-issues) — 三起工程故障的复盘、成因与修复（2025-09-17）
+- **[Anthropic]** [Project Vend 1](https://www.anthropic.com/research/project-vend-1) — Claude 经营自动商店的机制与启示（2025-06-27）
+- **[Anthropic]** [Desktop Extensions](https://www.anthropic.com/engineering/desktop-extensions) — Claude Desktop 扩展的一键安装架构（2025-06-26）
+- **[Anthropic]** [Claude Code Best Practices](https://www.anthropic.com/engineering/claude-code-best-practices) — Claude Code 的最佳实践与使用技巧（2025-06-18）
+- **[Anthropic]** [Impact Software Development](https://www.anthropic.com/research/impact-software-development) — AI 对软件开发的影响实证分析（2025-04-28）
+- **[Anthropic]** [Effective Context Engineering For AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — 代理场景中的上下文工程与压缩策略（2025-04-22）
+- **[Anthropic]** [Prompt Engineering for Long Context](https://www.anthropic.com/news/prompting-long-context) — 长上下文提示工程的实践技巧（2023-12-18）
+
+## 多模态与生成
+- **[Meta AI]** [Segment Anything Model 3](https://ai.meta.com/blog/segment-anything-model-3/) — SAM 3 的实时检测、跟踪与全局推理（2026-03-27）
+- **[Google DeepMind]** [D4RT: teaching AI to see in 4D](https://deepmind.google/blog/d4rt-teaching-ai-to-see-the-world-in-four-dimensions/) — 四维场景重建与空间理解模型（2026-01-22）
+- **[Meta AI]** [SAM Audio](https://ai.meta.com/blog/sam-audio/) — SAM Audio 用文本、图像或音频提示实现通用音频分离（2025-12-16）
+- **[Meta AI]** [SAM 3D](https://ai.meta.com/blog/sam-3d/) — SAM 3D 将 Segment Anything 扩展到三维点云的分割与理解（2025-11-19）
+- **[Meta AI]** [Omnilingual ASR: 1600+ languages](https://ai.meta.com/blog/omnilingual-asr-advancing-automatic-speech-recognition/) — 1600+ 语种的自动语音识别（2025-11-10）
+- **[Anthropic]** [Project Fetch Robot Dog](https://www.anthropic.com/research/project-fetch-robot-dog) — 让 Claude 控制真实机器人狗执行多步任务的能力边界测试（2025-11-05）
+- **[Google DeepMind]** [Genie 3: A new frontier for world models](https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/) — Genie 3 世界模型的交互式环境生成（2025-08-05）
+- **[Google DeepMind]** [Gemini Robotics On-Device](https://deepmind.google/blog/gemini-robotics-on-device-brings-ai-to-local-robotic-devices/) — 端侧机器人推理与快速适配（2025-06-24）
+- **[Meta AI]** [V-JEPA 2](https://ai.meta.com/blog/v-jepa-2-world-model-benchmarks/) — V-JEPA 2 的联合嵌入预测架构在视频理解与物理推理上的突破（2025-06-11）
+- **[Hugging Face]** [SmolVLM2](https://huggingface.co/blog/smolvlm2) — 端侧视频理解与多模态升级（2025-02-20）
+- **[Google DeepMind]** [Genie 2](https://deepmind.google/blog/genie-2-a-large-scale-foundation-world-model/) — 大规模基础世界模型的训练与能力边界（2024-12-04）
+- **[Hugging Face]** [SmolVLM](https://huggingface.co/blog/smolvlm) — SmolVLM 在 2B 参数下实现端侧视觉问答的训练与部署（2024-11-26）
+- **[Google DeepMind]** [Pushing the frontiers of audio generation](https://deepmind.google/blog/pushing-the-frontiers-of-audio-generation/) — 音频生成模型的语音合成与多语言能力（2024-10-30）
+- **[Meta AI]** [Meta Movie Gen](https://ai.meta.com/blog/movie-gen-media-foundation-models-generative-ai-video/) — 图像、视频与音频生成的协同训练（2024-10-04）
+- **[OpenAI]** [Expanding on how Voice Engine works](https://openai.com/index/expanding-on-how-voice-engine-works-and-our-safety-research) — Voice Engine 的工作机制与安全研究（2024-06-07）
+
+## 科学与数学
+- **[OpenAI]** [GPT-5.2 derives a new result in theoretical physics](https://openai.com/index/new-result-theoretical-physics) — GPT-5.2 辅助理论物理推导获得新结果（2026-03-25）
+- **[OpenAI]** [Extending single-minus amplitudes to gravitons](https://openai.com/index/extending-single-minus-amplitudes-to-gravitons) — 用 GPT-5.2 推导引力子单负振幅的新结果（2026-03-25）
+- **[OpenAI]** [GPT-5 lowers the cost of cell-free protein synthesis](https://openai.com/index/gpt-5-lowers-protein-synthesis-cost) — GPT-5 优化无细胞蛋白合成降低实验成本（2026-03-25）
+- **[OpenAI]** [Early experiments in accelerating science with GPT-5](https://openai.com/index/accelerating-science-gpt-5) — GPT-5 在数学、物理、生物科研中的早期实验（2026-03-25）
+- **[OpenAI]** [Our First Proof submissions](https://openai.com/index/first-proof-submissions) — 模型在数学证明任务中的表现（2026-03-25）
+- **[OpenAI]** [Measuring AI's capability to accelerate biological research](https://openai.com/index/accelerating-biological-research-in-the-wet-lab) — 测量 AI 加速湿实验室生物研究的能力（2025-12-16）
+- **[OpenAI]** [Advancing science and math with GPT-5.2](https://openai.com/index/gpt-5-2-for-science-and-math) — GPT-5.2 在科学与数学应用中的能力与局限（2025-12-11）
+- **[Google DeepMind]** [Discovering new solutions to fluid dynamics](https://deepmind.google/blog/discovering-new-solutions-to-century-old-problems-in-fluid-dynamics/) — 用 AI 发现 Navier-Stokes 方程新解并推进百年流体力学问题（2025-09-18）
+- **[OpenAI]** [Accelerating life sciences research](https://openai.com/index/accelerating-life-sciences-research-with-retro-biosciences) — 用 AI 加速蛋白工程与生命科学研究（2025-08-22）
+- **[Google DeepMind]** [AlphaEarth Foundations](https://deepmind.google/blog/alphaearth-foundations-helps-map-our-planet-in-unprecedented-detail/) — AlphaEarth 融合卫星与地面数据构建高精度全球地表模型（2025-07-30）
+- **[Google DeepMind]** [AlphaGenome](https://deepmind.google/blog/alphagenome-ai-for-better-understanding-the-genome/) — DNA 序列建模与调控预测（2025-06-25）
+- **[Google DeepMind]** [Tropical cyclone prediction with AI](https://deepmind.google/blog/how-were-supporting-better-tropical-cyclone-prediction-with-ai/) — AI 辅助飓风预测的实验与效果（2025-06-12）
+- **[Meta AI]** [Meta FAIR Science: Open Molecules 2025](https://ai.meta.com/blog/meta-fair-science-new-open-source-releases/) — 分子、材料与神经科学的开源成果（2025-05-14）
+- **[Google DeepMind]** [GenCast](https://deepmind.google/blog/gencast-predicts-weather-and-the-risks-of-extreme-conditions-with-sota-accuracy/) — 天气不确定性建模与极端条件预报（2024-12-04）
+- **[Meta AI]** [Open Catalyst](https://ai.meta.com/blog/open-catalyst-simulations-experiments/) — 面向清洁氢能的材料模拟与催化剂发现（2024-11-19）
+- **[Google DeepMind]** [AlphaProteo](https://deepmind.google/blog/alphaproteo-generates-novel-proteins-for-biology-and-health-research/) — AI 设计新型蛋白质与实验验证（2024-09-05）
+
+## RAG 与检索
+- **[Manus]** [Wide Research：超越上下文窗口](https://manus.im/zh-cn/blog/manus-wide-research-solve-context-problem) — 突破上下文窗口限制的 Wide Research 机制（2025-10-29）
+- **[Qwen]** [Qwen2.5-1M: 1M Token Context](https://qwenlm.github.io/blog/qwen2.5-1m/) — 支持百万 token 上下文的模型与框架（2025-01-27）
+- **[Anthropic]** [Contextual Retrieval](https://www.anthropic.com/engineering/contextual-retrieval) — 上下文检索提升相关性与召回（2025-01-06）
+- **[Microsoft Research]** [LazyGraphRAG](https://www.microsoft.com/en-us/research/blog/lazygraphrag-setting-a-new-standard-for-quality-and-cost/) — 质量与成本权衡的轻量 GraphRAG（2024-11-25）
+- **[Microsoft Research]** [GraphRAG: dynamic community selection](https://www.microsoft.com/en-us/research/blog/graphrag-improving-global-search-via-dynamic-community-selection/) — 动态社区选择改进全局搜索（2024-11-15）
+- **[Microsoft Research]** [GraphRAG auto-tuning](https://www.microsoft.com/en-us/research/blog/graphrag-auto-tuning-provides-rapid-adaptation-to-new-domains/) — GraphRAG 自动调参与域迁移（2024-09-09）
+- **[DeepSeek]** [Context Caching on Disk](https://api-docs.deepseek.com/news/news0802) — 磁盘上下文缓存降低 API 成本（2024-08-02）
+- **[Microsoft Research]** [GraphRAG](https://www.microsoft.com/en-us/research/blog/graphrag-unlocking-llm-discovery-on-narrative-private-data/) — 知识图谱式检索增强的构建与推理（2024-02-13）
+
+## 系统与基础设施
+- **[NVIDIA]** [NVIDIA Dynamo 1.0](https://developer.nvidia.com/blog/nvidia-dynamo-1-production-ready/) — Dynamo 1.0 的分布式推理路由、负载均衡与生产级编排（2026-03-16）
+- **[Meta AI]** [MTIA](https://ai.meta.com/blog/meta-mtia-scale-ai-chips-for-billions/) — Meta 自研 AI 芯片的系统设计与部署（2026-03-11）
+- **[Hugging Face]** [Ulysses Sequence Parallelism](https://huggingface.co/blog/ulysses-sp) — 分布式序列并行支撑百万 token 长上下文训练（2026-03-09）
+- **[NVIDIA]** [Tuning Flash Attention in CUDA Tile](https://developer.nvidia.com/blog/tuning-flash-attention-for-peak-performance-in-nvidia-cuda-tile/) — CUDA Tile 中 Flash Attention 调优（2026-03-05）
+- **[OpenAI]** [Scaling PostgreSQL to power 800 million ChatGPT users](https://openai.com/index/scaling-postgresql) — 支撑 8 亿用户的 PostgreSQL 扩展与运维经验（2026-01-22）
+- **[NVIDIA]** [High-Performance GEMM in CUDA Tile](https://developer.nvidia.com/blog/how-to-write-high-performance-matrix-multiply-in-nvidia-cuda-tile/) — CUDA Tile 高性能矩阵乘法实现（2026-01-14）
+- **[Meta AI]** [ExecuTorch](https://ai.meta.com/blog/executorch-reality-labs-on-device-ai/) — 端侧推理引擎的部署与性能（2025-11-21）
+- **[Anthropic]** [Confidential Inference Trusted VMs](https://www.anthropic.com/research/confidential-inference-trusted-vms) — 基于可信虚拟机的保密推理与安全隔离方案（2025-06-18）
+- **[Microsoft Research]** [BitNet inference on edge devices](https://www.microsoft.com/en-us/research/blog/advances-to-low-bit-quantization-enable-llms-on-edge-devices/) — 低比特量化让 LLM 在边缘设备高效推理（2025-02-05）
+- **[Hugging Face]** [KV Caching Explained](https://huggingface.co/blog/not-lain/kv-caching) — KV 缓存机制与 Transformer 推理加速原理（2025-01-30）
+- **[NVIDIA]** [TensorRT-LLM Speculative Decoding](https://developer.nvidia.com/blog/boost-llama-3-3-70b-inference-throughput-3x-with-nvidia-tensorrt-llm-speculative-decoding/) — 投机解码与 FP8 量化实现 3.55x 吞吐提升（2024-12-17）
+- **[Microsoft Research]** [Advances in run-time strategies for foundation models](https://www.microsoft.com/en-us/research/blog/advances-in-run-time-strategies-for-next-generation-foundation-models/) — 推理时搜索、自适应计算分配与选择性生成的运行时策略综述（2024-11-27）
+- **[NVIDIA]** [Megatron-Core](https://developer.nvidia.com/blog/train-generative-ai-models-more-efficiently-with-new-nvidia-megatron-core-functionalities/) — 检查点开销降低 26-50x 的工程方案（2024-07-12）
+- **[NVIDIA]** [TensorRT Model Optimizer](https://developer.nvidia.com/blog/accelerate-generative-ai-inference-performance-with-nvidia-tensorrt-model-optimizer-now-publicly-available/) — QAT 与稀疏化加速推理（2024-05-08）
