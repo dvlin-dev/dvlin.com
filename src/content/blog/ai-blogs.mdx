@@ -24,17 +24,17 @@ ogImage: true
 
 | 模块 | 归类标准 |
 | --- | --- |
+| Agent 工程 | Agent 架构设计、工具调用、多 Agent 协同、执行框架、沙箱 |
+| 代码与工程实践 | 编码工具、工程复盘、开发工作流、提示工程实践、故障分析 |
+| 模型架构与训练 | 模型结构创新、训练方法、MoE、RLHF、数据工程、蒸馏 |
+| 推理与思维链 | 推理能力训练、思维链机制、CoT 忠实度、推理模型设计 |
+| RAG 与检索 | 检索增强生成、长上下文、知识图谱检索、上下文工程 |
+| 评测与基准 | 提出或分析评测方法论、基准设计、评测指标体系 |
 | 安全与对齐 | 模型安全、对齐方法、红队攻防、prompt injection 防御、安全政策框架 |
 | 可解释性 | 理解模型内部机制：电路分析、特征提取、叠加理论、稀疏分解 |
-| Agent 工程 | Agent 架构设计、工具调用、多 Agent 协同、执行框架、沙箱 |
-| 推理与思维链 | 推理能力训练、思维链机制、CoT 忠实度、推理模型设计 |
-| 评测与基准 | 提出或分析评测方法论、基准设计、评测指标体系 |
-| 模型架构与训练 | 模型结构创新、训练方法、MoE、RLHF、数据工程、蒸馏 |
-| 代码与工程实践 | 编码工具、工程复盘、开发工作流、提示工程实践、故障分析 |
+| 系统与基础设施 | 推理优化、训练基础设施、芯片、CUDA、量化、数据库扩展 |
 | 多模态与生成 | 视觉/音频/视频/3D 模型、生成模型、机器人感知 |
 | 科学与数学 | AI 用于科学发现：蛋白质、物理、数学证明、天气、基因 |
-| RAG 与检索 | 检索增强生成、长上下文、知识图谱检索、上下文工程 |
-| 系统与基础设施 | 推理优化、训练基础设施、芯片、CUDA、量化、数据库扩展 |
 
 ### 支持的源列表
 
@@ -52,6 +52,151 @@ ogImage: true
 | Kimi | 解析: `https://platform.moonshot.ai/blog` |
 | Mistral | 解析: `https://mistral.ai/news/` |
 | Manus | 遍历: `https://manus.im/zh-cn/blog` |
+
+## Agent 工程
+- **[Microsoft Research]** [AgentRx](https://www.microsoft.com/en-us/research/blog/systematic-debugging-for-ai-agents-introducing-the-agentrx-framework/) — AI 代理的系统化调试框架（2026-03-12）
+- **[Microsoft Research]** [PlugMem](https://www.microsoft.com/en-us/research/blog/from-raw-interaction-to-reusable-knowledge-rethinking-memory-for-ai-agents/) — 代理记忆的知识复用与更新机制（2026-03-10）
+- **[Microsoft Research]** [CORPGEN](https://www.microsoft.com/en-us/research/blog/corpgen-advances-ai-agents-for-real-work/) — 面向真实工作场景的复杂任务代理（2026-02-26）
+- **[OpenAI]** [From model to agent: Equipping the Responses API with a computer environment](https://openai.com/index/equip-responses-api-computer-environment) — Responses API 接入计算机环境并演进为可操作代理（2026-02-11）
+- **[OpenAI]** [Harness engineering: leveraging Codex in an agent-first world](https://openai.com/index/harness-engineering) — agent-first 开发中使用 Codex harness 的工程方法（2026-02-11）
+- **[OpenAI]** [Unlocking the Codex harness: how we built the App Server](https://openai.com/index/unlocking-the-codex-harness) — Codex App Server 的协议设计、事件流与集成（2026-02-04）
+- **[OpenAI]** [Inside OpenAI's in-house data agent](https://openai.com/index/inside-our-in-house-data-agent) — OpenAI 内部数据代理的架构与工作流（2026-01-29）
+- **[OpenAI]** [Unrolling the Codex agent loop](https://openai.com/index/unrolling-the-codex-agent-loop) — Codex 代理循环的关键步骤、状态管理与控制点（2026-01-23）
+- **[Manus]** [了解 Manus Sandbox](https://manus.im/zh-cn/blog/manus-sandbox) — Manus Sandbox 运行环境的隔离与架构（2026-01-14）
+- **[Microsoft Research]** [Agent Lightning](https://www.microsoft.com/en-us/research/blog/agent-lightning-adding-reinforcement-learning-to-ai-agents-without-code-rewrites/) — 无需改码即可为代理添加强化学习（2025-12-11）
+- **[Microsoft Research]** [Fara-7B](https://www.microsoft.com/en-us/research/blog/fara-7b-an-efficient-agentic-model-for-computer-use/) — 7B 参数的高效计算机使用代理模型（2025-11-24）
+- **[Anthropic]** [Advanced Tool Use](https://www.anthropic.com/engineering/advanced-tool-use) — Claude 代理式工具调用的动态发现与执行机制（2025-11-24）
+- **[Anthropic]** [Effective Harnesses For Long Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) — 面向长时运行代理的执行框架设计（2025-11-21）
+- **[Google DeepMind]** [SIMA 2: AI Agent for 3D Virtual Worlds](https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/) — SIMA 2 在虚拟 3D 世界中的自我改进与泛化（2025-11-13）
+- **[Anthropic]** [Code Execution With MCP](https://www.anthropic.com/engineering/code-execution-with-mcp) — 用 MCP 代码执行降低代理上下文开销（2025-11-04）
+- **[Google DeepMind]** [Gemini Robotics 1.5](https://deepmind.google/blog/gemini-robotics-15-brings-ai-agents-into-the-physical-world/) — Gemini Robotics 1.5 的工具使用与多步执行（2025-09-25）
+- **[Anthropic]** [Measuring Agent Autonomy](https://www.anthropic.com/research/measuring-agent-autonomy) — 衡量代理自主权的方法与框架（2025-09-19）
+- **[Anthropic]** [Writing Tools For Agents](https://www.anthropic.com/engineering/writing-tools-for-agents) — 工具描述、参数设计与错误处理如何影响代理调用成功率（2025-09-11）
+- **[Manus]** [AI代理的上下文工程：构建Manus的经验教训](https://manus.im/zh-cn/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus) — 构建 AI Agent 的上下文工程方法与实践复盘（2025-07-18）
+- **[Kimi]** [Kimi K2: Open Agentic Intelligence](https://platform.moonshot.ai/blog/posts/k2-report) — 1T 参数的 Kimi K2 技术报告与 Agent 架构（2025-07-15）
+- **[Microsoft Research]** [Magentic-UI](https://www.microsoft.com/en-us/research/blog/magentic-ui-an-experimental-human-centered-web-agent/) — 人类保持控制权的网页代理交互模式与协作界面设计（2025-05-19）
+- **[Google DeepMind]** [AlphaEvolve](https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/) — Gemini 驱动的算法进化搜索代理（2025-05-14）
+- **[Anthropic]** [Multi Agent Research System](https://www.anthropic.com/engineering/multi-agent-research-system) — 多代理研究系统的架构与权衡（2025-04-22）
+- **[Anthropic]** [Claude Code Sandboxing](https://www.anthropic.com/engineering/claude-code-sandboxing) — Claude Code 的沙箱隔离与安全机制（2025-04-22）
+- **[Google DeepMind]** [Gemini Robotics brings AI into the physical world](https://deepmind.google/blog/gemini-robotics-brings-ai-into-the-physical-world/) — Gemini Robotics 的感知、规划与物理执行（2025-03-12）
+- **[Anthropic]** [Claude Think Tool](https://www.anthropic.com/engineering/claude-think-tool) — 让 Claude 在工具调用前先暂停思考的机制（2025-02-12）
+- **[Hugging Face]** [Open-Source DeepResearch](https://huggingface.co/blog/open-deep-research) — 开源深度研究 Agent 的系统设计（2025-02-04）
+- **[OpenAI]** [Introducing deep research](https://openai.com/index/introducing-deep-research) — deep research 的多步研究工作流与实现思路（2025-02-02）
+- **[OpenAI]** [Computer-Using Agent](https://openai.com/index/computer-using-agent) — Computer-Using Agent 的 GUI 操作能力与边界（2025-01-23）
+- **[Microsoft Research]** [AutoGen v0.4](https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/) — AutoGen v0.4 的事件驱动架构、可观测性与代理生命周期管理（2025-01-14）
+- **[Anthropic]** [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) — 可靠 AI 代理的构建方法、原则与框架总结（2025-01-06）
+- **[Anthropic]** [Introducing the Model Context Protocol](https://www.anthropic.com/news/model-context-protocol) — MCP 协议的架构设计与使用实践（2024-11-19）
+- **[Microsoft Research]** [Magentic-One](https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/) — 通用多代理系统的架构与协同（2024-11-05）
+
+## 代码与工程实践
+- **[Anthropic]** [Building C Compiler](https://www.anthropic.com/engineering/building-c-compiler) — 用多个并行 Claude 实例协同实现 C 编译器的分工与集成复盘（2026-02-05）
+- **[Anthropic]** [AI Assistance Coding Skills](https://www.anthropic.com/research/AI-assistance-coding-skills) — AI 辅助对编程技能形成与保持的影响（2026-01-29）
+- **[Anthropic]** [Project Vend 2](https://www.anthropic.com/research/project-vend-2) — 自动商店二阶段复盘与教训（2025-12-18）
+- **[OpenAI]** [How We Used Codex to Ship Sora for Android in 28 Days](https://openai.com/index/shipping-sora-for-android-with-codex) — 用 Codex 在 28 天交付 Sora Android 的工程复盘（2025-10-30）
+- **[Anthropic]** [Petri Open Source Auditing](https://www.anthropic.com/research/petri-open-source-auditing) — Petri 用代理式工作流对开源项目做安全审计的架构与发现（2025-10-06）
+- **[Anthropic]** [A Postmortem Of Three Recent Issues](https://www.anthropic.com/engineering/a-postmortem-of-three-recent-issues) — 三起工程故障的复盘、成因与修复（2025-09-17）
+- **[Anthropic]** [Project Vend 1](https://www.anthropic.com/research/project-vend-1) — Claude 经营自动商店的机制与启示（2025-06-27）
+- **[Anthropic]** [Desktop Extensions](https://www.anthropic.com/engineering/desktop-extensions) — Claude Desktop 扩展的一键安装架构（2025-06-26）
+- **[Anthropic]** [Claude Code Best Practices](https://www.anthropic.com/engineering/claude-code-best-practices) — Claude Code 的最佳实践与使用技巧（2025-06-18）
+- **[Anthropic]** [Impact Software Development](https://www.anthropic.com/research/impact-software-development) — AI 对软件开发的影响实证分析（2025-04-28）
+- **[Anthropic]** [Effective Context Engineering For AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — 代理场景中的上下文工程与压缩策略（2025-04-22）
+- **[Anthropic]** [Prompt Engineering for Long Context](https://www.anthropic.com/news/prompting-long-context) — 长上下文提示工程的实践技巧（2023-12-18）
+
+## 模型架构与训练
+- **[NVIDIA]** [Nemotron 3 Super](https://developer.nvidia.com/blog/introducing-nemotron-3-super-an-open-hybrid-mamba-transformer-moe-for-agentic-reasoning/) — Blackwell 上的 Latent MoE 架构（2026-03-11）
+- **[Microsoft Research]** [Phi-4-reasoning-vision](https://www.microsoft.com/en-us/research/blog/phi-4-reasoning-vision-and-the-lessons-of-training-a-multimodal-reasoning-model/) — 多模态推理模型的训练经验（2026-03-04）
+- **[Hugging Face]** [Mixture of Experts in Transformers](https://huggingface.co/blog/moe-transformers) — MoE 结构的原理与实现（2026-02-26）
+- **[NVIDIA]** [Optimizing MoE Training with Hybrid Expert Parallel](https://developer.nvidia.com/blog/optimizing-communication-for-mixture-of-experts-training-with-hybrid-expert-parallel/) — MoE 训练的通信优化方案（2026-02-02）
+- **[NVIDIA]** [Inside Nemotron 3](https://developer.nvidia.com/blog/inside-nvidia-nemotron-3-techniques-tools-and-data-that-make-it-efficient-and-accurate/) — 混合 Mamba-Transformer MoE 架构设计（2025-12-15）
+- **[OpenAI]** [How we built OWL, the architecture behind Atlas](https://openai.com/index/building-chatgpt-atlas) — ChatGPT 浏览器 Atlas 的 OWL 架构设计（2025-10-30）
+- **[DeepSeek]** [DeepSeek-V3.2-Exp](https://api-docs.deepseek.com/news/news250929) — Sparse Attention 实验版（2025-09-29）
+- **[Meta AI]** [DINOv3](https://ai.meta.com/blog/dinov3-self-supervised-vision-model/) — 7B 规模自监督视觉骨干的训练方法（2025-08-14）
+- **[Qwen]** [GSPO: Scalable RL for Language Models](https://qwenlm.github.io/blog/gspo/) — 稳定可扩展的语言模型强化学习算法（2025-07-27）
+- **[Google DeepMind]** [Introducing Gemma 3n](https://deepmind.google/blog/introducing-gemma-3n-the-developer-guide/) — Gemma 3n 的移动优先架构、MatFormer 与分层嵌入（2025-06-26）
+- **[Microsoft Research]** [Magma](https://www.microsoft.com/en-us/research/blog/magma-a-foundation-model-for-multimodal-ai-agents-across-digital-and-physical-worlds/) — 多模态代理基础模型的感知与行动能力（2025-02-25）
+- **[Hugging Face]** [Fine-Tuning Your First LLM](https://huggingface.co/blog/dvgodoy/fine-tuning-llm-hugging-face) — 用 PyTorch 和 HF 完成首个 LLM 微调（2025-02-11）
+- **[Qwen]** [Qwen2.5-Max: Large-scale MoE](https://qwenlm.github.io/blog/qwen2.5-max/) — 超大规模 MoE 的训练与扩展经验（2025-01-28）
+- **[Qwen]** [Global-batch load balance for MoE](https://qwenlm.github.io/blog/global-load-balance/) — MoE 全局批次负载均衡的训练方法（2025-01-21）
+- **[Qwen]** [Qwen2.5-Math-PRM](https://qwenlm.github.io/blog/qwen2.5-math-prm/) — 基于过程监督的数学推理模型（2025-01-14）
+- **[DeepSeek]** [Introducing DeepSeek-V3](https://api-docs.deepseek.com/news/news1226) — DeepSeek-V3 的 MoE 架构与高吞吐设计（2024-12-26）
+- **[Microsoft Research]** [Orca-AgentInstruct](https://www.microsoft.com/en-us/research/blog/orca-agentinstruct-agentic-flows-can-be-effective-synthetic-data-generators/) — 用代理式流程生成高质量合成训练数据（2024-11-14）
+- **[Microsoft Research]** [Modular models](https://www.microsoft.com/en-us/research/blog/toward-modular-models-collaborative-ai-development-enables-model-accountability-and-continuous-learning/) — 模块化 AI 协作开发与持续学习（2024-11-13）
+- **[OpenAI]** [Simplifying, stabilizing, and scaling continuous-time consistency models](https://openai.com/index/simplifying-stabilizing-and-scaling-continuous-time-consistency-models) — 连续时间一致性模型的简化与扩展（2024-10-23）
+- **[Meta AI]** [Meta FAIR: SAM 2.1, Spirit LM, LayerSkip](https://ai.meta.com/blog/fair-news-segment-anything-2-1-meta-spirit-lm-layer-skip-salsa-lingua/) — SAM 2.1、Spirit LM 和 LayerSkip 的研究进展（2024-10-18）
+- **[NVIDIA]** [Llama-3.1-Nemotron-51B](https://developer.nvidia.com/blog/advancing-the-accuracy-efficiency-frontier-with-llama-3-1-nemotron-51b/) — 神经架构搜索优化的 51B 模型（2024-09-23）
+- **[Mistral AI]** [Pixtral 12B](https://mistral.ai/news/pixtral-12b) — 12B 参数的原生多模态视觉语言模型架构（2024-09-17）
+- **[NVIDIA]** [Nemotron-4-340B](https://developer.nvidia.com/blog/leverage-our-latest-open-models-for-synthetic-data-generation-with-nvidia-nemotron-4-340b/) — Nemotron-4-340B 的合成数据生成管线与奖励模型训练流程（2024-08-16）
+- **[Mistral AI]** [Codestral Mamba](https://mistral.ai/news/codestral-mamba) — 基于 Mamba2 架构的代码生成模型与线性时间推理（2024-07-16）
+- **[Hugging Face]** [SmolLM](https://huggingface.co/blog/smollm) — 高质量数据训练的小模型实践（2024-07-16）
+- **[OpenAI]** [Finding GPT-4's mistakes with GPT-4](https://openai.com/index/finding-gpt4s-mistakes-with-gpt-4) — 用 GPT-4 做批评器改进 RLHF 训练（2024-06-27）
+- **[OpenAI]** [Consistency Models](https://openai.com/index/consistency-models) — 一步生成高质量样本的一致性模型训练方法（2024-06-20）
+- **[OpenAI]** [Improved Techniques for Training Consistency Models](https://openai.com/index/improved-techniques-for-training-consistency-models) — 用伪 Huber 损失与自适应权重改进连续时间一致性模型训练稳定性（2024-06-20）
+- **[Meta AI]** [Meta FAIR: Chameleon, JASCO, Multi-Token Prediction](https://ai.meta.com/blog/meta-fair-research-new-releases/) — Meta FAIR 多项研究模型与数据集的开放发布（2024-06-18）
+- **[Hugging Face]** [Sentence Transformers v3](https://huggingface.co/blog/train-sentence-transformers) — Sentence Transformers v3 的多损失训练、硬负样本挖掘与评测（2024-05-28）
+- **[Mistral AI]** [Mixtral 8x22B](https://mistral.ai/news/mixtral-8x22b) — 8x22B 稀疏 MoE 架构的设计与开源基准表现（2024-04-17）
+- **[Microsoft Research]** [Orca-Math](https://www.microsoft.com/en-us/research/blog/orca-math-demonstrating-the-potential-of-slms-with-model-specialization/) — 数学专用小模型的设计与训练（2024-03-05）
+- **[OpenAI]** [Video generation models as world simulators](https://openai.com/index/video-generation-models-as-world-simulators) — 把视频生成模型视作世界模拟器的研究框架（2024-02-15）
+- **[Meta AI]** [V-JEPA](https://ai.meta.com/blog/v-jepa-yann-lecun-ai-model-video-joint-embedding-predictive-architecture/) — V-JEPA 的自监督视频表征学习与预测架构（2024-02-15）
+- **[Microsoft Research]** [Phi-2](https://www.microsoft.com/en-us/research/blog/phi-2-the-surprising-power-of-small-language-models/) — Phi-2 用 1.4T token 精选数据训练 2.7B 模型达到 13B 级别表现（2023-12-12）
+- **[Meta AI]** [DINOv2](https://ai.meta.com/blog/dino-v2-computer-vision-self-supervised-learning/) — 自监督视觉表征训练的方法与迁移效果（2023-04-17）
+- **[Anthropic]** [Predictability And Surprise In Large Generative Models](https://www.anthropic.com/research/predictability-and-surprise-in-large-generative-models) — 大型生成模型的可预测性与惊喜的实证分析（2022-02-15）
+
+## 推理与思维链
+- **[Google DeepMind]** [Accelerating mathematical and scientific discovery with Gemini Deep Think](https://deepmind.google/blog/accelerating-mathematical-and-scientific-discovery-with-gemini-deep-think/) — Deep Think 如何辅助数学与科学发现（2026-02-11）
+- **[OpenAI]** [Evaluating chain-of-thought monitorability](https://openai.com/index/evaluating-chain-of-thought-monitorability) — 思维链可监控性评估与监控失配行为的边界（2025-12-18）
+- **[Google DeepMind]** [Gemini achieves ICPC gold medal](https://deepmind.google/blog/gemini-achieves-gold-medal-level-at-the-international-collegiate-programming-contest-world-finals/) — Gemini 在 ICPC 上的编程推理表现（2025-09-17）
+- **[NVIDIA]** [Train a Reasoning LLM in One Weekend](https://developer.nvidia.com/blog/train-a-reasoning-capable-llm-in-one-weekend-with-nvidia-nemo/) — 用 NeMo 一个周末训练推理 LLM 的实战（2025-07-23）
+- **[Google DeepMind]** [Gemini Deep Think achieves IMO gold medal](https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/) — Gemini Deep Think 冲击 IMO 金牌的推理方法（2025-07-21）
+- **[Microsoft Research]** [Phi-Reasoning](https://www.microsoft.com/en-us/research/articles/phi-reasoning-once-again-redefining-what-is-possible-with-small-and-efficient-ai/) — 小模型推理训练与蒸馏方法（2025-07-08）
+- **[Microsoft Research]** [rStar-Math](https://www.microsoft.com/en-us/research/blog/new-methods-boost-reasoning-in-small-and-large-language-models/) — 符号推理、数学规划与验证的新方法（2025-06-17）
+- **[Mistral AI]** [Magistral](https://mistral.ai/news/magistral) — 透明思维链推理模型的设计与评测（2025-06-10）
+- **[OpenAI]** [Thinking with images](https://openai.com/index/thinking-with-images) — 让模型通过图像工具进行视觉推理（2025-04-16）
+- **[Anthropic]** [Reasoning Models Dont Say Think](https://www.anthropic.com/research/reasoning-models-dont-say-think) — 推理模型为何不总会说出真实想法（2025-04-03）
+- **[Qwen]** [QwQ-32B: Embracing Reinforcement Learning](https://qwenlm.github.io/blog/qwq-32b/) — 强化学习驱动的推理模型实践（2025-03-06）
+- **[Anthropic]** [Visible Extended Thinking](https://www.anthropic.com/research/visible-extended-thinking) — Claude 显式思维链机制的实现与评测（2025-02-24）
+- **[DeepSeek]** [DeepSeek-R1 Release](https://api-docs.deepseek.com/news/news250120) — 对标 o1 的开源推理模型与完整技术报告（2025-01-20）
+- **[DeepSeek]** [DeepSeek-R1-Lite-Preview](https://api-docs.deepseek.com/news/news1120) — DeepSeek-R1-Lite 的推理时计算量与准确率的缩放关系实验（2024-11-20）
+- **[OpenAI]** [Learning to reason with LLMs](https://openai.com/index/learning-to-reason-with-llms) — LLM 推理能力的训练方法（2024-09-12）
+- **[Anthropic]** [Measuring Faithfulness In Chain Of Thought Reasoning](https://www.anthropic.com/research/measuring-faithfulness-in-chain-of-thought-reasoning) — 衡量思维链推理是否真实反映模型内部计算（2023-12-18）
+- **[Anthropic]** [Question Decomposition Improves Faithfulness](https://www.anthropic.com/research/question-decomposition-improves-the-faithfulness-of-model-generated-reasoning) — 问题拆解如何提升推理忠实度（2023-07-18）
+
+## RAG 与检索
+- **[Manus]** [Wide Research：超越上下文窗口](https://manus.im/zh-cn/blog/manus-wide-research-solve-context-problem) — 突破上下文窗口限制的 Wide Research 机制（2025-10-29）
+- **[Qwen]** [Qwen2.5-1M: 1M Token Context](https://qwenlm.github.io/blog/qwen2.5-1m/) — 支持百万 token 上下文的模型与框架（2025-01-27）
+- **[Anthropic]** [Contextual Retrieval](https://www.anthropic.com/engineering/contextual-retrieval) — 上下文检索提升相关性与召回（2025-01-06）
+- **[Microsoft Research]** [LazyGraphRAG](https://www.microsoft.com/en-us/research/blog/lazygraphrag-setting-a-new-standard-for-quality-and-cost/) — 质量与成本权衡的轻量 GraphRAG（2024-11-25）
+- **[Microsoft Research]** [GraphRAG: dynamic community selection](https://www.microsoft.com/en-us/research/blog/graphrag-improving-global-search-via-dynamic-community-selection/) — 动态社区选择改进全局搜索（2024-11-15）
+- **[Microsoft Research]** [GraphRAG auto-tuning](https://www.microsoft.com/en-us/research/blog/graphrag-auto-tuning-provides-rapid-adaptation-to-new-domains/) — GraphRAG 自动调参与域迁移（2024-09-09）
+- **[DeepSeek]** [Context Caching on Disk](https://api-docs.deepseek.com/news/news0802) — 磁盘上下文缓存降低 API 成本（2024-08-02）
+- **[Microsoft Research]** [GraphRAG](https://www.microsoft.com/en-us/research/blog/graphrag-unlocking-llm-discovery-on-narrative-private-data/) — 知识图谱式检索增强的构建与推理（2024-02-13）
+
+## 评测与基准
+- **[OpenAI]** [Introducing IndQA](https://openai.com/index/introducing-indqa) — 评测印地语等多语言能力的基准（2026-03-25）
+- **[Anthropic]** [Eval Awareness BrowseComp](https://www.anthropic.com/engineering/eval-awareness-browsecomp) — 模型在 BrowseComp 评测中识别测试并作弊的现象（2026-03-06）
+- **[OpenAI]** [Why we no longer evaluate SWE-bench Verified](https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified) — 停止使用 SWE-bench Verified 的原因与评测局限（2026-02-23）
+- **[OpenAI]** [Introducing EVMbench](https://openai.com/index/introducing-evmbench) — 评测代理在链上环境中的推理能力（2026-02-18）
+- **[Anthropic]** [Infrastructure Noise](https://www.anthropic.com/engineering/infrastructure-noise) — 代理式编码评测中的基础设施噪声分析（2026-02-03）
+- **[Anthropic]** [AI-Resistant Technical Evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) — 面向模型作弊的技术评测设计方法（2026-01-21）
+- **[Anthropic]** [Demystifying Evals For AI Agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) — 评估 AI 代理的实用方法与策略（2026-01-09）
+- **[Anthropic]** [Bloom](https://www.anthropic.com/research/bloom) — 自动行为评测的开源工具与技术报告（2025-12-19）
+- **[OpenAI]** [Evaluating AI's ability to perform scientific research tasks](https://openai.com/index/frontierscience) — 评测模型执行科学研究任务的边界（2025-12-16）
+- **[Google DeepMind]** [FACTS Benchmark Suite](https://deepmind.google/blog/facts-benchmark-suite-systematically-evaluating-the-factuality-of-large-language-models/) — 系统评测大模型事实性的基准套件（2025-12-09）
+- **[OpenAI]** [Defining and evaluating political bias in LLMs](https://openai.com/index/defining-and-evaluating-political-bias-in-llms) — 定义并评估 LLM 政治偏见（2025-10-09）
+- **[OpenAI]** [Measuring the performance of our models on real-world tasks](https://openai.com/index/gdpval) — 用真实世界任务而非静态基准评测模型（2025-09-25）
+- **[Microsoft Research]** [BenchmarkQED](https://www.microsoft.com/en-us/research/blog/benchmarkqed-automated-benchmarking-of-rag-systems/) — 自动化 RAG 评测的开源工具链（2025-06-05）
+- **[OpenAI]** [Introducing HealthBench](https://openai.com/index/healthbench) — 用真实医疗场景评估模型表现的基准（2025-05-12）
+- **[OpenAI]** [PaperBench](https://openai.com/index/paperbench) — 评估模型复现 AI 研究论文的能力（2025-04-02）
+- **[Anthropic]** [SWE-bench Sonnet](https://www.anthropic.com/engineering/swe-bench-sonnet) — Claude 在 SWE-bench Verified 上的表现与方法分析（2025-01-06）
+- **[Anthropic]** [Statistical Approach To Model Evals](https://www.anthropic.com/research/statistical-approach-to-model-evals) — 用置信区间、效应量与多重比较校正替代单点分数的评测统计框架（2024-11-19）
+- **[OpenAI]** [Introducing SimpleQA](https://openai.com/index/introducing-simpleqa) — 衡量幻觉和事实问答的基准（2024-10-30）
+- **[OpenAI]** [Evaluating fairness in ChatGPT](https://openai.com/index/evaluating-fairness-in-chatgpt) — 用公平性评估审视 ChatGPT 的行为差异（2024-10-15）
+- **[OpenAI]** [MLE-bench](https://openai.com/index/mle-bench) — 评测模型做机器学习工程的能力（2024-10-10）
+- **[OpenAI]** [Introducing SWE-bench Verified](https://openai.com/index/introducing-swe-bench-verified) — SWE-bench Verified 的设计与代码修复基准意义（2024-08-13）
+- **[Anthropic]** [Measuring Model Persuasiveness](https://www.anthropic.com/research/measuring-model-persuasiveness) — 衡量模型说服力的方法与实验（2024-04-02）
+- **[Microsoft Research]** [Steering at the Frontier: Medprompt](https://www.microsoft.com/en-us/research/blog/steering-at-the-frontier-extending-the-power-of-prompting/) — Medprompt 的提示策略与效果分析（2023-12-12）
+- **[Anthropic]** [Evaluating And Mitigating Discrimination In LLM Decisions](https://www.anthropic.com/research/evaluating-and-mitigating-discrimination-in-language-model-decisions) — 语言模型决策中的歧视评估与缓解（2023-12-07）
+- **[Anthropic]** [Towards Measuring Subjective Global Opinions In LMs](https://www.anthropic.com/research/towards-measuring-the-representation-of-subjective-global-opinions-in-language-models) — 衡量语言模型中主观全局观点的表征（2023-06-29）
+- **[Anthropic]** [Discovering Language Model Behaviors With Model-Written Evaluations](https://www.anthropic.com/research/discovering-language-model-behaviors-with-model-written-evaluations) — 用模型自写评测发现行为模式（2022-12-19）
 
 ## 安全与对齐
 - **[OpenAI]** [How we monitor internal coding agents for misalignment](https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment) — 内部编码代理的失配监控系统、分级告警与真实部署经验（2026-03-19）
@@ -153,141 +298,21 @@ ogImage: true
 - **[Anthropic]** [In Context Learning And Induction Heads](https://www.anthropic.com/research/in-context-learning-and-induction-heads) — 情境学习与归纳头的机制发现（2022-03-08）
 - **[Anthropic]** [A Mathematical Framework For Transformer Circuits](https://www.anthropic.com/research/a-mathematical-framework-for-transformer-circuits) — Transformer 电路的数学框架与可解释分析方法（2021-12-22）
 
-## Agent 工程
-- **[Microsoft Research]** [AgentRx](https://www.microsoft.com/en-us/research/blog/systematic-debugging-for-ai-agents-introducing-the-agentrx-framework/) — AI 代理的系统化调试框架（2026-03-12）
-- **[Microsoft Research]** [PlugMem](https://www.microsoft.com/en-us/research/blog/from-raw-interaction-to-reusable-knowledge-rethinking-memory-for-ai-agents/) — 代理记忆的知识复用与更新机制（2026-03-10）
-- **[Microsoft Research]** [CORPGEN](https://www.microsoft.com/en-us/research/blog/corpgen-advances-ai-agents-for-real-work/) — 面向真实工作场景的复杂任务代理（2026-02-26）
-- **[OpenAI]** [From model to agent: Equipping the Responses API with a computer environment](https://openai.com/index/equip-responses-api-computer-environment) — Responses API 接入计算机环境并演进为可操作代理（2026-02-11）
-- **[OpenAI]** [Harness engineering: leveraging Codex in an agent-first world](https://openai.com/index/harness-engineering) — agent-first 开发中使用 Codex harness 的工程方法（2026-02-11）
-- **[OpenAI]** [Unlocking the Codex harness: how we built the App Server](https://openai.com/index/unlocking-the-codex-harness) — Codex App Server 的协议设计、事件流与集成（2026-02-04）
-- **[OpenAI]** [Inside OpenAI's in-house data agent](https://openai.com/index/inside-our-in-house-data-agent) — OpenAI 内部数据代理的架构与工作流（2026-01-29）
-- **[OpenAI]** [Unrolling the Codex agent loop](https://openai.com/index/unrolling-the-codex-agent-loop) — Codex 代理循环的关键步骤、状态管理与控制点（2026-01-23）
-- **[Manus]** [了解 Manus Sandbox](https://manus.im/zh-cn/blog/manus-sandbox) — Manus Sandbox 运行环境的隔离与架构（2026-01-14）
-- **[Microsoft Research]** [Agent Lightning](https://www.microsoft.com/en-us/research/blog/agent-lightning-adding-reinforcement-learning-to-ai-agents-without-code-rewrites/) — 无需改码即可为代理添加强化学习（2025-12-11）
-- **[Microsoft Research]** [Fara-7B](https://www.microsoft.com/en-us/research/blog/fara-7b-an-efficient-agentic-model-for-computer-use/) — 7B 参数的高效计算机使用代理模型（2025-11-24）
-- **[Anthropic]** [Advanced Tool Use](https://www.anthropic.com/engineering/advanced-tool-use) — Claude 代理式工具调用的动态发现与执行机制（2025-11-24）
-- **[Anthropic]** [Effective Harnesses For Long Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) — 面向长时运行代理的执行框架设计（2025-11-21）
-- **[Google DeepMind]** [SIMA 2: AI Agent for 3D Virtual Worlds](https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/) — SIMA 2 在虚拟 3D 世界中的自我改进与泛化（2025-11-13）
-- **[Anthropic]** [Code Execution With MCP](https://www.anthropic.com/engineering/code-execution-with-mcp) — 用 MCP 代码执行降低代理上下文开销（2025-11-04）
-- **[Google DeepMind]** [Gemini Robotics 1.5](https://deepmind.google/blog/gemini-robotics-15-brings-ai-agents-into-the-physical-world/) — Gemini Robotics 1.5 的工具使用与多步执行（2025-09-25）
-- **[Anthropic]** [Measuring Agent Autonomy](https://www.anthropic.com/research/measuring-agent-autonomy) — 衡量代理自主权的方法与框架（2025-09-19）
-- **[Anthropic]** [Writing Tools For Agents](https://www.anthropic.com/engineering/writing-tools-for-agents) — 工具描述、参数设计与错误处理如何影响代理调用成功率（2025-09-11）
-- **[Manus]** [AI代理的上下文工程：构建Manus的经验教训](https://manus.im/zh-cn/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus) — 构建 AI Agent 的上下文工程方法与实践复盘（2025-07-18）
-- **[Kimi]** [Kimi K2: Open Agentic Intelligence](https://platform.moonshot.ai/blog/posts/k2-report) — 1T 参数的 Kimi K2 技术报告与 Agent 架构（2025-07-15）
-- **[Microsoft Research]** [Magentic-UI](https://www.microsoft.com/en-us/research/blog/magentic-ui-an-experimental-human-centered-web-agent/) — 人类保持控制权的网页代理交互模式与协作界面设计（2025-05-19）
-- **[Google DeepMind]** [AlphaEvolve](https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/) — Gemini 驱动的算法进化搜索代理（2025-05-14）
-- **[Anthropic]** [Multi Agent Research System](https://www.anthropic.com/engineering/multi-agent-research-system) — 多代理研究系统的架构与权衡（2025-04-22）
-- **[Anthropic]** [Claude Code Sandboxing](https://www.anthropic.com/engineering/claude-code-sandboxing) — Claude Code 的沙箱隔离与安全机制（2025-04-22）
-- **[Google DeepMind]** [Gemini Robotics brings AI into the physical world](https://deepmind.google/blog/gemini-robotics-brings-ai-into-the-physical-world/) — Gemini Robotics 的感知、规划与物理执行（2025-03-12）
-- **[Anthropic]** [Claude Think Tool](https://www.anthropic.com/engineering/claude-think-tool) — 让 Claude 在工具调用前先暂停思考的机制（2025-02-12）
-- **[Hugging Face]** [Open-Source DeepResearch](https://huggingface.co/blog/open-deep-research) — 开源深度研究 Agent 的系统设计（2025-02-04）
-- **[OpenAI]** [Introducing deep research](https://openai.com/index/introducing-deep-research) — deep research 的多步研究工作流与实现思路（2025-02-02）
-- **[OpenAI]** [Computer-Using Agent](https://openai.com/index/computer-using-agent) — Computer-Using Agent 的 GUI 操作能力与边界（2025-01-23）
-- **[Microsoft Research]** [AutoGen v0.4](https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/) — AutoGen v0.4 的事件驱动架构、可观测性与代理生命周期管理（2025-01-14）
-- **[Anthropic]** [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) — 可靠 AI 代理的构建方法、原则与框架总结（2025-01-06）
-- **[Anthropic]** [Introducing the Model Context Protocol](https://www.anthropic.com/news/model-context-protocol) — MCP 协议的架构设计与使用实践（2024-11-19）
-- **[Microsoft Research]** [Magentic-One](https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/) — 通用多代理系统的架构与协同（2024-11-05）
-
-## 推理与思维链
-- **[Google DeepMind]** [Accelerating mathematical and scientific discovery with Gemini Deep Think](https://deepmind.google/blog/accelerating-mathematical-and-scientific-discovery-with-gemini-deep-think/) — Deep Think 如何辅助数学与科学发现（2026-02-11）
-- **[OpenAI]** [Evaluating chain-of-thought monitorability](https://openai.com/index/evaluating-chain-of-thought-monitorability) — 思维链可监控性评估与监控失配行为的边界（2025-12-18）
-- **[Google DeepMind]** [Gemini achieves ICPC gold medal](https://deepmind.google/blog/gemini-achieves-gold-medal-level-at-the-international-collegiate-programming-contest-world-finals/) — Gemini 在 ICPC 上的编程推理表现（2025-09-17）
-- **[NVIDIA]** [Train a Reasoning LLM in One Weekend](https://developer.nvidia.com/blog/train-a-reasoning-capable-llm-in-one-weekend-with-nvidia-nemo/) — 用 NeMo 一个周末训练推理 LLM 的实战（2025-07-23）
-- **[Google DeepMind]** [Gemini Deep Think achieves IMO gold medal](https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/) — Gemini Deep Think 冲击 IMO 金牌的推理方法（2025-07-21）
-- **[Microsoft Research]** [Phi-Reasoning](https://www.microsoft.com/en-us/research/articles/phi-reasoning-once-again-redefining-what-is-possible-with-small-and-efficient-ai/) — 小模型推理训练与蒸馏方法（2025-07-08）
-- **[Microsoft Research]** [rStar-Math](https://www.microsoft.com/en-us/research/blog/new-methods-boost-reasoning-in-small-and-large-language-models/) — 符号推理、数学规划与验证的新方法（2025-06-17）
-- **[Mistral AI]** [Magistral](https://mistral.ai/news/magistral) — 透明思维链推理模型的设计与评测（2025-06-10）
-- **[OpenAI]** [Thinking with images](https://openai.com/index/thinking-with-images) — 让模型通过图像工具进行视觉推理（2025-04-16）
-- **[Anthropic]** [Reasoning Models Dont Say Think](https://www.anthropic.com/research/reasoning-models-dont-say-think) — 推理模型为何不总会说出真实想法（2025-04-03）
-- **[Qwen]** [QwQ-32B: Embracing Reinforcement Learning](https://qwenlm.github.io/blog/qwq-32b/) — 强化学习驱动的推理模型实践（2025-03-06）
-- **[Anthropic]** [Visible Extended Thinking](https://www.anthropic.com/research/visible-extended-thinking) — Claude 显式思维链机制的实现与评测（2025-02-24）
-- **[DeepSeek]** [DeepSeek-R1 Release](https://api-docs.deepseek.com/news/news250120) — 对标 o1 的开源推理模型与完整技术报告（2025-01-20）
-- **[DeepSeek]** [DeepSeek-R1-Lite-Preview](https://api-docs.deepseek.com/news/news1120) — DeepSeek-R1-Lite 的推理时计算量与准确率的缩放关系实验（2024-11-20）
-- **[OpenAI]** [Learning to reason with LLMs](https://openai.com/index/learning-to-reason-with-llms) — LLM 推理能力的训练方法（2024-09-12）
-- **[Anthropic]** [Measuring Faithfulness In Chain Of Thought Reasoning](https://www.anthropic.com/research/measuring-faithfulness-in-chain-of-thought-reasoning) — 衡量思维链推理是否真实反映模型内部计算（2023-12-18）
-- **[Anthropic]** [Question Decomposition Improves Faithfulness](https://www.anthropic.com/research/question-decomposition-improves-the-faithfulness-of-model-generated-reasoning) — 问题拆解如何提升推理忠实度（2023-07-18）
-
-## 评测与基准
-- **[OpenAI]** [Introducing IndQA](https://openai.com/index/introducing-indqa) — 评测印地语等多语言能力的基准（2026-03-25）
-- **[Anthropic]** [Eval Awareness BrowseComp](https://www.anthropic.com/engineering/eval-awareness-browsecomp) — 模型在 BrowseComp 评测中识别测试并作弊的现象（2026-03-06）
-- **[OpenAI]** [Why we no longer evaluate SWE-bench Verified](https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified) — 停止使用 SWE-bench Verified 的原因与评测局限（2026-02-23）
-- **[OpenAI]** [Introducing EVMbench](https://openai.com/index/introducing-evmbench) — 评测代理在链上环境中的推理能力（2026-02-18）
-- **[Anthropic]** [Infrastructure Noise](https://www.anthropic.com/engineering/infrastructure-noise) — 代理式编码评测中的基础设施噪声分析（2026-02-03）
-- **[Anthropic]** [AI-Resistant Technical Evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) — 面向模型作弊的技术评测设计方法（2026-01-21）
-- **[Anthropic]** [Demystifying Evals For AI Agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) — 评估 AI 代理的实用方法与策略（2026-01-09）
-- **[Anthropic]** [Bloom](https://www.anthropic.com/research/bloom) — 自动行为评测的开源工具与技术报告（2025-12-19）
-- **[OpenAI]** [Evaluating AI's ability to perform scientific research tasks](https://openai.com/index/frontierscience) — 评测模型执行科学研究任务的边界（2025-12-16）
-- **[Google DeepMind]** [FACTS Benchmark Suite](https://deepmind.google/blog/facts-benchmark-suite-systematically-evaluating-the-factuality-of-large-language-models/) — 系统评测大模型事实性的基准套件（2025-12-09）
-- **[OpenAI]** [Defining and evaluating political bias in LLMs](https://openai.com/index/defining-and-evaluating-political-bias-in-llms) — 定义并评估 LLM 政治偏见（2025-10-09）
-- **[OpenAI]** [Measuring the performance of our models on real-world tasks](https://openai.com/index/gdpval) — 用真实世界任务而非静态基准评测模型（2025-09-25）
-- **[Microsoft Research]** [BenchmarkQED](https://www.microsoft.com/en-us/research/blog/benchmarkqed-automated-benchmarking-of-rag-systems/) — 自动化 RAG 评测的开源工具链（2025-06-05）
-- **[OpenAI]** [Introducing HealthBench](https://openai.com/index/healthbench) — 用真实医疗场景评估模型表现的基准（2025-05-12）
-- **[OpenAI]** [PaperBench](https://openai.com/index/paperbench) — 评估模型复现 AI 研究论文的能力（2025-04-02）
-- **[Anthropic]** [SWE-bench Sonnet](https://www.anthropic.com/engineering/swe-bench-sonnet) — Claude 在 SWE-bench Verified 上的表现与方法分析（2025-01-06）
-- **[Anthropic]** [Statistical Approach To Model Evals](https://www.anthropic.com/research/statistical-approach-to-model-evals) — 用置信区间、效应量与多重比较校正替代单点分数的评测统计框架（2024-11-19）
-- **[OpenAI]** [Introducing SimpleQA](https://openai.com/index/introducing-simpleqa) — 衡量幻觉和事实问答的基准（2024-10-30）
-- **[OpenAI]** [Evaluating fairness in ChatGPT](https://openai.com/index/evaluating-fairness-in-chatgpt) — 用公平性评估审视 ChatGPT 的行为差异（2024-10-15）
-- **[OpenAI]** [MLE-bench](https://openai.com/index/mle-bench) — 评测模型做机器学习工程的能力（2024-10-10）
-- **[OpenAI]** [Introducing SWE-bench Verified](https://openai.com/index/introducing-swe-bench-verified) — SWE-bench Verified 的设计与代码修复基准意义（2024-08-13）
-- **[Anthropic]** [Measuring Model Persuasiveness](https://www.anthropic.com/research/measuring-model-persuasiveness) — 衡量模型说服力的方法与实验（2024-04-02）
-- **[Microsoft Research]** [Steering at the Frontier: Medprompt](https://www.microsoft.com/en-us/research/blog/steering-at-the-frontier-extending-the-power-of-prompting/) — Medprompt 的提示策略与效果分析（2023-12-12）
-- **[Anthropic]** [Evaluating And Mitigating Discrimination In LLM Decisions](https://www.anthropic.com/research/evaluating-and-mitigating-discrimination-in-language-model-decisions) — 语言模型决策中的歧视评估与缓解（2023-12-07）
-- **[Anthropic]** [Towards Measuring Subjective Global Opinions In LMs](https://www.anthropic.com/research/towards-measuring-the-representation-of-subjective-global-opinions-in-language-models) — 衡量语言模型中主观全局观点的表征（2023-06-29）
-- **[Anthropic]** [Discovering Language Model Behaviors With Model-Written Evaluations](https://www.anthropic.com/research/discovering-language-model-behaviors-with-model-written-evaluations) — 用模型自写评测发现行为模式（2022-12-19）
-
-## 模型架构与训练
-- **[NVIDIA]** [Nemotron 3 Super](https://developer.nvidia.com/blog/introducing-nemotron-3-super-an-open-hybrid-mamba-transformer-moe-for-agentic-reasoning/) — Blackwell 上的 Latent MoE 架构（2026-03-11）
-- **[Microsoft Research]** [Phi-4-reasoning-vision](https://www.microsoft.com/en-us/research/blog/phi-4-reasoning-vision-and-the-lessons-of-training-a-multimodal-reasoning-model/) — 多模态推理模型的训练经验（2026-03-04）
-- **[Hugging Face]** [Mixture of Experts in Transformers](https://huggingface.co/blog/moe-transformers) — MoE 结构的原理与实现（2026-02-26）
-- **[NVIDIA]** [Optimizing MoE Training with Hybrid Expert Parallel](https://developer.nvidia.com/blog/optimizing-communication-for-mixture-of-experts-training-with-hybrid-expert-parallel/) — MoE 训练的通信优化方案（2026-02-02）
-- **[NVIDIA]** [Inside Nemotron 3](https://developer.nvidia.com/blog/inside-nvidia-nemotron-3-techniques-tools-and-data-that-make-it-efficient-and-accurate/) — 混合 Mamba-Transformer MoE 架构设计（2025-12-15）
-- **[OpenAI]** [How we built OWL, the architecture behind Atlas](https://openai.com/index/building-chatgpt-atlas) — ChatGPT 浏览器 Atlas 的 OWL 架构设计（2025-10-30）
-- **[DeepSeek]** [DeepSeek-V3.2-Exp](https://api-docs.deepseek.com/news/news250929) — Sparse Attention 实验版（2025-09-29）
-- **[Meta AI]** [DINOv3](https://ai.meta.com/blog/dinov3-self-supervised-vision-model/) — 7B 规模自监督视觉骨干的训练方法（2025-08-14）
-- **[Qwen]** [GSPO: Scalable RL for Language Models](https://qwenlm.github.io/blog/gspo/) — 稳定可扩展的语言模型强化学习算法（2025-07-27）
-- **[Google DeepMind]** [Introducing Gemma 3n](https://deepmind.google/blog/introducing-gemma-3n-the-developer-guide/) — Gemma 3n 的移动优先架构、MatFormer 与分层嵌入（2025-06-26）
-- **[Microsoft Research]** [Magma](https://www.microsoft.com/en-us/research/blog/magma-a-foundation-model-for-multimodal-ai-agents-across-digital-and-physical-worlds/) — 多模态代理基础模型的感知与行动能力（2025-02-25）
-- **[Hugging Face]** [Fine-Tuning Your First LLM](https://huggingface.co/blog/dvgodoy/fine-tuning-llm-hugging-face) — 用 PyTorch 和 HF 完成首个 LLM 微调（2025-02-11）
-- **[Qwen]** [Qwen2.5-Max: Large-scale MoE](https://qwenlm.github.io/blog/qwen2.5-max/) — 超大规模 MoE 的训练与扩展经验（2025-01-28）
-- **[Qwen]** [Global-batch load balance for MoE](https://qwenlm.github.io/blog/global-load-balance/) — MoE 全局批次负载均衡的训练方法（2025-01-21）
-- **[Qwen]** [Qwen2.5-Math-PRM](https://qwenlm.github.io/blog/qwen2.5-math-prm/) — 基于过程监督的数学推理模型（2025-01-14）
-- **[DeepSeek]** [Introducing DeepSeek-V3](https://api-docs.deepseek.com/news/news1226) — DeepSeek-V3 的 MoE 架构与高吞吐设计（2024-12-26）
-- **[Microsoft Research]** [Orca-AgentInstruct](https://www.microsoft.com/en-us/research/blog/orca-agentinstruct-agentic-flows-can-be-effective-synthetic-data-generators/) — 用代理式流程生成高质量合成训练数据（2024-11-14）
-- **[Microsoft Research]** [Modular models](https://www.microsoft.com/en-us/research/blog/toward-modular-models-collaborative-ai-development-enables-model-accountability-and-continuous-learning/) — 模块化 AI 协作开发与持续学习（2024-11-13）
-- **[OpenAI]** [Simplifying, stabilizing, and scaling continuous-time consistency models](https://openai.com/index/simplifying-stabilizing-and-scaling-continuous-time-consistency-models) — 连续时间一致性模型的简化与扩展（2024-10-23）
-- **[Meta AI]** [Meta FAIR: SAM 2.1, Spirit LM, LayerSkip](https://ai.meta.com/blog/fair-news-segment-anything-2-1-meta-spirit-lm-layer-skip-salsa-lingua/) — SAM 2.1、Spirit LM 和 LayerSkip 的研究进展（2024-10-18）
-- **[NVIDIA]** [Llama-3.1-Nemotron-51B](https://developer.nvidia.com/blog/advancing-the-accuracy-efficiency-frontier-with-llama-3-1-nemotron-51b/) — 神经架构搜索优化的 51B 模型（2024-09-23）
-- **[Mistral AI]** [Pixtral 12B](https://mistral.ai/news/pixtral-12b) — 12B 参数的原生多模态视觉语言模型架构（2024-09-17）
-- **[NVIDIA]** [Nemotron-4-340B](https://developer.nvidia.com/blog/leverage-our-latest-open-models-for-synthetic-data-generation-with-nvidia-nemotron-4-340b/) — Nemotron-4-340B 的合成数据生成管线与奖励模型训练流程（2024-08-16）
-- **[Mistral AI]** [Codestral Mamba](https://mistral.ai/news/codestral-mamba) — 基于 Mamba2 架构的代码生成模型与线性时间推理（2024-07-16）
-- **[Hugging Face]** [SmolLM](https://huggingface.co/blog/smollm) — 高质量数据训练的小模型实践（2024-07-16）
-- **[OpenAI]** [Finding GPT-4's mistakes with GPT-4](https://openai.com/index/finding-gpt4s-mistakes-with-gpt-4) — 用 GPT-4 做批评器改进 RLHF 训练（2024-06-27）
-- **[OpenAI]** [Consistency Models](https://openai.com/index/consistency-models) — 一步生成高质量样本的一致性模型训练方法（2024-06-20）
-- **[OpenAI]** [Improved Techniques for Training Consistency Models](https://openai.com/index/improved-techniques-for-training-consistency-models) — 用伪 Huber 损失与自适应权重改进连续时间一致性模型训练稳定性（2024-06-20）
-- **[Meta AI]** [Meta FAIR: Chameleon, JASCO, Multi-Token Prediction](https://ai.meta.com/blog/meta-fair-research-new-releases/) — Meta FAIR 多项研究模型与数据集的开放发布（2024-06-18）
-- **[Hugging Face]** [Sentence Transformers v3](https://huggingface.co/blog/train-sentence-transformers) — Sentence Transformers v3 的多损失训练、硬负样本挖掘与评测（2024-05-28）
-- **[Mistral AI]** [Mixtral 8x22B](https://mistral.ai/news/mixtral-8x22b) — 8x22B 稀疏 MoE 架构的设计与开源基准表现（2024-04-17）
-- **[Microsoft Research]** [Orca-Math](https://www.microsoft.com/en-us/research/blog/orca-math-demonstrating-the-potential-of-slms-with-model-specialization/) — 数学专用小模型的设计与训练（2024-03-05）
-- **[OpenAI]** [Video generation models as world simulators](https://openai.com/index/video-generation-models-as-world-simulators) — 把视频生成模型视作世界模拟器的研究框架（2024-02-15）
-- **[Meta AI]** [V-JEPA](https://ai.meta.com/blog/v-jepa-yann-lecun-ai-model-video-joint-embedding-predictive-architecture/) — V-JEPA 的自监督视频表征学习与预测架构（2024-02-15）
-- **[Microsoft Research]** [Phi-2](https://www.microsoft.com/en-us/research/blog/phi-2-the-surprising-power-of-small-language-models/) — Phi-2 用 1.4T token 精选数据训练 2.7B 模型达到 13B 级别表现（2023-12-12）
-- **[Meta AI]** [DINOv2](https://ai.meta.com/blog/dino-v2-computer-vision-self-supervised-learning/) — 自监督视觉表征训练的方法与迁移效果（2023-04-17）
-- **[Anthropic]** [Predictability And Surprise In Large Generative Models](https://www.anthropic.com/research/predictability-and-surprise-in-large-generative-models) — 大型生成模型的可预测性与惊喜的实证分析（2022-02-15）
-
-## 代码与工程实践
-- **[Anthropic]** [Building C Compiler](https://www.anthropic.com/engineering/building-c-compiler) — 用多个并行 Claude 实例协同实现 C 编译器的分工与集成复盘（2026-02-05）
-- **[Anthropic]** [AI Assistance Coding Skills](https://www.anthropic.com/research/AI-assistance-coding-skills) — AI 辅助对编程技能形成与保持的影响（2026-01-29）
-- **[Anthropic]** [Project Vend 2](https://www.anthropic.com/research/project-vend-2) — 自动商店二阶段复盘与教训（2025-12-18）
-- **[OpenAI]** [How We Used Codex to Ship Sora for Android in 28 Days](https://openai.com/index/shipping-sora-for-android-with-codex) — 用 Codex 在 28 天交付 Sora Android 的工程复盘（2025-10-30）
-- **[Anthropic]** [Petri Open Source Auditing](https://www.anthropic.com/research/petri-open-source-auditing) — Petri 用代理式工作流对开源项目做安全审计的架构与发现（2025-10-06）
-- **[Anthropic]** [A Postmortem Of Three Recent Issues](https://www.anthropic.com/engineering/a-postmortem-of-three-recent-issues) — 三起工程故障的复盘、成因与修复（2025-09-17）
-- **[Anthropic]** [Project Vend 1](https://www.anthropic.com/research/project-vend-1) — Claude 经营自动商店的机制与启示（2025-06-27）
-- **[Anthropic]** [Desktop Extensions](https://www.anthropic.com/engineering/desktop-extensions) — Claude Desktop 扩展的一键安装架构（2025-06-26）
-- **[Anthropic]** [Claude Code Best Practices](https://www.anthropic.com/engineering/claude-code-best-practices) — Claude Code 的最佳实践与使用技巧（2025-06-18）
-- **[Anthropic]** [Impact Software Development](https://www.anthropic.com/research/impact-software-development) — AI 对软件开发的影响实证分析（2025-04-28）
-- **[Anthropic]** [Effective Context Engineering For AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — 代理场景中的上下文工程与压缩策略（2025-04-22）
-- **[Anthropic]** [Prompt Engineering for Long Context](https://www.anthropic.com/news/prompting-long-context) — 长上下文提示工程的实践技巧（2023-12-18）
-
+## 系统与基础设施
+- **[NVIDIA]** [NVIDIA Dynamo 1.0](https://developer.nvidia.com/blog/nvidia-dynamo-1-production-ready/) — Dynamo 1.0 的分布式推理路由、负载均衡与生产级编排（2026-03-16）
+- **[Meta AI]** [MTIA](https://ai.meta.com/blog/meta-mtia-scale-ai-chips-for-billions/) — Meta 自研 AI 芯片的系统设计与部署（2026-03-11）
+- **[Hugging Face]** [Ulysses Sequence Parallelism](https://huggingface.co/blog/ulysses-sp) — 分布式序列并行支撑百万 token 长上下文训练（2026-03-09）
+- **[NVIDIA]** [Tuning Flash Attention in CUDA Tile](https://developer.nvidia.com/blog/tuning-flash-attention-for-peak-performance-in-nvidia-cuda-tile/) — CUDA Tile 中 Flash Attention 调优（2026-03-05）
+- **[OpenAI]** [Scaling PostgreSQL to power 800 million ChatGPT users](https://openai.com/index/scaling-postgresql) — 支撑 8 亿用户的 PostgreSQL 扩展与运维经验（2026-01-22）
+- **[NVIDIA]** [High-Performance GEMM in CUDA Tile](https://developer.nvidia.com/blog/how-to-write-high-performance-matrix-multiply-in-nvidia-cuda-tile/) — CUDA Tile 高性能矩阵乘法实现（2026-01-14）
+- **[Meta AI]** [ExecuTorch](https://ai.meta.com/blog/executorch-reality-labs-on-device-ai/) — 端侧推理引擎的部署与性能（2025-11-21）
+- **[Anthropic]** [Confidential Inference Trusted VMs](https://www.anthropic.com/research/confidential-inference-trusted-vms) — 基于可信虚拟机的保密推理与安全隔离方案（2025-06-18）
+- **[Microsoft Research]** [BitNet inference on edge devices](https://www.microsoft.com/en-us/research/blog/advances-to-low-bit-quantization-enable-llms-on-edge-devices/) — 低比特量化让 LLM 在边缘设备高效推理（2025-02-05）
+- **[Hugging Face]** [KV Caching Explained](https://huggingface.co/blog/not-lain/kv-caching) — KV 缓存机制与 Transformer 推理加速原理（2025-01-30）
+- **[NVIDIA]** [TensorRT-LLM Speculative Decoding](https://developer.nvidia.com/blog/boost-llama-3-3-70b-inference-throughput-3x-with-nvidia-tensorrt-llm-speculative-decoding/) — 投机解码与 FP8 量化实现 3.55x 吞吐提升（2024-12-17）
+- **[Microsoft Research]** [Advances in run-time strategies for foundation models](https://www.microsoft.com/en-us/research/blog/advances-in-run-time-strategies-for-next-generation-foundation-models/) — 推理时搜索、自适应计算分配与选择性生成的运行时策略综述（2024-11-27）
+- **[NVIDIA]** [Megatron-Core](https://developer.nvidia.com/blog/train-generative-ai-models-more-efficiently-with-new-nvidia-megatron-core-functionalities/) — 检查点开销降低 26-50x 的工程方案（2024-07-12）
+- **[NVIDIA]** [TensorRT Model Optimizer](https://developer.nvidia.com/blog/accelerate-generative-ai-inference-performance-with-nvidia-tensorrt-model-optimizer-now-publicly-available/) — QAT 与稀疏化加速推理（2024-05-08）
 ## 多模态与生成
 - **[Meta AI]** [Segment Anything Model 3](https://ai.meta.com/blog/segment-anything-model-3/) — SAM 3 的实时检测、跟踪与全局推理（2026-03-27）
 - **[Google DeepMind]** [D4RT: teaching AI to see in 4D](https://deepmind.google/blog/d4rt-teaching-ai-to-see-the-world-in-four-dimensions/) — 四维场景重建与空间理解模型（2026-01-22）
@@ -323,28 +348,3 @@ ogImage: true
 - **[Meta AI]** [Open Catalyst](https://ai.meta.com/blog/open-catalyst-simulations-experiments/) — 面向清洁氢能的材料模拟与催化剂发现（2024-11-19）
 - **[Google DeepMind]** [AlphaProteo](https://deepmind.google/blog/alphaproteo-generates-novel-proteins-for-biology-and-health-research/) — AI 设计新型蛋白质与实验验证（2024-09-05）
 
-## RAG 与检索
-- **[Manus]** [Wide Research：超越上下文窗口](https://manus.im/zh-cn/blog/manus-wide-research-solve-context-problem) — 突破上下文窗口限制的 Wide Research 机制（2025-10-29）
-- **[Qwen]** [Qwen2.5-1M: 1M Token Context](https://qwenlm.github.io/blog/qwen2.5-1m/) — 支持百万 token 上下文的模型与框架（2025-01-27）
-- **[Anthropic]** [Contextual Retrieval](https://www.anthropic.com/engineering/contextual-retrieval) — 上下文检索提升相关性与召回（2025-01-06）
-- **[Microsoft Research]** [LazyGraphRAG](https://www.microsoft.com/en-us/research/blog/lazygraphrag-setting-a-new-standard-for-quality-and-cost/) — 质量与成本权衡的轻量 GraphRAG（2024-11-25）
-- **[Microsoft Research]** [GraphRAG: dynamic community selection](https://www.microsoft.com/en-us/research/blog/graphrag-improving-global-search-via-dynamic-community-selection/) — 动态社区选择改进全局搜索（2024-11-15）
-- **[Microsoft Research]** [GraphRAG auto-tuning](https://www.microsoft.com/en-us/research/blog/graphrag-auto-tuning-provides-rapid-adaptation-to-new-domains/) — GraphRAG 自动调参与域迁移（2024-09-09）
-- **[DeepSeek]** [Context Caching on Disk](https://api-docs.deepseek.com/news/news0802) — 磁盘上下文缓存降低 API 成本（2024-08-02）
-- **[Microsoft Research]** [GraphRAG](https://www.microsoft.com/en-us/research/blog/graphrag-unlocking-llm-discovery-on-narrative-private-data/) — 知识图谱式检索增强的构建与推理（2024-02-13）
-
-## 系统与基础设施
-- **[NVIDIA]** [NVIDIA Dynamo 1.0](https://developer.nvidia.com/blog/nvidia-dynamo-1-production-ready/) — Dynamo 1.0 的分布式推理路由、负载均衡与生产级编排（2026-03-16）
-- **[Meta AI]** [MTIA](https://ai.meta.com/blog/meta-mtia-scale-ai-chips-for-billions/) — Meta 自研 AI 芯片的系统设计与部署（2026-03-11）
-- **[Hugging Face]** [Ulysses Sequence Parallelism](https://huggingface.co/blog/ulysses-sp) — 分布式序列并行支撑百万 token 长上下文训练（2026-03-09）
-- **[NVIDIA]** [Tuning Flash Attention in CUDA Tile](https://developer.nvidia.com/blog/tuning-flash-attention-for-peak-performance-in-nvidia-cuda-tile/) — CUDA Tile 中 Flash Attention 调优（2026-03-05）
-- **[OpenAI]** [Scaling PostgreSQL to power 800 million ChatGPT users](https://openai.com/index/scaling-postgresql) — 支撑 8 亿用户的 PostgreSQL 扩展与运维经验（2026-01-22）
-- **[NVIDIA]** [High-Performance GEMM in CUDA Tile](https://developer.nvidia.com/blog/how-to-write-high-performance-matrix-multiply-in-nvidia-cuda-tile/) — CUDA Tile 高性能矩阵乘法实现（2026-01-14）
-- **[Meta AI]** [ExecuTorch](https://ai.meta.com/blog/executorch-reality-labs-on-device-ai/) — 端侧推理引擎的部署与性能（2025-11-21）
-- **[Anthropic]** [Confidential Inference Trusted VMs](https://www.anthropic.com/research/confidential-inference-trusted-vms) — 基于可信虚拟机的保密推理与安全隔离方案（2025-06-18）
-- **[Microsoft Research]** [BitNet inference on edge devices](https://www.microsoft.com/en-us/research/blog/advances-to-low-bit-quantization-enable-llms-on-edge-devices/) — 低比特量化让 LLM 在边缘设备高效推理（2025-02-05）
-- **[Hugging Face]** [KV Caching Explained](https://huggingface.co/blog/not-lain/kv-caching) — KV 缓存机制与 Transformer 推理加速原理（2025-01-30）
-- **[NVIDIA]** [TensorRT-LLM Speculative Decoding](https://developer.nvidia.com/blog/boost-llama-3-3-70b-inference-throughput-3x-with-nvidia-tensorrt-llm-speculative-decoding/) — 投机解码与 FP8 量化实现 3.55x 吞吐提升（2024-12-17）
-- **[Microsoft Research]** [Advances in run-time strategies for foundation models](https://www.microsoft.com/en-us/research/blog/advances-in-run-time-strategies-for-next-generation-foundation-models/) — 推理时搜索、自适应计算分配与选择性生成的运行时策略综述（2024-11-27）
-- **[NVIDIA]** [Megatron-Core](https://developer.nvidia.com/blog/train-generative-ai-models-more-efficiently-with-new-nvidia-megatron-core-functionalities/) — 检查点开销降低 26-50x 的工程方案（2024-07-12）
-- **[NVIDIA]** [TensorRT Model Optimizer](https://developer.nvidia.com/blog/accelerate-generative-ai-inference-performance-with-nvidia-tensorrt-model-optimizer-now-publicly-available/) — QAT 与稀疏化加速推理（2024-05-08）
