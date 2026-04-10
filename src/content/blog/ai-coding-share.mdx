@@ -1,0 +1,204 @@
+---
+title: 'AI Coding 工作流探索'
+description: 'Ai Coding 工作量探索和实践'
+pubDate: 2026-03-26
+lastModDate: ''
+toc: true
+share: true
+ogImage: true
+---
+
+## 1. AI 写的代码，你敢直接上线吗？提效，还是埋雷？
+
+当你 10 分钟用 AI 完成了一个需求，功能全部都通过，代码你也简单过了一遍，此时你“敢”合并代码上线吗？
+
+## 2. 六个真实的来自小伙伴的问题
+
+1. 校验耗时：AI Coding 内容校验，检查也耗时，直接用可能出现风险，对于一部分超出自己能力范围的编码，很难看懂逻辑做好校验；
+2. 缺乏稳定工作流：对提示词要求比较高，如果没有写好技术方案可能写出来的质量也不一定贴合和高（缺乏可复用、结构化的 Prompt 与方法论）
+3. 复杂场景卡死：复杂场景AI自己也修不好除了推倒重来有什么好的办法
+4. Token 费用焦虑：Token 成本与消耗不可感知，存在费用焦虑（理解不同操作行为的 Token 消耗量级与评估方式)
+5. 排查反噬效率：复杂场景下出错后排查成本高，可能反噬效率
+6. 规范/业务一致性不稳：AI 生成代码在 项目规范与业务一致性 上存在不确定性 ( 探索 AI 如何更紧密地与真实业务、工程规范结合）
+
+上面的 6 个问题正是我们本次要探索的方向：如何探索一套稳定的 AI Coding 工作流？
+
+## 3. 文档驱动
+
+### 3.1 Spec-first：以 spec-kit / openspec / superpowsers 为代表的做法
+
+简单来说三者的流程大致都是
+先把需求聊明白 -> 落地计划 -> 分阶段执行的任务 -> 执行
+
+**Spec Kit** 更像一套**正规的阶段门工程流程**。
+它把整个开发过程拆成清晰的阶段：先定宪法（constitution），再写规范（specify）、做计划（plan）、拆任务（tasks），最后实现（implement）。强调“规范驱动开发（Spec-Driven Development）”，一步一步来，像传统软件工程里的阶段评审，比较结构化、仪式感强，适合想把流程走得规范一点的场景。
+
+**OpenSpec** 更像一个**轻量、围绕变更（Change）的文档管理系统**。
+它的核心是以一次“change”作为一个文件夹，里面放 proposal、spec、design、tasks 等文档。想改就改，随时更新，不搞死板的阶段门。做完就用 /opsx:apply 执行，再 /opsx:archive 归档，非常灵活，特别适合 brownfield 项目（已有代码的项目）和需要频繁小改的迭代场景。
+
+**Superpowers** 更像给 Coding Agent 装上的一套**强制工作流技能库**。
+它不怎么管你用什么文件夹结构，而是重点教 Agent “必须按这个纪律做事”：先 brainstorm → 写设计和计划 → 用 subagent 执行 → 必须做 TDD（红绿重构）→ code review → 最后用 worktree 收尾分支。强调执行过程中的工程质量和严谨性，像给 Agent 植入了一套专业开发方法论。
+
+**简单一句话总结区别：**
+
+- **Spec Kit** = “按阶段门走完整个流程”（流程驱动）
+- **OpenSpec** = “以每次变更为中心，轻量记录和迭代”（变更驱动）
+- **Superpowers** = “不管结构，强制 Agent 按工程最佳实践执行”（技能 & 纪律驱动）
+
+实际体验中 **Superpowers** 较为灵活，可以基于 Superpowers 构建自己的工作流
+
+看起来还不错，但是这三个能解决文档驱动的问题吗？
+上面部分都是对于新需求的工作流，已有的代码怎么处理？，如何让 AI 快速定位到代码？
+
+### 3.2 DeepWiki
+
+以 devin 的工作流作为参考， devin 在导入项目时，会先给项目生成一个 deepwiki
+
+![devin-deepwiki](/images/devin-deepwiki.png)
+
+复杂项目里，AI 最烧时间/Token 的往往不是写代码，而是“理解项目”。
+所以清晰、可追溯的项目文档，可以让 AI 精准了解项目背景
+但 deepwiki 如何和开发过程中使用 spec 结合起来呢？新开发的功能如何同步到 deepwiki ?
+
+### 3.3 融合方案
+
+**Superpowers** + **类 deepwiki**
+
+1. 使用 Superpowers 进行开发
+2. 文档结构：
+   - 根目录下 CLAUDE.md 仅承载稳定上下文：目录职责、结构边界、公共契约、关键约束、核心入口
+   - docs 目录下有三个子目录：
+     - design: 架构文档
+     - plans: 新需求的设计文档 / 实现计划，需求做完之后需要归档到 design 目录下
+     - reference: 工作流，项目规范等
+
+```
+AGENTS.md -> CLAUDE.md
+CLAUDE.md
+docs
+├── design
+├── plans
+│ ├── 2026-03-20-platform-graph-scope.md
+│ └── ...
+└── reference
+├── build-and-deploy-baselines.md
+├── collaboration-and-delivery.md
+├── design-system.md
+├── testing-and-validation.md
+└── ...
+```
+
+## 4. AI Code Review
+
+- Agent 之前的 code review：
+  - 根据文件 diff 进行 code reviewGitlab ai code review 调研、@wegic/ai-code-review
+  - 缺点：缺少整体上下文
+- Agent 之后的 code review：
+  - 在流水线里面跑 claudecode cli 结合项目上下文进行 code review等等
+    [https://code.claude.com/docs/en/gitlab-ci-cd#claude-code-gitlab-ci-cd](https://code.claude.com/docs/en/gitlab-ci-cd#claude-code-gitlab-ci-cd)
+  - Cloudflare sandbox 基于 opencode 的 code review 流水线
+    [https://github.com/cloudflare/sandbox-sdk/blob/main/.github/workflows/opencode-review.yml](https://github.com/cloudflare/sandbox-sdk/blob/main/.github/workflows/opencode-review.yml)
+  - 封装成了通用流水线，在评论区通过 /oc 调起，可以做 review、写代码等等，在封装 opencode 之前，他们就尝试在 issue 中完成需求 ，通过在评论区 @claude 进行交互
+    [https://github.com/cloudflare/sandbox-sdk/blob/main/.github/workflows/opencode.yml](https://github.com/cloudflare/sandbox-sdk/blob/main/.github/workflows/opencode.yml)
+
+一些商业的 code review 产品：
+
+- Codex code review
+- Devin code review
+- gemini code review
+
+## 5. 工具
+
+### 5.1 我正在用的
+
+1. Claude code、Codex 为主
+2. Cursor
+3. Antigravity：自带的 spec、浏览器自动化、免费额度
+4. droid：像 cursor 一样可以使用多模型，agent 编排做的不错
+5. ampcode：多 agent、多模型协作做的不错，[https://ampcode.com/models](https://ampcode.com/models) 可以看看他们对不同模型特点的理解
+
+### 5.2 多 Agent 为代表：apmcode / opencode + ohmyopencode
+
+- ohmyopencode 精选的 agent：Sisyphus's Teammates
+  - Hephaestus: 自主深度工作者，目标导向执行 - GPT Codex Medium
+  - Oracle: Design, debugging - GPT Medium
+  - Frontend UI/UX Engineer: 前端开发 - Gemini Pro
+  - Librarian: 官方文档，开源实现，代码库探索 - Claude Sonnet
+  - Explore: 极速代码库探索 - Claude Haiku
+
+opencode + ohmyopencode 会大量利用 subagent 处理需求，利用不同模型的能力来处理擅长的事情，但同样存在一些问题：
+
+1. 多 agent 交接存在信息丢失
+2. 虽然主线程的上下文减少，但是整体 Token 量爆炸
+
+虽然我们不一定用 opencode 多 agent 这种多 agent CLI，但是可以同样可以看看不同模型的特性和用法：
+
+1. gpt-5.4-codex-xhigh(or high)：
+
+- 可用于方案规划，code review，问题排查，长时间执行任务
+- 缺点就是太慢
+
+2. Claude opus 4.6：
+
+- 质量在第一梯队
+- 但有时候会留下埋雷，不够严谨，需求做到一半就结束了
+
+3. gemini-3.1-pro:
+
+- 长上下文，可用于分析长日志: -> 问题定位 -> 梳理一个问题报告（https://gemini.google.com/share/17603b58c895）
+- 前端页面好看
+- 多模态
+- 缺点: 工程能力稍差，不严谨，容易漏处理，埋雷
+
+如果你在用 cursor auto，换个好模型，你会发现新世界
+
+### 5.3 并行推进多个需求：worktree
+
+- Cursor
+- Codex
+- Conductor
+- Opencode
+  可同时多个工作区互不干扰
+
+![worktree](/images/m-worktree.png)
+
+### 5.4 SKILL
+
+一些官方源, 找一些最佳实践的 skill： vercel-react-best-practices、frontend-design、agent-browser ...
+
+1. [https://skills.sh/](https://skills.sh/)
+2. [https://skillsmp.com/](https://skillsmp.com/)
+3. [https://clawhub.ai/skills](https://clawhub.ai/skills)
+
+## 6 相关链接
+
+- [Openclaw 开发者的 AI coding workflow](https://steipete.me/posts/2025/shipping-at-inference-speed)
+- [deepwiki.com](https://deepwiki.com/)
+
+文章/社区经验：
+
+- [https://steipete.me/posts/just-talk-to-it](https://steipete.me/posts/just-talk-to-it)
+- [https://www.reddit.com/r/ClaudeAI/comments/1oivjmw/claude_code_is_a_beast_tips_from_6_months_of/](https://www.reddit.com/r/ClaudeAI/comments/1oivjmw/claude_code_is_a_beast_tips_from_6_months_of/)
+
+Subagent / Claude Code 相关：
+
+- [https://x.com/dotey/status/1972310359148318982](https://x.com/dotey/status/1972310359148318982)
+- [https://github.com/anthropics/claude-code/issues?q=is%3Aissue%20state%3Aopen%20subagent](https://github.com/anthropics/claude-code/issues?q=is%3Aissue%20state%3Aopen%20subagent)
+
+MCP 工具：
+
+- [https://github.com/upstash/context7](https://github.com/upstash/context7)
+
+Neovate code（spec driven 案例与命令）：
+[https://neovateai.dev/zh-CN/docs/spec-driven](https://neovateai.dev/zh-CN/docs/spec-driven)
+
+- [https://github.com/neovateai/neovate-code/blob/master/CHANGELOG.md](https://github.com/neovateai/neovate-code/blob/master/CHANGELOG.md)
+- [https://sorrycc.com/best-practices-with-neovate-code](https://sorrycc.com/best-practices-with-neovate-code)
+- [https://gist.github.com/sorrycc/a80674c9a783fd7fdc554176ee407cbc](https://gist.github.com/sorrycc/a80674c9a783fd7fdc554176ee407cbc)
+- [https://github.com/neovateai/neovate-code/tree/master/docs/designs](https://github.com/neovateai/neovate-code/tree/master/docs/designs)
+- [https://x.com/zhangjintao9020/status/1994944104434995379?s=46&t=VcbJRAzXSKjSmBqdg_iedA](https://x.com/zhangjintao9020/status/1994944104434995379?s=46&t=VcbJRAzXSKjSmBqdg_iedA)
+
+Claude / Cursor 教程：
+
+- [https://docs.claude.com/en/docs/claude-code/quickstart](https://docs.claude.com/en/docs/claude-code/quickstart)
+- [https://cursor.com/cn/learn/how-ai-models-work](https://cursor.com/cn/learn/how-ai-models-work)
