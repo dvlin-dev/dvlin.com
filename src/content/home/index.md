@@ -1,5 +1,5 @@
 <p class="op-85">
-  你好，我是张保林 dvlin，前端工程师，目前正在往 AI 全栈方向走，主要使用 TypeScript。
+  你好，我是张保林 dvlin，AI 全栈工程师。
 </p>
 
 <p class="op-72">
