@@ -13,7 +13,7 @@
 
 <ul class="op-72 leading-7 mt-0 mb-5">
   <li>
-    <a href="https://github.com/dvlin-dev/moryflow" target="_blank">Moryflow</a>：
+    <a href="https://moryflow.com" target="_blank">Moryflow</a>：
     一个 local-first 的 AI 智能体与知识管理平台
   </li>
   <li>
